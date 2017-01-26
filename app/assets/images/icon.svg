@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="32px" viewBox="0 0 21 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="campaigns-01" transform="translate(-30.000000, -20.000000)" fill="#2D74EA">
+            <g id="header">
+                <g id="icon" transform="translate(30.000000, 20.000000)">
+                    <path d="M0,2.99610022 C0,1.34139976 1.34559019,0 3.00878799,0 L17.991212,0 C19.6529197,0 21,1.33425951 21,2.99610022 L21,29.0038998 C21,30.6586002 19.6544098,32 17.991212,32 L3.00878799,32 C1.34708027,32 0,30.6657405 0,29.0038998 L0,2.99610022 Z M2,6.00246167 L2,25.9975383 C2,26.5605417 2.44769743,27 2.9999602,27 L18.0000398,27 C18.5452911,27 19,26.5511826 19,25.9975383 L19,6.00246167 C19,5.43945834 18.5523026,5 18.0000398,5 L2.9999602,5 C2.45470893,5 2,5.44881738 2,6.00246167 Z M8,2.5 C8,2.76806641 8.22282734,3 8.49769878,3 L12.5023012,3 C12.7851562,3 13,2.77614237 13,2.5 C13,2.23193359 12.7771727,2 12.5023012,2 L8.49769878,2 C8.21484375,2 8,2.22385763 8,2.5 Z" id="Combined-Shape"></path>
+                    <circle id="dot" cx="5.5" cy="15.5" r="1.5"></circle>
+                    <circle id="dot" cx="10.5" cy="15.5" r="1.5"></circle>
+                    <circle id="dot" cx="15.5" cy="15.5" r="1.5"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
