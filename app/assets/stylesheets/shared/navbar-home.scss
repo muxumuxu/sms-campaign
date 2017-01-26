@@ -28,7 +28,7 @@ header ul li:last-child {
 }
 
 header ul li .blue-border {
-  border-bottom: 2px solid #2D74EA;
+  box-shadow: 0 -2px 0 #2D74EA inset;
 }
 
 header a {
