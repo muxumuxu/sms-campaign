@@ -1,4 +1,30 @@
-<div class="wrapper">
-  <h1>Campaigns#new</h1>
-  <p>Find me in app/views/campaigns/new.html.erb</p>
+<div class="wrapper form-top">
+  <h1>Nouvelle campagne SMS</h1>
+</div>
+
+<div class="wrapper form">
+  <h2>Quel est le nom de votre campagne ?</h2>
+  <%= form_for @campaign do |f| %>
+    <%= f.text_field :name, class: 'main' %>
+  <% end %>
+  <h2>A qui souhaitez-vous envoyer votre SMS ?</h2>
+  <%= form_for @campaign do |f| %>
+    <%= f.text_field :name, style: 'font-size: 22px; padding-left: 15px;' %>
+  <% end %>
+</div>
+
+<div class="bottom">
+  <nav>
+    <ul>
+      <li><%= link_to "Destinataires", root_path, class: "current" %></li>
+      <li><%= image_tag "grey-arrow-right.svg" %></li>
+      <li class="inactive">Message</li>
+      <li><%= image_tag "grey-arrow-right.svg" %></li>
+      <li class="inactive">Valider</li>
+    </ul>
+  </nav>
+  <%= link_to root_path, class: "green-button" do %>
+    <p>Suivant</p>
+    <%= image_tag "white-arrow-right.svg" %>
+  <% end %>
 </div>
