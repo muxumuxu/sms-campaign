@@ -1,0 +1,35 @@
+<header>
+  <div class="left">
+    <nav>
+      <ul>
+        <li>
+          <%= link_to root_path do %>
+            <%= image_tag "icon.svg", class: "icon"  %>
+          <% end %>
+        </li>
+        <li>
+          <% if params[:controller] == 'campaigns' || current_page?('/') %>
+            <%= link_to "Campagnes", root_path, class: "blue-border" %>
+          <% else %>
+            <%= link_to "Campagnes", root_path %>
+          <% end %>
+        </li>
+        <li>
+          <% if params[:controller] == 'mailing_lists' %>
+            <%= link_to "Listes", mailing_lists_path, class: "blue-border" %>
+          <% else %>
+            <%= link_to "Listes", mailing_lists_path %>
+          <% end %>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="right">
+    <span class="avatar"><%= current_user.first_name[0] %></span>
+    <%= link_to destroy_user_session_path do %>
+      <%= current_user.first_name %>
+      <%= image_tag "arrow.svg" %>
+    <% end %>
+    <%= link_to "Aide", root_path, class: "help" %>
+  </div>
+</header>
