@@ -1,0 +1,17 @@
+<header>
+  <div class="left">
+    <%= link_to root_path do %>
+      <%= image_tag "icon.svg", class: "icon"  %>
+    <% end %>
+    <%= link_to "Campagnes", root_path %>
+    <%= link_to "Listes", mailing_lists_path %>
+  </div>
+  <div class="right">
+    <span class="avatar"><%= current_user.first_name[0] %></span>
+    <%= link_to destroy_user_session_path do %>
+      <%= current_user.first_name %>
+      <%= image_tag "arrow.svg" %>
+    <% end %>
+    <%= link_to "Aide", root_path, class: "help" %>
+  </div>
+</header>

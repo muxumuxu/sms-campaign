@@ -8,7 +8,8 @@
 
 admin = User.new({
   email: "admin@muxumuxu.com",
-  password: "secret"
+  password: "secret",
+  first_name: "Admin"
   })
 
 admin.save
