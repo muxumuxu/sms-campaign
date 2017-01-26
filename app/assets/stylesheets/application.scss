@@ -14,6 +14,12 @@
  *= require_self
  */
 
+ * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  outline: none;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;

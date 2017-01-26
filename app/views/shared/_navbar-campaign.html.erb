@@ -1,0 +1,22 @@
+<header class="campaign">
+  <div class="left">
+    <nav>
+      <ul>
+        <li>
+          <%= link_to root_path do %>
+            <%= image_tag "icon.svg", class: "icon"  %>
+          <% end %>
+        </li>
+        <li>Nouvelle campagne</li>
+      </ul>
+    </nav>
+  </div>
+  <div class="right">
+    <nav>
+      <ul>
+        <li><%= link_to "Aide", root_path, class: "help" %></li>
+        <li><%= link_to "Enregistrer et quitter", root_path, class: "save" %></li>
+      </ul>
+    </nav>
+  </div>
+</header>

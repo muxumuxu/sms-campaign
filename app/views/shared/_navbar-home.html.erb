@@ -25,11 +25,17 @@
     </nav>
   </div>
   <div class="right">
-    <span class="avatar"><%= current_user.first_name[0] %></span>
-    <%= link_to destroy_user_session_path do %>
-      <%= current_user.first_name %>
-      <%= image_tag "arrow.svg" %>
-    <% end %>
-    <%= link_to "Aide", root_path, class: "help" %>
+    <nav>
+      <ul>
+        <li>
+          <span class="avatar"><%= current_user.first_name[0] %></span>
+          <%= link_to destroy_user_session_path do %>
+            <%= current_user.first_name %>
+            <%= image_tag "arrow.svg" %>
+          <% end %>
+        </li>
+        <li><%= link_to "Aide", root_path, class: "help" %></li>
+      </ul>
+    </nav>
   </div>
 </header>
