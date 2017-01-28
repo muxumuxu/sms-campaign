@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170126162537) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "campaigns", force: :cascade do |t|
     t.string   "name"
     t.datetime "start_on"
@@ -25,8 +28,8 @@ ActiveRecord::Schema.define(version: 20170126162537) do
     t.integer  "mailing_list_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.index ["campaign_id"], name: "index_campaigns_mailing_lists_on_campaign_id"
-    t.index ["mailing_list_id"], name: "index_campaigns_mailing_lists_on_mailing_list_id"
+    t.index ["campaign_id"], name: "index_campaigns_mailing_lists_on_campaign_id", using: :btree
+    t.index ["mailing_list_id"], name: "index_campaigns_mailing_lists_on_mailing_list_id", using: :btree
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -43,8 +46,8 @@ ActiveRecord::Schema.define(version: 20170126162537) do
     t.integer  "mailing_list_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.index ["contact_id"], name: "index_contacts_mailing_lists_on_contact_id"
-    t.index ["mailing_list_id"], name: "index_contacts_mailing_lists_on_mailing_list_id"
+    t.index ["contact_id"], name: "index_contacts_mailing_lists_on_contact_id", using: :btree
+    t.index ["mailing_list_id"], name: "index_contacts_mailing_lists_on_mailing_list_id", using: :btree
   end
 
   create_table "mailing_lists", force: :cascade do |t|
@@ -67,8 +70,12 @@ ActiveRecord::Schema.define(version: 20170126162537) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "first_name"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "campaigns_mailing_lists", "campaigns"
+  add_foreign_key "campaigns_mailing_lists", "mailing_lists"
+  add_foreign_key "contacts_mailing_lists", "contacts"
+  add_foreign_key "contacts_mailing_lists", "mailing_lists"
 end

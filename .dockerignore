@@ -1,0 +1,11 @@
+.git
+.gitignore
+doc
+.yardoc
+coverage
+jsdoc
+tmp
+log
+README.md
+public/uploads/
+spec
