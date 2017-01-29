@@ -57,6 +57,11 @@ header .right li {
   font-weight: 400;
 }
 
+header .right li.avatar {
+  position: relative;
+  padding-left: 44px;
+}
+
 header span {
   margin-right: 7px;
 }
@@ -64,8 +69,15 @@ header span {
 header span.avatar {
   background-color: #F8C425;
   color: white;
-  padding: 3px 10px;
+  width: 32px;
   border-radius: 4px;
+  height: 32px;
+  display: inline-block;
+  position: absolute;
+  line-height: 32px;
+  text-align: center;
+  left: 0;
+  top: 18px;
 }
 
 header a.help {
