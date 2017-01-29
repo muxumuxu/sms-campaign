@@ -4,6 +4,7 @@ class CampaignsController < ApplicationController
 
   def new
     @campaign = Campaign.new
+    @mailing_lists = MailingList.all
   end
 
   def create
