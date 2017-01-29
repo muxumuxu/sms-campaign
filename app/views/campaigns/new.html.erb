@@ -9,9 +9,18 @@
   <% end %>
   <h2>A qui souhaitez-vous envoyer votre SMS ?</h2>
   <%= form_for @campaign do |f| %>
-    <%= f.text_field :name, style: 'font-size: 22px; padding-left: 15px;' %>
+    <%= f.text_field :name, placeholder: "Recherche parmis vos listes de destinataires..." %>
   <% end %>
+  <div class="list-item">
+    <select name="select">
+      <% @mailing_lists.each do |list| %>
+        <option value="#{list.name}"><%= list.name %></option>
+      <% end %>
+    </select>
+  </div>
 </div>
+
+
 
 <div class="bottom">
   <nav>
@@ -23,8 +32,6 @@
       <li class="inactive">Valider</li>
     </ul>
   </nav>
-  <%= link_to root_path, class: "green-button" do %>
+  <input type="submit" form="new_campaign" class="button green">
     <p>Suivant</p>
-    <%= image_tag "white-arrow-right.svg" %>
-  <% end %>
 </div>
