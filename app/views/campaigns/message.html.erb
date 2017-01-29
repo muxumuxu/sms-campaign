@@ -1,0 +1,23 @@
+<div class="wrapper form-top">
+  <h1>Rédigez votre message</h1>
+</div>
+
+<div class="bottom">
+  <%= link_to root_path, class: "button grey" do %>
+    <%= image_tag "black-arrow-left.svg" %>
+    <p>Précédent</p>
+  <% end %>
+  <nav>
+    <ul>
+      <li><%= link_to "Destinataires", root_path, class: "current" %></li>
+      <li><%= image_tag "grey-arrow-right.svg" %></li>
+      <li><%= link_to "Message", root_path, class: "current" %></li>
+      <li><%= image_tag "grey-arrow-right.svg" %></li>
+      <li class="inactive">Valider</li>
+    </ul>
+  </nav>
+  <%= link_to campaigns_new_message_path, class: "button green" do %>
+    <p>Suivant</p>
+    <%= image_tag "white-arrow-right.svg" %>
+  <% end %>
+</div>

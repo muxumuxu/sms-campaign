@@ -1,16 +1,10 @@
 <div class="wrapper top">
   <h1>Vos campagnes SMS</h1>
-  <%= link_to new_campaign_path, class: "green-button" do %>
-    <p>Nouvelle campagne de SMS</p>
-    <%= image_tag "add.svg" %>
-  <% end %>
+  <%= link_to "Nouvelle campagne de SMS", new_campaign_path, class: "button green add" %>
 </div>
 
 <div class="wrapper hero">
   <%= image_tag "hero-icon.svg", class: "illustration" %>
   <h2>Commencez votre première campagne !</h2>
-  <%= link_to new_campaign_path, class: "green-button" do %>
-    <p>Nouvelle campagne de SMS</p>
-    <%= image_tag "add.svg" %>
-  <% end %>
+  <%= link_to "Nouvelle campagne de SMS", new_campaign_path, class: "button green add" %>
 </div>
