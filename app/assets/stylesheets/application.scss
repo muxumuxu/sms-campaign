@@ -255,6 +255,7 @@ input[type=submit].next {
 
 .wrapper.preview-list .list-item {
   border-bottom: 1px solid #EAEAEA;
+  position: relative;
 }
 
 .wrapper.preview-list .list-item img {
@@ -275,7 +276,9 @@ input[type=submit].next {
 }
 
 .wrapper.preview-list .list-item a {
-  float: right;
+  position: absolute;
+  top: -4px;
+  right: 25px;
   padding: 10px 25px;
 }
 
