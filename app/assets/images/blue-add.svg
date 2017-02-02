@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="11px" height="11px" viewBox="0 0 11 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>add</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="campaings-03" transform="translate(-411.000000, -240.000000)" fill="#2D74EA">
+            <g id="content" transform="translate(0.000000, 137.000000)">
+                <g id="prénom" transform="translate(401.000000, 95.000000)">
+                    <path d="M15,13 L10,13 L10,14 L15,14 L15,19 L16,19 L16,14 L21,14 L21,13 L16,13 L16,8 L15,8 L15,13 Z" id="add"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

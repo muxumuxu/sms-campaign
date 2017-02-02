@@ -1,10 +1,20 @@
-<div class="wrapper form-top">
+<div class="wrapper message-top">
   <h1>Rédigez votre message</h1>
+</div>
+
+<div class="wrapper message">
+  <h2>Personnaliser avec :</h2>
+  <a href="#">Prénom</a>
+  <a href="#">Nom</a>
+  <%= form_for @campaign do |f| %>
+    <%= f.text_field :message, class: 'main' %>
+  <% end %>
+  <%= image_tag "iphone.svg" %>
 </div>
 
 <div class="bottom fixed">
   <div class="links-left">
-    <input type="button" value="Précédent" onclick="window.history.back()" class="button gray previous" >
+    <%= link_to "Précédent", onclick="window.history.back()", class: "button grey previous"  %>
   </div>
   <nav>
     <ul>
@@ -16,6 +26,6 @@
     </ul>
   </nav>
   <div class="links-right">
-    <input type="submit" form="new_campaign" class="button green next" value="Suivant">
+    <input type="submit" form="campaigns_new_message" class="button green next" value="Suivant">
   </div>
 </div>

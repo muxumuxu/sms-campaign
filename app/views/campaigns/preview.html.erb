@@ -1,0 +1,38 @@
+<div class="wrapper preview-top">
+  <h1>Votre message est bientôt prêt à partir !</h1>
+  <p>Vérifiez les éléments ci-dessous avant de programmer votre envoi.</p>
+</div>
+
+<div class="wrapper preview-list">
+  <div class="list-item">
+    <%= image_tag "green-check.svg" %>
+    <h2>Destinataires</h2>
+    <p>CampagneSMS will deliver this to the Gironde list. (9 recipients)</p>
+    <%= link_to "Modifier", root_path, class: "button grey" %>
+  </div>
+  <div class="list-item">
+    <%= image_tag "green-check.svg" %>
+    <h2>Contenu</h2>
+    <p>Salut |*PRENOM*| ! Ce week-end c’est le début des fêtes on y va à fond…</p>
+    <%= link_to "Modifier", root_path, class: "button grey" %>
+  </div>
+</div>
+
+<div class="bottom fixed">
+  <div class="links-left">
+    <%= link_to "Précédent", onclick="window.history.back()", class: "button grey previous"  %>
+  </div>
+  <nav>
+    <ul>
+      <li><%= link_to "Destinataires", root_path, class: "current" %></li>
+      <li><%= image_tag "grey-arrow-right.svg" %></li>
+      <li><%= link_to "Message", root_path, class: "current" %></li>
+      <li><%= image_tag "grey-arrow-right.svg" %></li>
+      <li><%= link_to "Valider", root_path, class: "current" %></li>
+    </ul>
+  </nav>
+  <div class="links-right">
+    <input type="submit" form="campaigns_new_message" class="button grey plan" value="Planifier">
+    <input type="submit" form="campaigns_new_message" class="button green send" value="Envoyer">
+  </div>
+</div>

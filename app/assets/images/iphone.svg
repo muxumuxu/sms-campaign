@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="280px" height="534px" viewBox="0 0 280 534" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>iphone</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="280" height="534" rx="42"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="280" height="534" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <circle id="path-3" cx="140" cy="501" r="19"></circle>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="38" height="38" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+        <rect id="path-5" x="16" y="62" width="248" height="410" rx="2"></rect>
+        <mask id="mask-6" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="248" height="410" fill="white">
+            <use xlink:href="#path-5"></use>
+        </mask>
+        <rect id="path-7" x="106" y="28" width="68" height="8" rx="4"></rect>
+        <mask id="mask-8" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="68" height="8" fill="white">
+            <use xlink:href="#path-7"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="campaings-03" transform="translate(-910.000000, -232.000000)" fill="#FFFFFF">
+            <g id="content" transform="translate(0.000000, 137.000000)">
+                <g id="iphone" transform="translate(910.000000, 95.000000)">
+                    <use stroke-opacity="0.2" stroke="#000000" mask="url(#mask-2)" stroke-width="4" xlink:href="#path-1"></use>
+                    <use id="Oval" stroke="#000000" mask="url(#mask-4)" stroke-width="4" opacity="0.200000003" xlink:href="#path-3"></use>
+                    <use id="Rectangle" stroke="#000000" mask="url(#mask-6)" stroke-width="4" xlink:href="#path-5"></use>
+                    <text id="Salut-|*PRENOM*|-!-C" font-family="ArialMT, Arial" font-size="12" font-weight="normal" line-spacing="17">
+                        <tspan x="51" y="108">Salut |*PRENOM*| !</tspan>
+                        <tspan x="51" y="125"></tspan>
+                        <tspan x="51" y="142">Ce week-end c’est le début</tspan>
+                        <tspan x="51" y="159">des fêtes on y va à fond</tspan>
+                    </text>
+                    <use id="Rectangle" stroke="#000000" mask="url(#mask-8)" stroke-width="4" opacity="0.200000003" xlink:href="#path-7"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
