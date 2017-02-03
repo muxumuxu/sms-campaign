@@ -1,0 +1,49 @@
+.modal {
+  max-width: 540px;
+  height: 685px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 24px 0;
+  margin: 30px;
+}
+
+.modal h2 {
+  font-size: 22px;
+  margin: 0;
+  padding: 60px 0 29px;
+  font-weight: 500;
+}
+
+.modal p {
+  opacity: 0.6;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 20px 0 10px;
+}
+
+.modal strong {
+  display: block;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 2px;
+}
+
+.modal p.padded {
+  padding-top: 35px;
+}
+
+.modal input[type=submit] {
+  margin-top: 6px;
+  width: 205px;
+  padding: 8px 18px;
+}
+
+.modal a {
+  display: block;
+  text-decoration: none;
+  color: black;
+  opacity: 0.5;
+  font-weight: 400;
+  margin-top: 15px;
+}
