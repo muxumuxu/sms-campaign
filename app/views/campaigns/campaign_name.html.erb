@@ -8,9 +8,7 @@
     <%= f.text_field :name, class: 'main' %>
   <% end %>
   <h2>A qui souhaitez-vous envoyer votre SMS ?</h2>
-  <%= form_for @campaign do |f| %>
-    <%= f.text_field :name, placeholder: "Recherche parmis vos listes de destinataires..." %>
-  <% end %>
+  <input type="text" placeholder="Recherche parmis vos listes de destinataires..." />
   <div class="list-item">
     <select name="select">
       <% @mailing_lists.each do |list| %>
@@ -31,6 +29,6 @@
     </ul>
   </nav>
   <div class="links-right">
-    <input type="submit" form="new_campaign" class="button green next" value="Suivant">
+    <input type="submit" form="edit_campaign_<%= @campaign.id %>" class="button green next" value="Suivant">
   </div>
 </div>

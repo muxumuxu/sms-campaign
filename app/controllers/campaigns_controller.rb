@@ -1,10 +1,15 @@
 class CampaignsController < ApplicationController
-  before_action :set_campaign, only: [:edit, :update, :message, :preview, :schedule, :destroy]
+  before_action :set_campaign, only: [:campaign_name, :edit, :update, :message, :preview, :schedule, :destroy]
   def index
   end
 
   def new
     @campaign = Campaign.new
+    @campaign.save
+    redirect_to :action => :campaign_name, :id => @campaign.id
+  end
+
+  def campaign_name
     @mailing_lists = MailingList.all
   end
 
@@ -20,7 +25,7 @@ class CampaignsController < ApplicationController
   def create
     @campaign = Campaign.new(campaign_params)
     if @campaign.save
-      redirect_to :action => "message", :id => @campaign.id
+      redirect_to :action => :message, :id => @campaign.id
     else
       render :new
     end
@@ -30,6 +35,12 @@ class CampaignsController < ApplicationController
   end
 
   def update
+    @campaign.update(campaign_params)
+    if campaign_params[:name].present?
+      redirect_to :action => :message, :id => @campaign.id
+    else
+      redirect_to :action => :preview, :id => @campaign.id
+    end
   end
 
   def destroy
@@ -44,7 +55,7 @@ class CampaignsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def campaign_params
     params.require(:campaign).permit(
-      :name
+      :name, :message
       )
   end
 end
