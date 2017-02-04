@@ -61,7 +61,7 @@ a.previous {
   cursor: pointer;
 }
 
-/* Form */
+/* Forms */
 
 input {
   border: 1px solid #CFCFCF;
@@ -170,7 +170,7 @@ textarea:focus {
   margin: 0 auto;
 }
 
-/* Campaign#new */
+/* Campaign#name */
 
 .wrapper.form-top {
   max-width: 600px;
@@ -249,7 +249,7 @@ textarea:focus {
   padding-bottom: 200px;
 }
 
-/* Campaign#new */
+/* Campaign#preview */
 
 .wrapper.preview-top {
   border-bottom: 1px solid #EAEAEA;
@@ -268,37 +268,69 @@ textarea:focus {
   max-width: 400px;
 }
 
-.wrapper.preview-list .list-item {
+.wrapper .list-item {
   border-bottom: 1px solid #EAEAEA;
   position: relative;
 }
 
-.wrapper.preview-list .list-item img {
+.wrapper .list-item img {
   float: left;
   padding: 2px 22px 0;
 }
 
-.wrapper.preview-list .list-item h2 {
+.wrapper .list-item h2 {
   margin: 30px 0 0;
   font-size: 18px;
   font-weight: 500;
   line-height: 1;
 }
 
-.wrapper.preview-list .list-item p {
+.wrapper .list-item p {
   margin: 0 0 25px;
   opacity: 0.5;
 }
 
-.wrapper.preview-list .list-item a {
+.wrapper .list-item a {
   position: absolute;
   top: -4px;
   right: 25px;
   padding: 10px 25px;
 }
 
-.wrapper.preview-list .list-item:last-child {
+.wrapper .list-item:last-child {
   margin-bottom: 50px;
+}
+
+/* Campaign#index */
+
+.wrapper.top.campaign-list {
+  margin: 65px auto 0px;
+}
+
+.wrapper.campaign-list .list-item {
+  padding-top: 27px;
+}
+
+.wrapper.campaign-list .list-item a.button {
+  top: 25px;
+  right: 25px;
+}
+
+.wrapper.campaign-list .list-item a.campaign-link {
+  position: relative;
+  font-size: 18px;
+  font-weight: 500;
+  color: #2D74EA;
+  text-decoration: none;
+}
+
+.wrapper.campaign-list .list-item p {
+  line-height: 0.7;
+  margin: 0px 0 30px;
+}
+
+.wrapper.campaign-list .list-item strong {
+  font-weight: 500;
 }
 
 /* Footer */
