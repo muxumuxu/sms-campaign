@@ -1,15 +1,15 @@
 class CampaignsController < ApplicationController
-  before_action :set_campaign, only: [:campaign_name, :edit, :update, :message, :preview, :schedule, :destroy]
+  before_action :set_campaign, only: [:name, :edit, :update, :message, :preview, :schedule, :destroy]
   def index
   end
 
   def new
     @campaign = Campaign.new
     @campaign.save
-    redirect_to :action => :campaign_name, :id => @campaign.id
+    redirect_to :action => :name, :id => @campaign.id
   end
 
-  def campaign_name
+  def name
     @mailing_lists = MailingList.all
   end
 
