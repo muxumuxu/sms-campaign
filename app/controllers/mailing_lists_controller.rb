@@ -3,6 +3,8 @@ class MailingListsController < ApplicationController
   end
 
   def new
+    @mailing_list = MailingList.new
+    @mailing_list.save
   end
 
   def create

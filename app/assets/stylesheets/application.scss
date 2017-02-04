@@ -68,7 +68,7 @@ input {
   border-radius: 4px;
   width: 100%;
   font-size: 18px;
-  padding: 10px 0px 10px 18px;
+  padding: 7px 0px 7px 18px;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -136,6 +136,7 @@ textarea:focus {
   font-size: 22px;
   font-weight: 500;
   display: inline-block;
+  margin-bottom: 8px;
 }
 
 /* Pages#home */
@@ -191,9 +192,13 @@ textarea:focus {
   margin: 35px 0 5px;
 }
 
+.wrapper.form input {
+  width: 580px;
+}
+
 .wrapper.form input.main {
   font-size: 22px;
-  padding: 15px 20px;
+  padding: 9px 0px 9px 20px;
 }
 
 .bottom {
@@ -331,6 +336,13 @@ textarea:focus {
 
 .wrapper.campaign-list .list-item strong {
   font-weight: 500;
+}
+
+/* MailingList#index */
+
+.wrapper.top.mailing-list a {
+  background-position: 242px 17px;
+  padding: 10px 47px 10px 20px;
 }
 
 /* Footer */
