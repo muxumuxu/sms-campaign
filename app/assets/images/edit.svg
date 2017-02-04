@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="34px" height="34px" viewBox="0 0 34 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>dot</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="17" cy="17" r="17"></circle>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="34" height="34" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="campaigns-index" transform="translate(-274.000000, -224.000000)">
+            <g id="item" transform="translate(250.000000, 191.000000)">
+                <g id="dot" transform="translate(24.000000, 33.000000)">
+                    <use id="bg" stroke="#B9B9B9" mask="url(#mask-2)" stroke-width="4" fill="#FFFFFF" xlink:href="#path-1"></use>
+                    <rect id="bg" fill="#B8B8B8" x="10" y="21" width="14" height="2"></rect>
+                    <path d="M14,20 L22,12 L20,10 L12,18 L12,20 L14,20 Z" id="Combined-Shape" fill="#B8B8B8"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
