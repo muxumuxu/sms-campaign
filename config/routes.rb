@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :campaigns do
     member do
-      get :campaign_name, to: "campaigns#campaign_name"
+      get :name, to: "campaigns#name"
       get :message, to: "campaigns#message"
       get :preview, to: "campaigns#preview"
       get :schedule, to: "campaigns#schedule"

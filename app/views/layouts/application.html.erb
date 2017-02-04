@@ -10,11 +10,6 @@
   </head>
 
   <body>
-    <% if current_page?('/') %>
-      <%= render 'shared/navbar-home' %>
-    <% elsif params[:controller] == 'campaigns' %>
-      <%= render 'shared/navbar-campaign' %>
-    <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
   </body>

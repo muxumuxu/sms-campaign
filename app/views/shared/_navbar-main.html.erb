@@ -1,5 +1,4 @@
 <header>
-
   <div class="left">
     <nav>
       <ul>
@@ -9,10 +8,10 @@
           <% end %>
         </li>
         <li>
-          <% if params[:controller] == 'campaigns' || current_page?('/') %>
-            <%= link_to "Campagnes", root_path, class: "blue-border" %>
+          <% if params[:controller] == 'campaigns' %>
+            <%= link_to "Campagnes", campaigns_path, class: "blue-border" %>
           <% else %>
-            <%= link_to "Campagnes", root_path %>
+            <%= link_to "Campagnes", campaigns_path %>
           <% end %>
         </li>
         <li>
@@ -40,5 +39,4 @@
       </ul>
     </nav>
   </div>
-
 </header>

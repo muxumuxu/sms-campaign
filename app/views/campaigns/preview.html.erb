@@ -1,3 +1,28 @@
+<header class="campaign">
+  <div class="left">
+    <nav>
+      <ul>
+        <li>
+          <%= link_to root_path do %>
+            <%= image_tag "icon.svg", class: "icon"  %>
+          <% end %>
+        </li>
+        <li><%= @campaign.name %></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="right">
+    <nav>
+      <ul>
+        <li><%= link_to "Aide", root_path, class: "help" %></li>
+        <li><%= link_to "Tester", root_path, class: "help" %></li>
+        <li><%= link_to "Enregistrer et quitter", root_path, class: "save" %></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
 <%= render 'shared/preview-content' %>
 
 <div class="bottom fixed">
@@ -6,11 +31,11 @@
   </div>
   <nav>
     <ul>
-      <li><%= link_to "Destinataires", campaign_name_campaign_path(@campaign.id), class: "current" %></li>
+      <li><%= link_to "Destinataires", name_campaign_path(@campaign.id), class: "current" %></li>
       <li><%= image_tag "grey-arrow-right.svg" %></li>
       <li><%= link_to "Message", message_campaign_path(@campaign.id), class: "current" %></li>
       <li><%= image_tag "grey-arrow-right.svg" %></li>
-      <li><%= link_to "Valider", preview_campaign_path(@campaign.id), class: "current" %></li>
+      <li><%= link_to "Résumé", preview_campaign_path(@campaign.id), class: "current" %></li>
     </ul>
   </nav>
   <div class="links-right">
