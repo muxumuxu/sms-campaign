@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="54px" height="45px" viewBox="0 0 54 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>cta</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="list-index" transform="translate(-985.000000, -219.000000)">
+            <g id="item" transform="translate(250.000000, 191.000000)">
+                <g id="cta" transform="translate(735.000000, 28.000000)">
+                    <g transform="translate(27.000000, 22.500000) scale(-1, 1) translate(-27.000000, -22.500000) ">
+                        <rect id="bg" fill="#EAEAEA" x="0" y="0" width="54" height="45" rx="3"></rect>
+                        <path d="M17,17 L14,17 L14,19 L17,19 L17,22 L19,22 L19,19 L22,19 L22,17 L19,17 L19,14 L17,14 L17,17 Z M21.0237368,27.7903127 C21.0081932,27.8608421 21,27.9341445 21,28.0093689 L21,29.9906311 C21,30.5566468 21.4507801,31 22.0068455,31 L33.9931545,31 C34.5500512,31 35,30.5480902 35,29.9906311 L35,28.0093689 C35,27.9334244 34.9918848,27.8596882 34.9764889,27.7889349 C34.9920609,27.6936525 35,27.5972898 35,27.5 C35,25.5670034 31.8659932,24 28,24 C24.1340068,24 21,25.5670034 21,27.5 C21,27.5977588 21.0080158,27.6945815 21.0237368,27.7903127 Z M28,22 C25.790861,22 24,20.209139 24,18 C24,15.790861 25.790861,14 28,14 C30.209139,14 32,15.790861 32,18 C32,20.209139 30.209139,22 28,22 Z" id="user" fill="#2E2E2E"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

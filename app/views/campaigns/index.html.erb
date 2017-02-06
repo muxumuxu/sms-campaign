@@ -1,20 +1,22 @@
 <%= render 'shared/navbar-main' %>
 
-<div class="wrapper top campaign-list">
+<div class="wrapper top list">
   <h1>Vos campagnes SMS</h1>
   <%= link_to "Nouvelle campagne de SMS", new_campaign_path, class: "button green add" %>
 </div>
 
 <% if @campaigns.any? %>
 
-  <div class="wrapper campaign-list">
+  <div class="wrapper list">
     <% @campaigns.each do |campaign| %>
       <% if campaign.sent_at.blank? %>
         <div class="list-item">
           <%= image_tag "edit.svg" %>
           <%= link_to campaign.name, name_campaign_path(campaign.id), class: "campaign-link" %>
           <p>Gironde list. (9 recipients)</p>
-          <%= link_to "Modifier", name_campaign_path(campaign.id), class: "button grey" %>
+          <div class="links">
+            <%= link_to "Modifier", name_campaign_path(campaign.id), class: "button grey" %>
+          </div>
         </div>
       <% else %>
         <div class="list-item">

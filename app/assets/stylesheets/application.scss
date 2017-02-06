@@ -295,11 +295,10 @@ textarea:focus {
   opacity: 0.5;
 }
 
-.wrapper .list-item a {
+.wrapper .list-item .links {
   position: absolute;
   top: -4px;
-  right: 25px;
-  padding: 10px 25px;
+  right: 0px;
 }
 
 .wrapper .list-item:last-child {
@@ -308,20 +307,20 @@ textarea:focus {
 
 /* Campaign#index */
 
-.wrapper.top.campaign-list {
+.wrapper.top.list {
   margin: 65px auto 0px;
 }
 
-.wrapper.campaign-list .list-item {
+.wrapper.list .list-item {
   padding-top: 27px;
 }
 
-.wrapper.campaign-list .list-item a.button {
-  top: 25px;
+.wrapper.list .list-item .links {
+  top: 39px;
   right: 25px;
 }
 
-.wrapper.campaign-list .list-item a.campaign-link {
+.wrapper.list .list-item a.campaign-link {
   position: relative;
   font-size: 18px;
   font-weight: 500;
@@ -329,20 +328,28 @@ textarea:focus {
   text-decoration: none;
 }
 
-.wrapper.campaign-list .list-item p {
-  line-height: 0.7;
+.wrapper.list .list-item p {
+  line-height: 1.2;
   margin: 0px 0 30px;
 }
 
-.wrapper.campaign-list .list-item strong {
+.wrapper.list .list-item strong {
   font-weight: 500;
 }
 
 /* MailingList#index */
 
-.wrapper.top.mailing-list a {
+.wrapper.top.list a.list {
   background-position: 242px 17px;
   padding: 10px 47px 10px 20px;
+}
+
+.wrapper.mailing.list .list-item {
+  padding-left: 25px;
+}
+
+.wrapper.mailing.list .list-item .links img {
+  padding: 0;
 }
 
 /* Footer */
