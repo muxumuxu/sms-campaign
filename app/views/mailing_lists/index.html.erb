@@ -1,6 +1,21 @@
 <%= render 'shared/navbar-main' %>
 
-<div class="wrapper top mailing-list">
+<div class="wrapper top list">
   <h1>Vos listes de diffusion</h1>
-  <%= link_to "Nouvelle liste de diffusion", new_mailing_list_path, class: "button green add" %>
+  <%= link_to "Nouvelle liste de diffusion", new_mailing_list_path, class: "button green add list" %>
+</div>
+
+<div class="wrapper mailing list">
+  <% @mailing_lists.each do |list| %>
+    <div class="list-item">
+      <%= link_to list.name, mailing_list_path(list.id), class: "campaign-link" %>
+      <p><%= list.contacts.count %><%= " recipient".pluralize(list.contacts.count) %></p>
+      <div class="links">
+        <%= link_to root_path do %>
+          <%= image_tag "add-contact.svg" %>
+        <% end %>
+        <%= link_to "Modifier", edit_mailing_list_path(list.id), class: "button grey" %>
+      </div>
+    </div>
+  <% end %>
 </div>
