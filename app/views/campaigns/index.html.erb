@@ -5,21 +5,33 @@
   <%= link_to "Nouvelle campagne de SMS", new_campaign_path, class: "button green add" %>
 </div>
 
-<div class="wrapper campaign-list">
-  <% @campaigns.each do |campaign| %>
-    <% if campaign.sent_at.blank? %>
-      <div class="list-item">
-        <%= image_tag "edit.svg" %>
-        <%= link_to campaign.name, name_campaign_path(campaign.id), class: "campaign-link" %>
-        <p>Gironde list. (9 recipients)</p>
-        <%= link_to "Modifier", name_campaign_path(campaign.id), class: "button grey" %>
-      </div>
-    <% else %>
-      <div class="list-item">
-        <%= image_tag "green-check.svg" %>
-        <%= link_to campaign.name, name_campaign_path(campaign.id), class: "campaign-link" %>
-        <p><strong>Envoyé</strong> | Gironde list. (9 recipients)</p>
-      </div>
+<% if @campaigns.any? %>
+
+  <div class="wrapper campaign-list">
+    <% @campaigns.each do |campaign| %>
+      <% if campaign.sent_at.blank? %>
+        <div class="list-item">
+          <%= image_tag "edit.svg" %>
+          <%= link_to campaign.name, name_campaign_path(campaign.id), class: "campaign-link" %>
+          <p>Gironde list. (9 recipients)</p>
+          <%= link_to "Modifier", name_campaign_path(campaign.id), class: "button grey" %>
+        </div>
+      <% else %>
+        <div class="list-item">
+          <%= image_tag "green-check.svg" %>
+          <%= link_to campaign.name, name_campaign_path(campaign.id), class: "campaign-link" %>
+          <p><strong>Envoyé</strong> | Gironde list. (9 recipients)</p>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
+
+<% else %>
+
+  <div class="wrapper hero">
+    <%= image_tag "hero-icon.svg", class: "illustration" %>
+    <h2>Commencez votre première campagne !</h2>
+    <%= link_to "Nouvelle campagne de SMS", new_campaign_path, class: "button green add" %>
+  </div>
+
+<% end %>

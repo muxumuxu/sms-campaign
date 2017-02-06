@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'pages#home'
+  root to: 'campaigns#index'
   devise_for :users
   resources :campaigns do
     member do
