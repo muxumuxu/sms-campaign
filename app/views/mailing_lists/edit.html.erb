@@ -1,1 +1,19 @@
 <%= render 'shared/navbar-main' %>
+
+<div class="wrapper form-top">
+  <h1>Nouvelle liste de diffusion</h1>
+</div>
+
+<div class="wrapper form">
+  <h2>Quel est le nom de votre liste ?</h2>
+  <%= form_for @mailing_list do |f| %>
+    <%= f.text_field :name, class: 'main', autofocus: true %>
+  <% end %>
+  <h2>Comment souhaitez-vous ajouter des destinataires ?</h2>
+  <div class="list-item">
+    <select name="select">
+      <option value="manual">Manuellement</option>
+      <option value="csv">Import de .csv</option>
+    </select>
+  </div>
+</div>

@@ -13,12 +13,24 @@ class MailingListsController < ApplicationController
   end
 
   def create
+    @mailing_list = MailingList.new(mailing_list_params)
+    if @campaign.save
+      redirect_to :index
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
+    @mailing_list.update(mailing_list_params)
+    if @mailing_list.save
+      redirect_to :index
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -28,5 +40,11 @@ class MailingListsController < ApplicationController
 
   def set_mailing_list
     @mailing_list = MailingList.find(params[:id])
+  end
+
+  def mailing_list_params
+    params.require(:mailing_list).permit(
+      :name
+      )
   end
 end
