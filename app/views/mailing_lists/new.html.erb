@@ -7,7 +7,7 @@
 <div class="wrapper form">
   <h2>Quel est le nom de votre liste ?</h2>
   <%= form_for @mailing_list do |f| %>
-    <%= f.text_field :name, class: 'main' %>
+    <%= f.text_field :name, class: 'main', autofocus: true %>
   <% end %>
   <h2>Comment souhaitez-vous ajouter des destinataires ?</h2>
   <div class="list-item">

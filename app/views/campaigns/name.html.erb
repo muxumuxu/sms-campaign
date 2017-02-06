@@ -29,7 +29,7 @@
 <div class="wrapper form">
   <h2>Quel est le nom de votre campagne ?</h2>
   <%= form_for @campaign do |f| %>
-    <%= f.text_field :name, class: 'main' %>
+    <%= f.text_field :name, class: 'main', autofocus: true %>
   <% end %>
   <h2>A qui souhaitez-vous envoyer votre SMS ?</h2>
   <input type="text" placeholder="Recherche parmis vos listes de destinataires..." />
