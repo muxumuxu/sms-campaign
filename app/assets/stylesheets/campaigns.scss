@@ -1,3 +1,170 @@
 // Place all the styles related to the campaigns controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/* Campaign#index */
+
+.wrapper.top.list {
+  margin: 65px auto 0px;
+}
+
+.wrapper.list .list-item {
+  padding-top: 27px;
+}
+
+.wrapper.list .list-item .links {
+  top: 39px;
+  right: 25px;
+}
+
+.wrapper.list .list-item a.campaign-link {
+  position: relative;
+  font-size: 18px;
+  font-weight: 500;
+  color: #2D74EA;
+  text-decoration: none;
+}
+
+.wrapper.list .list-item p {
+  line-height: 1.2;
+  margin: 0px 0 30px;
+}
+
+.wrapper.list .list-item strong {
+  font-weight: 500;
+}
+
+/* Campaign#name */
+
+.wrapper.form-top {
+  max-width: 600px;
+  border-bottom: 1px solid #EAEAEA;
+}
+
+.wrapper.form-top h1 {
+  margin-top: 65px;
+}
+
+.wrapper.form {
+  max-width: 600px;
+}
+
+.wrapper.form h2 {
+  font-weight: 500;
+  font-size: 18px;
+  margin: 35px 0 5px;
+}
+
+.wrapper.form input {
+  width: 580px;
+}
+
+.wrapper.form input.main {
+  font-size: 22px;
+  padding: 9px 0px 9px 20px;
+}
+
+.bottom {
+  background-color: #F7F7F7;
+  height: 85px;
+  position: relative;
+}
+
+/* Campaign#message */
+
+.wrapper.message-top {
+  border-bottom: 1px solid #EAEAEA;
+}
+
+.wrapper.message-top h1 {
+  margin-top: 65px;
+}
+
+.wrapper.message {
+  position: relative;
+}
+
+.wrapper.message h2 {
+  font-size: 14px;
+  margin-top: 43px;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.wrapper.message input.main {
+  font-size: 22px;
+  height: 200px;
+  max-width: 600px;
+}
+
+.wrapper.message a {
+  text-decoration: none;
+  background-color: #EAF1FC;
+  background-image: url(blue-add.svg);
+  background-repeat: no-repeat;
+  background-position: 10px 8px;
+  font-size: 14px;
+  color: #2D74EA;
+  padding: 3px 15px 3px 30px;
+  border-radius: 100px;
+  margin-left: 8px;
+}
+
+.wrapper.message img {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  padding-bottom: 200px;
+}
+
+/* Campaign#preview */
+
+.wrapper.preview-top {
+  border-bottom: 1px solid #EAEAEA;
+  text-align: center;
+}
+
+.wrapper.preview-top h1 {
+  margin-top: 65px;
+  margin-bottom: 2px;
+}
+
+.wrapper.preview-top p {
+  font-size: 18px;
+  opacity: 0.6;
+  margin: 0 auto 30px;
+  max-width: 400px;
+}
+
+.wrapper .list-item {
+  border-bottom: 1px solid #EAEAEA;
+  position: relative;
+}
+
+.wrapper .list-item img {
+  float: left;
+  padding: 9px 22px 0;
+}
+
+.wrapper .list-item h2 {
+  margin: 30px 0 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.wrapper .list-item p {
+  margin: 0 0 25px;
+  opacity: 0.5;
+}
+
+.wrapper .list-item .links {
+  position: absolute;
+  top: -4px;
+  right: 0px;
+}
+
+.wrapper .list-item:last-child {
+  margin-bottom: 50px;
+}
