@@ -61,6 +61,14 @@ a.previous {
   cursor: pointer;
 }
 
+a.contact {
+  background-image: url(add-contact.svg);
+  background-repeat: no-repeat;
+  margin-right: 14px;
+  padding: 10px 28px;
+  background-position: 20px 14px;
+}
+
 /* Forms */
 
 input {
@@ -280,7 +288,7 @@ textarea:focus {
 
 .wrapper .list-item img {
   float: left;
-  padding: 2px 22px 0;
+  padding: 9px 22px 0;
 }
 
 .wrapper .list-item h2 {
@@ -346,10 +354,6 @@ textarea:focus {
 
 .wrapper.mailing.list .list-item {
   padding-left: 25px;
-}
-
-.wrapper.mailing.list .list-item .links img {
-  padding: 0;
 }
 
 /* Footer */
