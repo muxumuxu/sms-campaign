@@ -3,6 +3,32 @@
 <div class="wrapper top show">
   <h1><%= @mailing_list.name %></h1>
   <span><%= @mailing_list.contacts.count %><%= " recipient".pluralize(@mailing_list.contacts.count) %></span>
-  <%= link_to "", root_path, class: "button grey contact" %>
-  <%= link_to "Importer un .csv", root_path, class: "button green add list" %>
+  <div class="links">
+    <%= link_to "", root_path, class: "button grey contact" %>
+    <%= link_to "Avancée", root_path, class: "button grey advanced" %>
+    <%= link_to "Importer un .csv", root_path, class: "button green add import" %>
+  </div>
+</div>
+
+<div class="wrapper table">
+  <table>
+    <tr>
+      <th>Numéro</th>
+      <th>Prénom</th>
+      <th>Nom</th>
+      <th>Code postal</th>
+      <th>Ajout</th>
+      <th>Modification</th>
+    </tr>
+    <% @mailing_list.contacts.each do |contact| %>
+      <tr>
+        <td><%= contact.phone_number %></td>
+        <td><%= contact.first_name %></td>
+        <td><%= contact.last_name %></td>
+        <td><%= contact.zip_code %></td>
+        <td><%= contact.created_at %></td>
+        <td><%= contact.updated_at %></td>
+      </tr>
+    <% end %>
+  </table>
 </div>

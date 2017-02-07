@@ -64,9 +64,22 @@ a.previous {
 a.contact {
   background-image: url(add-contact.svg);
   background-repeat: no-repeat;
-  margin-right: 14px;
-  padding: 10px 28px;
-  background-position: 20px 14px;
+  margin-right: 13px;
+  padding: 10px 27px;
+  background-position: 18px 14px;
+}
+
+a.list {
+  background-position: 242px 17px;
+  padding: 10px 47px 10px 20px;
+}
+
+a.advanced {
+  margin-right: 7px;
+}
+
+a.import {
+  background-position: 165px 17px;
 }
 
 /* Forms */
