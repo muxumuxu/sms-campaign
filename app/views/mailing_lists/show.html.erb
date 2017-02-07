@@ -26,8 +26,8 @@
         <td><%= contact.first_name %></td>
         <td><%= contact.last_name %></td>
         <td><%= contact.zip_code %></td>
-        <td><%= contact.created_at %></td>
-        <td><%= contact.updated_at %></td>
+        <td><%= contact.created_at.strftime("%d %b %Y") %></td>
+        <td><%= contact.updated_at.strftime("%d %b %Y") %></td>
       </tr>
     <% end %>
   </table>
