@@ -40,7 +40,15 @@ table tr th {
   border-bottom: 1px solid #E3E3E3;
 }
 
+table tr th:first-child {
+  padding-left: 25px;
+}
+
 table tr td {
   padding: 10px;
   border-bottom: 1px solid #E3E3E3;
+}
+
+table tr td:first-child {
+  padding-left: 25px;
 }
