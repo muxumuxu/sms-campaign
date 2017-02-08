@@ -7,7 +7,7 @@
   <div class="list-item">
     <%= image_tag "green-check.svg" %>
     <h2>Destinataires</h2>
-    <p>CampagneSMS will deliver this to the Gironde list. (9 recipients)</p>
+    <p>Votre message sera envoyé à la liste <%= @campaign.mailing_list.name %> (9 recipients)</p>
     <div class="links">
       <%= link_to "Modifier", name_campaign_path(@campaign.id), class: "button grey" %>
     </div>
