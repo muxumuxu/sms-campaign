@@ -42,6 +42,14 @@ luc = Contact.new(
 )
 luc.save
 
+# Campaigns #
+
+nouvelle = Campaign.new(
+  name: "Nouvelle campaigne",
+  message: "Hello les amis"
+)
+nouvelle.save
+
 # Contacts Mailing Lists #
 
 audrey_gironde = ContactsMailingList.new(
@@ -55,3 +63,11 @@ luc_gironde = ContactsMailingList.new(
   mailing_list_id: 1
 )
 luc_gironde.save
+
+# Campaigns Mailing Lists #
+
+gironde_first = CampaignsMailingList.new(
+  campaign_id: 1,
+  mailing_list_id: 1
+)
+gironde_first.save
