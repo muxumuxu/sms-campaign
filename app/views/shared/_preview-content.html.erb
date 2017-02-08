@@ -7,7 +7,7 @@
   <div class="list-item">
     <%= image_tag "green-check.svg" %>
     <h2>Destinataires</h2>
-    <p>Votre message sera envoyé à la liste <%= @campaign.mailing_lists.first.name %> (<%= @campaign.contacts.count %><%= " destinataire".pluralize(@campaign.contacts.count) %>).</p>
+    <p>Votre message sera envoyé à la liste <%= @campaign.mailing_lists.first.name if @campaign.mailing_lists.first.present? %> (<%= @campaign.contacts.count %><%= " destinataire".pluralize(@campaign.contacts.count) %>).</p>
     <div class="links">
       <%= link_to "Modifier", name_campaign_path(@campaign.id), class: "button grey" %>
     </div>

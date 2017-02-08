@@ -15,7 +15,7 @@
         <div class="list-item">
           <%= image_tag "edit.svg" %>
           <%= link_to campaign.name, name_campaign_path(campaign.id), class: "campaign-link" %>
-          <p>Liste <%= campaign.mailing_lists.first.name %> (<%= campaign.contacts.count %><%= " destinataires".pluralize(campaign.contacts.count)%>)</p>
+          <p>Liste <%= campaign.mailing_lists.first.name if campaign.mailing_lists.first.present? %> (<%= campaign.contacts.count %><%= " destinataires".pluralize(campaign.contacts.count)%>)</p>
           <div class="links">
             <%= link_to "Modifier", name_campaign_path(campaign.id), class: "button grey" %>
           </div>

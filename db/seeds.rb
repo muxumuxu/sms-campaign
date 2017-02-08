@@ -1,5 +1,9 @@
 # Admin access #
 
+Campaign.destroy_all
+MailingList.destroy_all
+Contact.destroy_all
+
 admin = User.new({
   email: "admin@muxumuxu.com",
   password: "secret",
