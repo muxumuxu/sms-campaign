@@ -118,6 +118,14 @@
   padding-bottom: 200px;
 }
 
+.wrapper.message span.characters {
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  font-size: 14px;
+  opacity: 0.5;
+}
+
 /* Campaign#preview */
 
 .wrapper.preview-top {

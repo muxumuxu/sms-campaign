@@ -93,6 +93,7 @@ input {
   font-family: 'Poppins', sans-serif;
 }
 
+
 input:focus {
   border: 1px solid #2D74EA;
 }
@@ -140,6 +141,11 @@ textarea {
   font-family: 'Poppins', sans-serif;
   padding: 20px 25px;
   resize: none;
+}
+
+textarea.background-red {
+  background-color: #FF001F;
+  background: rgba(255,0,0,0.09);
 }
 
 textarea:focus {
