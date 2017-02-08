@@ -25,6 +25,8 @@
 
 <%= render 'shared/preview-content' %>
 
+<%= render 'shared/launch-modal' %>
+
 <div class="bottom fixed">
   <div class="links-left">
     <a onclick="window.history.back()" class="button grey previous">Précédent</a>
@@ -40,6 +42,6 @@
   </nav>
   <div class="links-right">
     <input type="submit" form="campaigns_new_message" class="button grey plan" value="Planifier">
-    <input type="submit" form="campaigns_new_message" class="button green send" value="Envoyer">
+    <input type="submit" form="campaigns_new_message" class="button green send" value="Envoyer" onclick="openModal()">
   </div>
 </div>

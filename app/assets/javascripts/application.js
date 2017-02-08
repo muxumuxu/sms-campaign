@@ -24,3 +24,11 @@ function updateCount(max) {
     $('.main').removeClass('background-red');
   }
 }
+
+function openModal() {
+  $('.overlay-modal').addClass('visible');
+}
+
+function closeModal() {
+  $('.overlay-modal').addClass('invisible');
+}

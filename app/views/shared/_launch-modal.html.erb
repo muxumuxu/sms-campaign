@@ -1,10 +1,12 @@
-<div class="modal">
-  <h2>Préparez-vous à l'envoi</h2>
-  <%= image_tag "launch-illustration.svg" %>
-  <p>Vous êtes sur le point d'envoyer votre campagne à :</p>
-  <strong>Gironde</strong>
-  <strong>9 recipients</strong>
-  <p class="padded">Le décollage est imminent !</p>
-  <input type="submit" form="campaigns_new_message" class="button green" value="Envoyer maintenant">
-  <%= link_to "Annuler" %>
+<div class="overlay-modal">
+  <div class="modal">
+    <h2>Préparez-vous à l'envoi</h2>
+    <%= image_tag "launch-illustration.svg" %>
+    <p>Vous êtes sur le point d'envoyer votre campagne à :</p>
+    <strong>Gironde</strong>
+    <strong>9 recipients</strong>
+    <p class="padded">Le décollage est imminent !</p>
+    <input type="submit" form="campaigns_new_message" class="button green" value="Envoyer maintenant">
+    <%= link_to "Annuler", onclick: "closeModal" %>
+  </div>
 </div>
