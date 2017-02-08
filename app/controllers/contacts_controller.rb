@@ -2,7 +2,7 @@ class ContactsController < ApplicationController
   before_action :set_contact, only: [:edit, :update, :destroy]
   def new
     @contact = Contact.new
-    @contact.save
+    @contact.mailing_lists = [MailingList.find(params[:mailing_list_id])]
   end
 
   def create

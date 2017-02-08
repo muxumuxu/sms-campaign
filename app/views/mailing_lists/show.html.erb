@@ -4,7 +4,7 @@
   <h1><%= @mailing_list.name %></h1>
   <span><%= @mailing_list.contacts.count %><%= " recipient".pluralize(@mailing_list.contacts.count) %></span>
   <div class="links">
-    <%= link_to "", root_path, class: "button grey contact" %>
+    <%= link_to "", new_contact_path(:mailing_list_id => @mailing_list.id), class: "button grey contact" %>
     <%= link_to "Avancée", root_path, class: "button grey advanced" %>
     <%= link_to "Importer un .csv", root_path, class: "button green add import" %>
   </div>
