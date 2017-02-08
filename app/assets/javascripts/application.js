@@ -14,3 +14,13 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+function updateCount(max) {
+  var cs = $(this).val().length;
+  $('.characters').text(cs + "/" + max);
+    if (cs > 1300) {
+    $('.main').addClass('background-red');
+  } else {
+    $('.main').removeClass('background-red');
+  }
+}

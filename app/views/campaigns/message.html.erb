@@ -32,7 +32,8 @@
   <a href="#">Prénom</a>
   <a href="#">Nom</a>
   <%= form_for @campaign do |f| %>
-    <%= f.text_area :message, class: 'main' %>
+    <%= f.text_area :message, :onkeyup => "updateCount.call(this, 1300)", class: 'main' %>
+    <span class="characters"></span>
   <% end %>
   <%= image_tag "iphone.svg" %>
 </div>
