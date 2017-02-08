@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'contacts/new'
+
+  get 'contacts/create'
+
+  get 'contacts/edit'
+
+  get 'contacts/update'
+
+  get 'contacts/destroy'
+
   root to: 'campaigns#index'
   devise_for :users
   resources :campaigns do
