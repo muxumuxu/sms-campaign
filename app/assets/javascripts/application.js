@@ -32,3 +32,11 @@ function openModal() {
 function closeModal() {
   $('.overlay-modal').addClass('invisible');
 }
+
+$(document).ready(function() {
+  var str = $('p.message').text();
+  console.log(str.length)
+  if (str.length > 85) {
+    $('p.message').text(str.substring(0,85)).append('...');
+  };
+});

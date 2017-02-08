@@ -15,7 +15,7 @@
   <div class="list-item">
     <%= image_tag "green-check.svg" %>
     <h2>Contenu</h2>
-    <p><%= @campaign.message %></p>
+    <p class="message"><%= @campaign.message %></p>
     <div class="links">
       <%= link_to "Modifier", message_campaign_path(@campaign.id), class: "button grey" %>
     </div>
