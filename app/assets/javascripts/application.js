@@ -39,3 +39,10 @@ $(document).ready(function() {
     $('p.message').text(str.substring(0,85)).append('...');
   };
 });
+
+$(document).ready(function() {
+  $('textarea').focus(function() {
+      var theVal = $(this).val();
+      $(this).val("").val(theVal);
+  });
+});
