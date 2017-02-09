@@ -26,20 +26,22 @@
   <h1>Nouvelle campagne SMS</h1>
 </div>
 
-<div class="wrapper form">
+<div class="wrapper form name">
   <h2>Quel est le nom de votre campagne ?</h2>
   <%= form_for @campaign do |f| %>
     <%= f.text_field :name, class: 'main', autofocus: true, onfocus: "this.value = this.value;" %>
   <% end %>
   <h2>A qui souhaitez-vous envoyer votre SMS ?</h2>
   <input type="text" placeholder="Recherche parmis vos listes de destinataires..." />
-  <div class="list-item">
-    <select name="select">
-      <% @mailing_lists.each do |list| %>
-        <option value="#{list.name}"><%= list.name %></option>
-      <% end %>
-    </select>
-  </div>
+  <% @mailing_lists.each do |list| %>
+    <label>
+      <input type="radio" name="liste" id="#{list.name}" value="#{list.name}">
+        <div class="label-content">
+          <h3><%= list.name %></h3>
+          <p><%= list.contacts.count %><%= " destinataires".pluralize(list.contacts.count)%></p>
+        </div>
+    </label>
+  <% end %>
 </div>
 
 <div class="bottom fixed">
