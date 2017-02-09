@@ -91,6 +91,11 @@ a.cancel {
   margin-left: 20px;
 }
 
+a.modify {
+  text-decoration: none;
+  color: #2D74EA;
+}
+
 /* Forms */
 
 input {
@@ -101,7 +106,6 @@ input {
   padding: 7px 0px 7px 18px;
   font-family: 'Poppins', sans-serif;
 }
-
 
 input:focus {
   border: 1px solid #2D74EA;
@@ -292,6 +296,7 @@ textarea:focus {
   width: 185px;
   display: inline-block;
   pointer-events: none;
+  border-radius: 3px;
 }
 
 .wrapper.form.links input.create-list {
