@@ -39,7 +39,9 @@ class CampaignsController < ApplicationController
 
   def update
     @campaign.update(campaign_params)
-    @campaign.mailing_lists = [MailingList.find(params[:campaign][:liste])]
+    if params[:campaign][:liste].present?
+      @campaign.mailing_lists = [MailingList.find(params[:campaign][:liste])]
+    end
     if campaign_params[:name].present?
       redirect_to :action => :message, :id => @campaign.id
     else

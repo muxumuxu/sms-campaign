@@ -1,14 +1,15 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: [:edit, :update, :destroy]
-  before_action :set_mailing_list, only: [:create]
   def new
     @contact = Contact.new
-    @contact.mailing_lists = [ MailingList.find(params[:mailing_list_id]) ]
+    @mailing_list_id = params[:mailing_list_id]
   end
 
   def create
     @contact = Contact.new(contact_params)
-    if @contact.save
+    @mailing_list = MailingList.find(params[:contact][:mailing_list_id])
+    @contact.mailing_lists = [@mailing_list]
+    if @contact.save!
       redirect_to @mailing_list
     else
       render :new
@@ -30,17 +31,12 @@ class ContactsController < ApplicationController
     @contact = Contact.find(params[:id])
   end
 
-  def set_mailing_list
-    @mailing_list = MailingList.find(params[:mailing_list_id])
-  end
-
   def contact_params
     params.require(:contact).permit(
       :phone_number,
       :first_name,
       :last_name,
-      :zip_code,
-      :mailing_list_id
-      )
+      :zip_code
+      ).except(:mailing_list_id)
   end
 end

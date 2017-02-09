@@ -36,21 +36,23 @@ function closeModal() {
 $(document).on('turbolinks:load', function() {
   $('#cbox1').change(function() {
     if($(this).is(":checked")) {
-      $('.add-contact').addClass('active');
+      $('.add-contact').attr({
+        "disabled": null
+      });
+      $('.add-contact').removeClass('inactive');
     } else {
-      $('.add-contact').removeClass('active');
+      $('.add-contact').attr({
+        "disabled": "disabled"
+      });
+      $('.add-contact').addClass('inactive');
     }
   });
-});
 
-$(document).ready(function() {
   var str = $('p.message').text();
   if (str.length > 85) {
     $('p.message').text(str.substring(0,85)).append('...');
   };
-});
 
-$(document).ready(function() {
   $('textarea').focus(function() {
       var theVal = $(this).val();
       $(this).val("").val(theVal);

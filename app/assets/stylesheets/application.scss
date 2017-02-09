@@ -156,12 +156,6 @@ input[type=submit].add-contact {
   padding: 10px 18px 10px 19px;
 }
 
-input[type=submit].add-contact.active {
-  opacity: 1;
-  cursor: pointer;
-  pointer-events: auto;
-}
-
 textarea {
   width: 580px;
   height: 155px;
@@ -295,7 +289,6 @@ textarea:focus {
 .wrapper.form.links input {
   width: 185px;
   display: inline-block;
-  pointer-events: none;
   border-radius: 3px;
 }
 
