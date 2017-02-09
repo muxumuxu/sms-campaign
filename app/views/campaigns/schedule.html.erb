@@ -39,6 +39,7 @@
       <span>:</span>
       <%= f.text_field :start_on, class: 'main time', onfocus: "this.value = this.value;", placeholder: "15" %>
       <span class="timezone">Central European Time</span>
+      <%= link_to "Modifier", root_path, class: "modify" %>
     <% end %>
   </div>
 </div>
