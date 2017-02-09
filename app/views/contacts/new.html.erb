@@ -14,23 +14,22 @@
     <%= f.text_field :first_name, class: 'main', onfocus: "this.value = this.value;" %>
     <h2>Code postal</h2>
     <%= f.text_field :zip_code, class: 'main', onfocus: "this.value = this.value;" %>
-
     <%= f.hidden_field :mailing_list_id, :value => @mailing_list_id %>
-
-    <div class="wrapper form checkboxes">
-      <label>
-        <input type="checkbox" id="cbox1" value="checkbox1">
-          <span>Ce contact m'a donné l'autorisation de l'ajouter.</span>
-      </label>
-      <label>
-        <input type="checkbox" id="cbox1" value="checkbox1">
-          <span>Si ce contact est déjà sur la liste, mettre à jour ses informations.</span>
-      </label>
-    </div>
-
-    <div class="wrapper form links">
-      <input type="submit" form="new_contact" class="button green add-contact inactive" value="Ajouter le contact" disabled>
-      <a onclick="window.history.back()" class="cancel">Annuler</a>
-    </div>
-  <% end %>
 </div>
+
+<div class="wrapper form checkboxes">
+  <label>
+    <input type="checkbox" id="cbox1" value="checkbox1">
+      <span>Ce contact m'a donné l'autorisation de l'ajouter.</span>
+  </label>
+  <label>
+    <input type="checkbox" id="cbox1" value="checkbox1">
+      <span>Si ce contact est déjà sur la liste, mettre à jour ses informations.</span>
+  </label>
+</div>
+
+  <div class="wrapper form links">
+    <input type="submit" form="new_contact" class="button green add-contact inactive" value="Ajouter le contact" disabled>
+    <a onclick="window.history.back()" class="cancel">Annuler</a>
+  </div>
+<% end %>
