@@ -1,2 +1,34 @@
-<h1>Contacts#new</h1>
-<p>Find me in app/views/contacts/new.html.erb</p>
+<%= render 'shared/navbar-main' %>
+
+<div class="wrapper form-top">
+  <h1>Nouveau contact</h1>
+</div>
+
+<div class="wrapper form">
+  <%= form_for @contact do |f| %>
+    <h2>Numéro de téléphone portable français</h2><span>*</span>
+    <%= f.text_field :phone_number, class: 'main', autofocus: true, onfocus: "this.value = this.value;" %>
+    <h2>Nom</h2>
+    <%= f.text_field :last_name, class: 'main', onfocus: "this.value = this.value;" %>
+    <h2>Prénom</h2>
+    <%= f.text_field :first_name, class: 'main', onfocus: "this.value = this.value;" %>
+    <h2>Code postal</h2>
+    <%= f.text_field :zip_code, class: 'main', onfocus: "this.value = this.value;" %>
+  <% end %>
+</div>
+
+<div class="wrapper form checkboxes">
+  <label>
+    <input type="checkbox" id="cbox1" value="checkbox1">
+      <span>Ce contact m'a donné l'autorisation de l'ajouter.</span>
+  </label>
+  <label>
+    <input type="checkbox" id="cbox1" value="checkbox1">
+      <span>Si ce contact est déjà sur la liste, mettre à jour ses informations.</span>
+  </label>
+</div>
+
+<div class="wrapper form links">
+  <input type="submit" form="new_contact" class="button green add-contact inactive" value="Ajouter le contact">
+  <a onclick="window.history.back()" class="cancel">Annuler</a>
+</div>

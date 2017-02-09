@@ -34,6 +34,17 @@ function closeModal() {
 }
 
 $(document).ready(function() {
+  $('#cbox1').change(function() {
+    if($(this).is(":checked")) {
+      console.log("checked");
+      $('.add-contact').addClass('active');
+    } else {
+      $('.add-contact').removeClass('active');
+    }
+  });
+});
+
+$(document).ready(function() {
   var str = $('p.message').text();
   if (str.length > 85) {
     $('p.message').text(str.substring(0,85)).append('...');
