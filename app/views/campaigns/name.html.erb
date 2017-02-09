@@ -29,18 +29,18 @@
 <div class="wrapper form name">
   <h2>Quel est le nom de votre campagne ?</h2>
   <%= form_for @campaign do |f| %>
-    <%= f.text_field :name, class: 'main', autofocus: true, onfocus: "this.value = this.value;" %>
-  <% end %>
-  <h2>A qui souhaitez-vous envoyer votre SMS ?</h2>
-  <input type="text" placeholder="Recherche parmis vos listes de destinataires..." />
-  <% @mailing_lists.each do |list| %>
+    <%= f.text_field :name, class: 'main', autofocus: true, onfocus: "this.value = this.value;", value: @campaign.name %>
+    <h2>A qui souhaitez-vous envoyer votre SMS ?</h2>
+    <input type="text" placeholder="Recherche parmis vos listes de destinataires..." />
+    <% @mailing_lists.each do |list| %>
     <label>
-      <input type="radio" name="liste" id="#{list.name}" value="#{list.name}">
-        <div class="label-content">
-          <h3><%= list.name %></h3>
-          <p><%= list.contacts.count %><%= " destinataires".pluralize(list.contacts.count)%></p>
-        </div>
+      <%= f.radio_button :liste, list.id, checked: @campaign.mailing_lists.map(&:id).include?(list.id) %>
+      <div class="label-content">
+        <h3><%= list.name %></h3>
+        <p><%= list.contacts.count %><%= " destinataires".pluralize(list.contacts.count)%></p>
+      </div>
     </label>
+    <% end %>
   <% end %>
 </div>
 

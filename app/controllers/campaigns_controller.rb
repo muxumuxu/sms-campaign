@@ -39,6 +39,7 @@ class CampaignsController < ApplicationController
 
   def update
     @campaign.update(campaign_params)
+    @campaign.mailing_lists = [MailingList.find(params[:campaign][:liste])]
     if campaign_params[:name].present?
       redirect_to :action => :message, :id => @campaign.id
     else
@@ -59,6 +60,6 @@ class CampaignsController < ApplicationController
   def campaign_params
     params.require(:campaign).permit(
       :name, :message
-      )
+      ).except(:liste)
   end
 end
