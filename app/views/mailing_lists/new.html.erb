@@ -4,16 +4,28 @@
   <h1>Nouvelle liste de diffusion</h1>
 </div>
 
-<div class="wrapper form">
+<div class="wrapper form name mailing-list">
   <h2>Quel est le nom de votre liste ?</h2>
   <%= form_for @mailing_list do |f| %>
     <%= f.text_field :name, class: 'main', autofocus: true %>
   <% end %>
   <h2>Comment souhaitez-vous ajouter des destinataires ?</h2>
-  <div class="list-item">
-    <select name="select">
-      <option value="manual">Manuellement</option>
-      <option value="csv">Import de .csv</option>
-    </select>
-  </div>
+  <label>
+    <input type="radio" name="contact" id="manual" value="manual">
+      <div class="label-content">
+        <h3>Manuellement</h3>
+      </div>
+  </label>
+  <label>
+    <input type="radio" name="contact" id="csv" value="csv">
+      <div class="label-content">
+        <h3>Import de .CSV</h3>
+        <%= link_to "Instructions", root_path %>
+      </div>
+  </label>
+</div>
+
+<div class="wrapper form links">
+  <input type="submit" form="new_contact" class="button green create-list" value="Créer la nouvelle liste">
+  <a onclick="window.history.back()" class="cancel">Annuler</a>
 </div>

@@ -252,6 +252,53 @@ textarea:focus {
   padding: 9px 0px 9px 20px;
 }
 
+.wrapper.form.name h3 {
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.wrapper.form.name p {
+  margin-top: 0;
+  opacity: 0.5;
+}
+
+.wrapper.form.name label {
+  display: block;
+  border-bottom: 1px solid #EAEAEA;
+  padding-left: 25px;
+}
+
+.wrapper.form.name label:last-child {
+  margin-bottom: 170px;
+}
+
+.wrapper.form.name input[type=radio] {
+  width: 15px;
+  height: 45px;
+  transform: scale(1.5);
+  cursor: pointer;
+}
+
+.wrapper.form.name .label-content {
+  display: inline-block;
+  margin-left: 25px;
+}
+
+.wrapper.form.links {
+  padding-bottom: 90px;
+}
+
+.wrapper.form.links input {
+  width: 185px;
+  display: inline-block;
+  pointer-events: none;
+}
+
+.wrapper.form.links input.create-list {
+  width: 220px;
+  padding: 10px 20px;
+}
+
 .wrapper .list-item {
   border-bottom: 1px solid #EAEAEA;
   position: relative;
