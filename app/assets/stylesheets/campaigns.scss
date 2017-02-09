@@ -128,3 +128,73 @@
 .wrapper.preview .list-item img {
   padding: 2px 22px 0px;
 }
+
+/* Campaign#preview */
+
+.wrapper.schedule {
+  border-bottom: 1px solid #EAEAEA;
+}
+
+.wrapper.schedule .top img {
+  float: left;
+  padding: 3px 22px 0;
+}
+
+.wrapper.schedule .top h2 {
+  margin: 30px 0 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.wrapper.schedule .top p {
+  margin: 2px 0 5px;
+  opacity: 0.5;
+}
+
+.wrapper.schedule .content {
+  margin-left: 79px;
+  padding-bottom: 25px;
+}
+
+.wrapper.schedule .content p {
+  opacity: 0.5;
+  margin: 25px 0 5px;
+}
+
+.wrapper.schedule .content span {
+  margin: 0 5px;
+  font-weight: 400;
+}
+
+.wrapper.schedule .content span.timezone {
+  margin-left: 10px;
+}
+
+.wrapper.schedule .content input.date {
+  max-width: 500px;
+}
+
+.wrapper.schedule .content input.time {
+  max-width: 41px;
+  padding-left: 24px;
+}
+
+.wrapper.schedule.links {
+  padding: 25px 0 90px 156px;
+  border-bottom: none;
+}
+
+.wrapper.schedule.links a {
+  margin-left: 15px;
+}
+
+.wrapper.schedule.links input {
+  display: inline-block;
+  width: 230px;
+  border-radius: 3px;
+}
+
+.wrapper.schedule.links input.schedule {
+  padding: 10px 20px;
+}

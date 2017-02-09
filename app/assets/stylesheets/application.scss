@@ -102,7 +102,6 @@ input {
   font-family: 'Poppins', sans-serif;
 }
 
-
 input:focus {
   border: 1px solid #2D74EA;
 }
@@ -292,6 +291,7 @@ textarea:focus {
   width: 185px;
   display: inline-block;
   pointer-events: none;
+  border-radius: 3px;
 }
 
 .wrapper.form.links input.create-list {
