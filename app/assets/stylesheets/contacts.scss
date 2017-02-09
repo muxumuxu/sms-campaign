@@ -1,3 +1,38 @@
 // Place all the styles related to the contacts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.wrapper.form.checkboxes {
+  max-width: 640px;
+}
+
+.wrapper.form.checkboxes label {
+  display: block;
+}
+
+.wrapper.form.checkboxes label:first-child {
+  padding: 38px 0px 20px 19px;
+}
+
+.wrapper.form.checkboxes label:last-child {
+  padding: 11px 0px 48px 19px;
+}
+
+.wrapper.form.checkboxes span {
+  color: black;
+}
+
+.wrapper.form.checkboxes input[type=checkbox] {
+  width: 15px;
+  transform: scale(1.5);
+}
+
+.wrapper.form.links {
+  padding-bottom: 90px;
+}
+
+.wrapper.form.links input {
+  width: 185px;
+  display: inline-block;
+  pointer-events: none;
+}

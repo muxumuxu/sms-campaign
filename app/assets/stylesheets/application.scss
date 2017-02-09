@@ -82,6 +82,15 @@ a.import {
   background-position: 165px 17px;
 }
 
+a.cancel {
+  text-decoration: none;
+  color: black;
+  opacity: 0.5;
+  font-weight: 400;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
 /* Forms */
 
 input {
@@ -131,6 +140,22 @@ input[type=submit].next {
   background-repeat: no-repeat;
   background-position: 91px 17px;
   padding: 10px 50px 10px 18px;
+}
+
+input[type=submit].inactive {
+  opacity: 0.5;
+  cursor: default;
+}
+
+input[type=submit].add-contact {
+  border-radius: 3px;
+  padding: 10px 18px 10px 19px;
+}
+
+input[type=submit].add-contact.active {
+  opacity: 1;
+  cursor: pointer;
+  pointer-events: auto;
 }
 
 textarea {
@@ -199,6 +224,34 @@ textarea:focus {
   margin: 0 auto;
 }
 
+.wrapper.form {
+  max-width: 600px;
+}
+
+.wrapper.form h2, span {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.wrapper.form h2 {
+  margin: 35px 0 5px;
+  display: inline-block;
+}
+
+.wrapper.form span {
+  color: #CC2424;
+  margin-left: 3px;
+}
+
+.wrapper.form input {
+  width: 580px;
+}
+
+.wrapper.form input.main {
+  font-size: 22px;
+  padding: 9px 0px 9px 20px;
+}
+
 .wrapper .list-item {
   border-bottom: 1px solid #EAEAEA;
   position: relative;
@@ -228,6 +281,12 @@ textarea:focus {
 }
 
 /* Footer */
+
+.bottom {
+  background-color: #F7F7F7;
+  height: 85px;
+  position: relative;
+}
 
 .bottom ul {
   text-align: center;
