@@ -42,6 +42,10 @@
   margin-top: 25px;
 }
 
+.wrapper.form.session .links {
+  margin-bottom: 90px;
+}
+
 .wrapper.form.session .links a {
   text-decoration: none;
   opacity: 0.5;
@@ -52,4 +56,17 @@
   opacity: 0.5;
   color: black;
   margin: 0 3px;
+}
+
+.wrapper.form.session .confirmation-message {
+  position: relative;
+}
+
+.wrapper.form.session .confirmation-message p {
+  opacity: 0.5;
+  max-width: 400px;
+  margin: 0 0 90px;
+  position: absolute;
+  top: 33px;
+  right: 31px;
 }

@@ -1,29 +1,26 @@
-<h2>Sign up</h2>
+<%= render 'shared/navbar-session' %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<div class="wrapper form session top">
+  <h1>Créer un compte gratuitement</h1>
+  <h2>Créez votre compte gratuitement pour envoyer vos campagnes par SMS. Vous avez déjà un compte ? <%= link_to "Me connecter", new_user_session_path %></h2>
+</div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
+<div class="wrapper form session">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+    <h2>Email</h2>
+    <%= f.email_field :email, autofocus: true, class: "main" %>
+    <h2>Mot de passe</h2>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <h2>(<%= @minimum_password_length %> caractères minimum)</h2>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+    <%= f.password_field :password, autocomplete: "off", class: "main" %>
+    <h2>Mot de passe (confirmation)</h2>
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: "main" %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+    <div class="confirmation-message">
+      <%= f.submit "Se connecter", class: "button green connect" %>
+      <p>En cliquant sur ce bouton, vous acceptez les CGVs et la politique anti-spam de SMSCampaign.</p>
+    </div>
+  <% end %>
+</div>
