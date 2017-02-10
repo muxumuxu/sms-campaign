@@ -29,7 +29,7 @@
     <nav>
       <ul>
         <li class="avatar">
-          <span class="avatar"><%= current_user.first_name[0] %></span>
+          <span class="avatar"><%= current_user.email.capitalize[0] %></span>
           <%= link_to destroy_user_session_path do %>
             <%= current_user.first_name %>
             <%= image_tag "arrow.svg" %>
