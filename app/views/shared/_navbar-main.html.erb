@@ -35,7 +35,7 @@
             <%= image_tag "arrow.svg" %>
           <% end %>
         </li>
-        <li><%= link_to "Aide", root_path, class: "help" %></li>
+        <li><%= link_to "Aide", destroy_user_session_path, method: :delete, class: "help" %></li>
       </ul>
     </nav>
   </div>

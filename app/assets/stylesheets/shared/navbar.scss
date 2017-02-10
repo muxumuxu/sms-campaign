@@ -1,3 +1,5 @@
+/* MAIN NAVBAR */
+
 header {
   background-color: #F7F7F7;
   height: 70px;
@@ -87,4 +89,10 @@ header a.help {
 header.campaign a.save {
   color: #2D74EA;
   margin-right: 30px;
+}
+
+/* LOG IN/OUT NAVBAR */
+
+header.session .right a {
+  margin: 20px 25px;
 }
