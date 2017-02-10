@@ -1,26 +1,31 @@
-<h2>Log in</h2>
+<%= render 'shared/navbar-session' %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+<div class="wrapper form session top">
+  <h1>Se connecter</h1>
+  <h2>Besoin d'un compte sur SMScampaign ?</h2>
+  <%= link_to "Créer un compte", new_user_registration_path %>
+</div>
+
+<div class="wrapper form session">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <h2>Email</h2>
+    <%= f.email_field :email, autofocus: true, class: "main" %>
+    <h2>Mot de passe</h2>
+    <%= f.password_field :password, autocomplete: "off", class: "main" %>
+
+    <%= f.submit "Se connecter", class: "button green connect" %>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="checkbox">
+        <%= f.check_box :remember_me %>
+        <h2>Se souvenir de moi</h2>
+      </div>
+    <% end %>
+  <% end %>
+
+  <div class="wrapper form session links">
+    <%= mail_to "hello@muxumuxu.com", "Email oublié ?" %>
+    <span>•</span>
+    <%= link_to "Mot de passe oublié ?", new_password_path(resource_name) %>
   </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
