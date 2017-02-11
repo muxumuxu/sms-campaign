@@ -1,13 +1,14 @@
 class CampaignsController < ApplicationController
   before_action :set_campaign, only: [:name, :edit, :update, :message, :preview, :schedule, :destroy]
   def index
-    not_sent = Campaign.where("sent_at is null").order(:created_at)
-    sent = Campaign.where("sent_at is not null").order(:sent_at)
+    not_sent = Campaign.where("sent_at is null and user_id = #{current_user.id}").order(:created_at)
+    sent = Campaign.where("sent_at is not null and user_id = #{current_user.id}").order(:sent_at)
     @campaigns = not_sent + sent
   end
 
   def new
     @campaign = Campaign.new
+    @campaign.user = current_user
     @campaign.save
     redirect_to :action => :name, :id => @campaign.id
   end
