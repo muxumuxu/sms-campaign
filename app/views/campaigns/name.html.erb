@@ -40,6 +40,7 @@
         <p><%= list.contacts.count %><%= " destinataires".pluralize(list.contacts.count)%></p>
       </div>
     </label>
+    <%= f.hidden_field :current_step, :value => "step_1" %>
     <% end %>
   <% end %>
 </div>

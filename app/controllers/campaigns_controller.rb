@@ -27,26 +27,50 @@ class CampaignsController < ApplicationController
   end
 
   def create
-    @campaign = Campaign.new(campaign_params)
-    if @campaign.save
-      redirect_to :action => :message, :id => @campaign.id
-    else
-      render :new
-    end
   end
 
   def edit
   end
 
   def update
-    @campaign.update(campaign_params)
-    if params[:campaign][:liste].present?
+
+    # Validates fields are correctly filled
+    case params[:campaign][:current_step]
+    when "step_1"
+      # Check if name exist
+      if campaign_params[:name].blank?
+        flash[:notice] = "You must provide a name"
+        redirect_to :action => :name, :id => @campaign.id
+        return
+      end
+
+      @campaign.name = campaign_params[:name]
+      @campaign.save
+
+      # Check if mailing list selected
+      if params[:campaign][:liste].blank?
+        flash[:notice] = "You must select a mailing list"
+        redirect_to :action => :name, :id => @campaign.id
+        return
+      end
+
       @campaign.mailing_lists = [MailingList.find(params[:campaign][:liste])]
-    end
-    if campaign_params[:name].present?
+      @campaign.save
+
       redirect_to :action => :message, :id => @campaign.id
-    else
+    when "step_2"
+      if campaign_params[:message].blank?
+        flash[:notice] = "You must provide a message"
+        redirect_to :action => :message, :id => @campaign.id
+        return
+      end
+
+      @campaign.message = campaign_params[:message]
+      @campaign.save
+
       redirect_to :action => :preview, :id => @campaign.id
+    # when "step_3"
+    #   redirect_to :action => :schedule, :id => @campaign.id
     end
   end
 
@@ -63,6 +87,6 @@ class CampaignsController < ApplicationController
   def campaign_params
     params.require(:campaign).permit(
       :name, :message
-      ).except(:liste)
+      ).except(:liste).except(:current_step)
   end
 end
