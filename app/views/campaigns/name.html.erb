@@ -27,10 +27,10 @@
 </div>
 
 <div class="wrapper form name">
-  <h2>Quel est le nom de votre campagne ?</h2>
+  <h2>Quel est le nom de votre campagne ?</h2><span>*</span>
   <%= form_for @campaign do |f| %>
     <%= f.text_field :name, class: 'main', autofocus: true, onfocus: "this.value = this.value;", value: @campaign.name %>
-    <h2>A qui souhaitez-vous envoyer votre SMS ?</h2>
+    <h2>A qui souhaitez-vous envoyer votre SMS ?</h2><span>*</span>
     <input type="text" placeholder="Recherche parmis vos listes de destinataires..." />
     <% @mailing_lists.each do |list| %>
     <label>

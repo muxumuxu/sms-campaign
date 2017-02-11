@@ -5,7 +5,7 @@
 </div>
 
 <div class="wrapper form name mailing-list">
-  <h2>Quel est le nom de votre liste ?</h2>
+  <h2>Quel est le nom de votre liste ?</h2><span>*</span>
   <%= form_for @mailing_list do |f| %>
     <%= f.text_field :name, class: 'main', autofocus: true %>
   <% end %>
