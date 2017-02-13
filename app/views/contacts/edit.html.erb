@@ -1,2 +1,25 @@
-<h1>Contacts#edit</h1>
-<p>Find me in app/views/contacts/edit.html.erb</p>
+<%= render 'shared/navbar-main' %>
+
+<div class="wrapper form-top">
+  <h1>Nouveau contact</h1>
+</div>
+
+<div class="wrapper form">
+  <%= form_for @contact do |f| %>
+    <h2>Numéro de téléphone portable français</h2><span>*</span>
+    <%= f.text_field :phone_number, class: 'main', autofocus: true, onfocus: "this.value = this.value;" %>
+    <h2>Nom</h2>
+    <%= f.text_field :last_name, class: 'main', onfocus: "this.value = this.value;" %>
+    <h2>Prénom</h2>
+    <%= f.text_field :first_name, class: 'main', onfocus: "this.value = this.value;" %>
+    <h2>Code postal</h2>
+    <%= f.text_field :zip_code, class: 'main', onfocus: "this.value = this.value;" %>
+    <%= f.hidden_field :mailing_list_id, :value => @mailing_list_id %>
+</div>
+
+  <div class="wrapper form links">
+    <input type="submit" form="edit_contact" class="button green edit-contact" value="Modifier le contact">
+    <a onclick="window.history.back()" class="cancel">Annuler</a>
+    <%= link_to "Supprimer le contact", contact_path, method: :delete, class: "delete" %>
+  </div>
+<% end %>

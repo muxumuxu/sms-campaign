@@ -33,7 +33,6 @@ table {
 }
 
 table tr th {
-  opacity: 0.8;
   background-color: #F8F8F8;
   padding: 10px;
   font-weight: 500;
@@ -51,6 +50,13 @@ table tr td {
 
 table tr td:first-child {
   padding-left: 25px;
+}
+
+table tr td a {
+  opacity: 0.8;
+  color: black;
+  text-decoration: none;
+  display: block;
 }
 
 /* MailingList#new */
