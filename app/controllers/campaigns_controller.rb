@@ -1,6 +1,8 @@
 class CampaignsController < ApplicationController
   before_action :set_campaign, only: [:name, :edit, :update, :message, :preview, :schedule, :destroy]
+
   def index
+	  Campaign.where("name is null").destroy_all
     not_sent = Campaign.where("sent_at is null and user_id = #{current_user.id}").order(:created_at)
     sent = Campaign.where("sent_at is not null and user_id = #{current_user.id}").order(:sent_at)
     @campaigns = not_sent + sent
