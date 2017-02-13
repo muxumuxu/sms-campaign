@@ -15,7 +15,7 @@
           <% end %>
         </li>
         <li>
-          <% if params[:controller] == 'mailing_lists' %>
+          <% if params[:controller] == 'mailing_lists' || params[:controller] == 'contacts' %>
             <%= link_to "Listes", mailing_lists_path, class: "blue-border" %>
           <% else %>
             <%= link_to "Listes", mailing_lists_path %>

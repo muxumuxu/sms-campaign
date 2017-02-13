@@ -1,5 +1,10 @@
 class ContactsController < ApplicationController
-  before_action :set_contact, only: [:edit, :update, :destroy]
+  before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  def show
+    @mailing_list_id = params[:mailing_list_id]
+    @mailing_list = MailingList.find(@mailing_list_id)
+  end
+
   def new
     @contact = Contact.new
     @mailing_list_id = params[:mailing_list_id]
@@ -20,6 +25,12 @@ class ContactsController < ApplicationController
   end
 
   def update
+    @contact.update(contact_params)
+    if @contact.save
+      redirect_to @contact
+    else
+      render :edit
+    end
   end
 
   def destroy

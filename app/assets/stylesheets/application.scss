@@ -74,12 +74,9 @@ a.list {
   padding: 10px 47px 10px 20px;
 }
 
-a.advanced {
-  margin-right: 7px;
-}
-
 a.import {
   background-position: 165px 17px;
+  margin-left: 7px;
 }
 
 a.cancel {
@@ -94,6 +91,13 @@ a.cancel {
 a.modify {
   text-decoration: none;
   color: #2D74EA;
+}
+
+a.back {
+  background-image: url(back-arrow.svg);
+  background-repeat: no-repeat;
+  padding: 10px 37px;
+  background-position: 26px 16px;
 }
 
 /* Forms */
@@ -156,6 +160,12 @@ input[type=submit].add-contact {
   padding: 10px 18px 10px 19px;
 }
 
+input[type=submit].edit-contact {
+  width: 190px;
+  border-radius: 3px;
+  padding: 10px 18px 10px 19px;
+}
+
 textarea {
   width: 580px;
   height: 155px;
@@ -195,10 +205,20 @@ textarea:focus {
   position: relative;
 }
 
-.wrapper.top .links {
+.wrapper.top h1.padded {
+  padding-left: 100px;
+}
+
+.wrapper.top .right-links {
   position: absolute;
   top: 19px;
   right: 0;
+}
+
+.wrapper.top .left-links {
+  position: absolute;
+  top: 19px;
+  left: 0;
 }
 
 .wrapper.hero {
@@ -287,6 +307,13 @@ textarea:focus {
   padding-bottom: 90px;
 }
 
+.wrapper.form.links a.delete {
+  text-decoration: none;
+  display: block;
+  color: #CC2424;
+  margin-top: 65px;
+}
+
 .wrapper.form.links input {
   width: 185px;
   display: inline-block;
@@ -296,6 +323,13 @@ textarea:focus {
 .wrapper.form.links input.create-list {
   width: 220px;
   padding: 10px 20px;
+}
+
+.wrapper.form.links input.edit-contact {
+  width: 190px;
+  border-radius: 3px;
+  padding: 10px 18px;
+  margin-top: 35px;
 }
 
 .wrapper .list-item {

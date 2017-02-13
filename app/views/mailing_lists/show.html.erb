@@ -3,9 +3,9 @@
 <div class="wrapper top show">
   <h1><%= @mailing_list.name %></h1>
   <span><%= @mailing_list.contacts.count %><%= " recipient".pluralize(@mailing_list.contacts.count) %></span>
-  <div class="links">
+  <div class="right-links">
     <%= link_to "", new_contact_path(:mailing_list_id => @mailing_list.id), class: "button grey contact" %>
-    <%= link_to "Avancée", root_path, class: "button grey advanced" %>
+    <%= link_to "Avancée", root_path, class: "button grey" %>
     <%= link_to "Importer un .csv", root_path, class: "button green add import" %>
   </div>
 </div>
@@ -22,12 +22,36 @@
     </tr>
     <% @mailing_list.contacts.each do |contact| %>
       <tr>
-        <td><%= contact.phone_number %></td>
-        <td><%= contact.first_name %></td>
-        <td><%= contact.last_name %></td>
-        <td><%= contact.zip_code %></td>
-        <td><%= contact.created_at.strftime("%d %b %Y") %></td>
-        <td><%= contact.updated_at.strftime("%d %b %Y") %></td>
+        <td>
+          <%= link_to contact_path(:mailing_list_id => @mailing_list.id) do %>
+            <%= contact.phone_number %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to contact_path(:mailing_list_id => @mailing_list.id) do %>
+            <%= contact.first_name %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to contact_path(:mailing_list_id => @mailing_list.id) do %>
+            <%= contact.last_name %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to contact_path(:mailing_list_id => @mailing_list.id) do %>
+            <%= contact.zip_code %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to contact_path(:mailing_list_id => @mailing_list.id) do %>
+            <%= contact.created_at.strftime("%d %b %Y") %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to contact_path(:mailing_list_id => @mailing_list.id) do %>
+            <%= contact.updated_at.strftime("%d %b %Y") %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </table>

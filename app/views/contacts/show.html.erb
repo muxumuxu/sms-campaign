@@ -1,0 +1,32 @@
+<%= render 'shared/navbar-main' %>
+
+<div class="wrapper top show">
+  <div class="left-links">
+    <%= link_to "", mailing_list_path(@mailing_list), class: "button grey back" %>
+  </div>
+  <h1 class="padded"><%= @mailing_list.name %></h1>
+  <div class="right-links">
+    <%= link_to "Avancée", edit_contact_path, class: "button grey" %>
+  </div>
+</div>
+
+<div class="wrapper table">
+  <table>
+    <tr>
+      <th>Numéro</th>
+      <th>Prénom</th>
+      <th>Nom</th>
+      <th>Code postal</th>
+      <th>Ajout</th>
+      <th>Modification</th>
+    </tr>
+    <tr>
+      <td><%= @contact.phone_number %></td>
+      <td><%= @contact.first_name %></td>
+      <td><%= @contact.last_name %></td>
+      <td><%= @contact.zip_code %></td>
+      <td><%= @contact.created_at.strftime("%d %b %Y") %></td>
+      <td><%= @contact.updated_at.strftime("%d %b %Y") %></td>
+    </tr>
+  </table>
+</div>
