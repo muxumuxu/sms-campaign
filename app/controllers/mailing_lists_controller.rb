@@ -1,11 +1,12 @@
 class MailingListsController < ApplicationController
   before_action :set_mailing_list, only: [:edit, :update, :show, :destroy]
   def index
-    @mailing_lists = MailingList.all
+    @mailing_lists = MailingList.where("user_id = #{current_user.id}")
   end
 
   def new
     @mailing_list = MailingList.new
+    @mailing_list.user = current_user
     @mailing_list.save
   end
 
