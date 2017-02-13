@@ -1,5 +1,6 @@
 class MailingListsController < ApplicationController
   before_action :set_mailing_list, only: [:edit, :update, :show, :destroy]
+
   def index
     @mailing_lists = MailingList.where("user_id = #{current_user.id}")
   end
@@ -15,8 +16,9 @@ class MailingListsController < ApplicationController
 
   def create
     @mailing_list = MailingList.new(mailing_list_params)
-    if @campaign.save
-      redirect_to :index
+    @mailing_list.user = current_user
+    if @mailing_list.save
+      redirect_to :action => :index
     else
       render :new
     end
@@ -28,7 +30,7 @@ class MailingListsController < ApplicationController
   def update
     @mailing_list.update(mailing_list_params)
     if @mailing_list.save
-      redirect_to :index
+      render :index
     else
       render :edit
     end

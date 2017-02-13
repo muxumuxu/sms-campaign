@@ -18,7 +18,7 @@
 </div>
 
   <div class="wrapper form links">
-    <input type="submit" form="edit_contact" class="button green edit-contact" value="Modifier le contact">
+    <input type="submit" form="edit_contact_<%= @contact.id %>" class="button green edit-contact" value="Modifier le contact">
     <a onclick="window.history.back()" class="cancel">Annuler</a>
     <%= link_to "Supprimer le contact", contact_path, method: :delete, class: "delete" %>
   </div>

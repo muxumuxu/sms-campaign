@@ -23,32 +23,32 @@
     <% @mailing_list.contacts.each do |contact| %>
       <tr>
         <td>
-          <%= link_to contact_path(:mailing_list_id => @mailing_list.id) do %>
+          <%= link_to contact_path(contact) do %>
             <%= contact.phone_number %>
           <% end %>
         </td>
         <td>
-          <%= link_to contact_path(:mailing_list_id => @mailing_list.id) do %>
+          <%= link_to contact_path(contact) do %>
             <%= contact.first_name %>
           <% end %>
         </td>
         <td>
-          <%= link_to contact_path(:mailing_list_id => @mailing_list.id) do %>
+          <%= link_to contact_path(contact) do %>
             <%= contact.last_name %>
           <% end %>
         </td>
         <td>
-          <%= link_to contact_path(:mailing_list_id => @mailing_list.id) do %>
+          <%= link_to contact_path(contact) do %>
             <%= contact.zip_code %>
           <% end %>
         </td>
         <td>
-          <%= link_to contact_path(:mailing_list_id => @mailing_list.id) do %>
+          <%= link_to contact_path(contact) do %>
             <%= contact.created_at.strftime("%d %b %Y") %>
           <% end %>
         </td>
         <td>
-          <%= link_to contact_path(:mailing_list_id => @mailing_list.id) do %>
+          <%= link_to contact_path(contact) do %>
             <%= contact.updated_at.strftime("%d %b %Y") %>
           <% end %>
         </td>
