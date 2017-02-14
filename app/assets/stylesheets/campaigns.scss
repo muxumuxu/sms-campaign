@@ -95,19 +95,38 @@
   margin-left: 8px;
 }
 
-.wrapper.message img {
-  position: absolute;
-  top: 40px;
-  right: 0;
-  padding-bottom: 200px;
-}
-
 .wrapper.message span.characters {
   position: absolute;
   bottom: -25px;
   left: 0;
   font-size: 14px;
   opacity: 0.5;
+}
+
+#phone {
+  width: 280px;
+  height: 535px;
+  position: absolute;
+  top: 40px;
+  right: 0;
+}
+
+#phone img {
+  z-index: 0;
+  padding-bottom: 200px;
+}
+
+#message-bubble {
+  position: absolute;
+  top: 81px;
+  left: 35px;
+  max-width: 178px;
+  border-radius: 16px;
+  background-color: #24CC83;
+  z-index: 2;
+  color: white;
+  font-size: 12px;
+  padding: 16px;
 }
 
 /* Campaign#preview */
