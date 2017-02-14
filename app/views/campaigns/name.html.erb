@@ -26,24 +26,36 @@
   <h1>Nouvelle campagne SMS</h1>
 </div>
 
-<div class="wrapper form name">
-  <h2>Quel est le nom de votre campagne ?</h2><span>*</span>
-  <%= form_for @campaign do |f| %>
-    <%= f.text_field :name, class: 'main', autofocus: true, onfocus: "this.value = this.value;", value: @campaign.name %>
-    <h2>A qui souhaitez-vous envoyer votre SMS ?</h2><span>*</span>
-    <input type="text" placeholder="Recherche parmis vos listes de destinataires..." />
-    <% @mailing_lists.each do |list| %>
-    <label>
-      <%= f.radio_button :liste, list.id, checked: @campaign.mailing_lists.map(&:id).include?(list.id) %>
-      <div class="label-content">
-        <h3><%= list.name %></h3>
-        <p><%= list.contacts.count %><%= " destinataires".pluralize(list.contacts.count)%></p>
-      </div>
-    </label>
-    <%= f.hidden_field :current_step, :value => "step_1" %>
+<% if @mailing_lists.any? %>
+
+  <div class="wrapper form name">
+    <h2>Quel est le nom de votre campagne ?</h2><span>*</span>
+    <%= form_for @campaign do |f| %>
+      <%= f.text_field :name, class: 'main', autofocus: true, onfocus: "this.value = this.value;", value: @campaign.name %>
+      <h2>A qui souhaitez-vous envoyer votre SMS ?</h2><span>*</span>
+      <input type="text" placeholder="Recherche parmis vos listes de destinataires..." />
+      <% @mailing_lists.each do |list| %>
+      <label>
+        <%= f.radio_button :liste, list.id, checked: @campaign.mailing_lists.map(&:id).include?(list.id) %>
+        <div class="label-content">
+          <h3><%= list.name %></h3>
+          <p><%= list.contacts.count %><%= " destinataires".pluralize(list.contacts.count)%></p>
+        </div>
+      </label>
+      <%= f.hidden_field :current_step, :value => "step_1" %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
+
+<% else %>
+
+<div class="wrapper form no-list">
+  <%= image_tag "hero-campaign-icon.svg", class: "illustration" %>
+  <h2>Pour lancer votre première campagne, vous devez d'abord créer une première liste de diffusion.</h2>
+  <%= link_to "Nouvelle liste de diffusion", new_mailing_list_path, class: "button green add list" %>
 </div>
+
+<% end %>
 
 <div class="bottom fixed">
   <nav>
@@ -55,7 +67,9 @@
       <li class="inactive">Résumé</li>
     </ul>
   </nav>
-  <div class="links-right">
-    <input type="submit" form="edit_campaign_<%= @campaign.id %>" class="button green next" value="Suivant">
-  </div>
+  <% if @mailing_lists.any? %>
+    <div class="links-right">
+      <input type="submit" form="edit_campaign_<%= @campaign.id %>" class="button green next" value="Suivant">
+    </div>
+  <% end %>
 </div>

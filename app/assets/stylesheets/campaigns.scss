@@ -6,7 +6,7 @@
 /* Campaign#index */
 
 .wrapper.top.list {
-  margin: 65px auto 0px;
+  margin: 52px auto 0px;
 }
 
 .wrapper.list .list-item {
@@ -48,6 +48,19 @@
 
 .wrapper.form-top h1 {
   margin-top: 65px;
+}
+
+.wrapper.form.no-list {
+  text-align: center;
+  padding-bottom: 190px;
+}
+
+.wrapper.form.no-list img {
+  margin-top: 60px;
+}
+
+.wrapper.form.no-list h2 {
+  margin: 20px 0px 30px;
 }
 
 /* Campaign#message */

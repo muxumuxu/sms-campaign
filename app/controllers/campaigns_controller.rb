@@ -16,7 +16,7 @@ class CampaignsController < ApplicationController
   end
 
   def name
-      @mailing_lists = MailingList.where("user_id = #{current_user.id}")
+    @mailing_lists = MailingList.where("user_id = #{current_user.id}")
   end
 
   def message
