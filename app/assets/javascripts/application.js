@@ -57,4 +57,14 @@ $(document).on('turbolinks:load', function() {
       var theVal = $(this).val();
       $(this).val("").val(theVal);
   });
+
+  $("#message").keyup(function(){
+      if($(this).val() == ""){
+         $('#message-bubble').css('display','none');
+      } else {
+         $('#message-bubble').css('display','block');
+      }
+     $("#message-bubble").html($(this).val());
+     // $("#user-code").text($(this).val()); // If you want html code to be escaped
+  });
 });
