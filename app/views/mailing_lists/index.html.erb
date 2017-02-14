@@ -7,15 +7,27 @@
   </div>
 </div>
 
-<div class="wrapper mailing list">
-  <% @mailing_lists.each do |list| %>
-    <div class="list-item">
-      <%= link_to list.name, mailing_list_path(list.id), class: "campaign-link" %>
-      <p><%= list.contacts.count %><%= " recipient".pluralize(list.contacts.count) %></p>
-      <div class="links">
-        <%= link_to "", new_contact_path(:mailing_list_id => list.id), class: "button grey contact" %>
-        <%= link_to "Modifier", edit_mailing_list_path(list.id), class: "button grey" %>
+<% if @mailing_lists.any? %>
+
+  <div class="wrapper mailing list">
+    <% @mailing_lists.each do |list| %>
+      <div class="list-item">
+        <%= link_to list.name, mailing_list_path(list.id), class: "campaign-link" %>
+        <p><%= list.contacts.count %><%= " recipient".pluralize(list.contacts.count) %></p>
+        <div class="links">
+          <%= link_to "", new_contact_path(:mailing_list_id => list.id), class: "button grey contact" %>
+          <%= link_to "Modifier", edit_mailing_list_path(list.id), class: "button grey" %>
+        </div>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+
+<% else %>
+
+  <div class="wrapper hero">
+    <%= image_tag "hero-list-icon.svg", class: "illustration" %>
+    <h2>Créez votre première liste de destinataires !</h2>
+    <%= link_to "Nouvelle liste de diffusion", new_campaign_path, class: "button green add list" %>
+  </div>
+
+<% end %>
