@@ -1,0 +1,33 @@
+<header class="campaign">
+  <div class="left">
+    <nav>
+      <ul>
+        <li>
+          <%= link_to root_path do %>
+            <%= image_tag "icon.svg", class: "icon"  %>
+          <% end %>
+        </li>
+        <li><%= @mailing_list.name %></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="right">
+    <nav>
+      <ul>
+        <li><%= link_to "Aide", root_path, class: "help" %></li>
+        <li><%= link_to "Annuler", root_path, class: "save" %></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="wrapper form-top">
+  <h1>Import de fichier .CSV</h1>
+</div>
+
+<div class="wrapper form name">
+  <input type="file" name="upload-file" accept="image/*">
+  <p>Fichiers acceptés : .csv</p>
+  <p>Les doublons seront retirés. Nous n'enverrons pas de sms de confirmation à ces contacts, et nous vous faisons confiance sur l'acceptation de ces contacts de recevoir des sms de votre part.</p>
+</div>

@@ -9,6 +9,12 @@ Rails.application.routes.draw do
       get :schedule, to: "campaigns#schedule"
     end
   end
-  resources :mailing_lists
+  resources :mailing_lists do
+    member do
+      get :upload_csv, to: "mailing_lists#upload_csv"
+      get :import_csv, to: "mailing_lists#import_csv"
+      get :import_csv_results, to: "mailing_lists#import_csv_results"
+    end
+  end
   resources :contacts
 end
