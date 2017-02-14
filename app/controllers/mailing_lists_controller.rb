@@ -1,5 +1,5 @@
 class MailingListsController < ApplicationController
-  before_action :set_mailing_list, only: [:edit, :update, :show, :destroy]
+  before_action :set_mailing_list, only: [:edit, :update, :show, :upload_csv, :import_csv, :import_csv_results, :destroy]
 
   def index
     @mailing_lists = MailingList.where("user_id = #{current_user.id}")
@@ -34,6 +34,15 @@ class MailingListsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def upload_csv
+  end
+
+  def import_csv
+  end
+
+  def import_csv_results
   end
 
   def destroy
