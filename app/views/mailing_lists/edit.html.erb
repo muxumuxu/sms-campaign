@@ -8,12 +8,12 @@
   <h2>Quel est le nom de votre liste ?</h2>
   <%= form_for @mailing_list do |f| %>
     <%= f.text_field :name, class: 'main', autofocus: true, onfocus: "this.value = this.value;" %>
-  <% end %>
-  <h2>Comment souhaitez-vous ajouter des destinataires ?</h2>
-  <div class="list-item">
-    <select name="select">
-      <option value="manual">Manuellement</option>
-      <option value="csv">Import de .csv</option>
-    </select>
-  </div>
 </div>
+
+<div class="wrapper form links">
+  <input type="submit" form="edit_mailing_list" class="button green edit-contact" value="Modifier la liste">
+  <a onclick="window.history.back()" class="cancel">Annuler</a>
+  <%= link_to "Supprimer la liste", mailing_list_path, method: :delete, class: "delete" %>
+</div>
+
+<% end %>

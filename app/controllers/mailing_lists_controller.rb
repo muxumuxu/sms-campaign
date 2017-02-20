@@ -46,6 +46,8 @@ class MailingListsController < ApplicationController
   end
 
   def destroy
+    @mailing_list.destroy
+    redirect_to mailing_lists_path
   end
 
   private
