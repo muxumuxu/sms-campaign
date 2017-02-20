@@ -15,8 +15,6 @@
     <h2>(<%= @minimum_password_length %> caractères minimum)</h2>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off", class: "main" %>
-    <h2>Mot de passe (confirmation)</h2>
-    <%= f.password_field :password_confirmation, autocomplete: "off", class: "main" %>
 
     <div class="confirmation-message">
       <%= f.submit "Se connecter", class: "button green connect" %>
