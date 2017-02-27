@@ -37,13 +37,13 @@
       <h2>A qui souhaitez-vous envoyer votre SMS ?</h2><span>*</span>
       <input type="text" placeholder="Recherche parmis vos listes de destinataires..." />
       <% @mailing_lists.each do |list| %>
-      <label>
-        <%= f.radio_button :liste, list.id, checked: @campaign.mailing_lists.map(&:id).include?(list.id) %>
-        <div class="label-content">
-          <h3><%= list.name %></h3>
-          <p><%= list.contacts.count %><%= " destinataires".pluralize(list.contacts.count)%></p>
-        </div>
-      </label>
+        <label>
+          <%= f.radio_button :mailing_list, list.id, checked: @campaign.mailing_list && @campaign.mailing_list.id == list.id %>
+          <div class="label-content">
+            <h3><%= list.name %></h3>
+            <p><%= list.contacts.count %><%= " destinataires".pluralize(list.contacts.count)%></p>
+          </div>
+        </label>
       <%= f.hidden_field :current_step, :value => "step_1" %>
       <% end %>
     <% end %>

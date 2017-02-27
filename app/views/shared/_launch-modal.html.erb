@@ -3,8 +3,8 @@
     <h2>Préparez-vous à l'envoi</h2>
     <%= image_tag "launch-illustration.svg" %>
     <p>Vous êtes sur le point d'envoyer votre campagne à :</p>
-    <strong><%= @campaign.mailing_lists.first.name if @campaign.mailing_lists.first.present? %></strong>
-    <strong><%= @campaign.contacts.count %><%= " destinataires".pluralize(@campaign.contacts.count) %></strong>
+    <strong><%= @campaign.mailing_list.name if @campaign.mailing_list %></strong>
+    <strong><%= @campaign.mailing_list.contacts.count %><%= " destinataires".pluralize(@campaign.mailing_list.contacts.count) %></strong>
     <p class="padded">Le décollage est imminent !</p>
     <input type="submit" form="campaigns_new_message" class="button green" value="Envoyer maintenant">
     <%= link_to "Annuler", onclick: "closeModal" %>

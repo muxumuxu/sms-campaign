@@ -15,8 +15,8 @@
         <div class="list-item">
           <%= image_tag "edit.svg" %>
           <%= link_to campaign.name, name_campaign_path(campaign.id), class: "campaign-link" %>
-          <% if campaign.mailing_lists.any? %>
-            <p><%= campaign.mailing_lists.first.name if campaign.mailing_lists.first.present? %> (<%= campaign.contacts.count %><%= " destinataires".pluralize(campaign.contacts.count)%>)</p>
+          <% if campaign.mailing_list %>
+            <p><%= campaign.mailing_list.name %> (<%= campaign.mailing_list.contacts.count %><%= " destinataires".pluralize(campaign.mailing_list.contacts.count)%>)</p>
           <% else %>
             <p>Cliquez sur "Modifier" pour ajouter une liste de diffusion.</p>
           <% end %>

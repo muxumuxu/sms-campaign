@@ -47,16 +47,16 @@ class CampaignsController < ApplicationController
       end
 
       @campaign.name = campaign_params[:name]
-      @campaign.save
 
       # Check if mailing list selected
-      if params[:campaign][:liste].blank?
+      mailing_list_id = params[:campaign][:mailing_list]
+      if mailing_list_id.blank?
         flash[:notice] = "You must select a mailing list"
         redirect_to :action => :name, :id => @campaign.id
         return
       end
 
-      @campaign.mailing_list = MailingList.find(params[:campaign][:liste])
+      @campaign.mailing_list = MailingList.find(mailing_list_id)
       @campaign.save
 
       redirect_to :action => :message, :id => @campaign.id
