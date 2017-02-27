@@ -2,9 +2,9 @@
 
 <div class="wrapper top show">
   <div class="left-links">
-    <%= link_to "", mailing_list_path(@mailing_list), class: "button grey back" %>
+    <%= link_to "", mailing_list_path(@contact.mailing_list), class: "button grey back" %>
   </div>
-  <h1 class="padded"><%= @mailing_list.name %></h1>
+  <h1 class="padded"><%= @contact.mailing_list.name %></h1>
   <div class="right-links">
     <%= link_to "Avancée", edit_contact_path, class: "button grey" %>
   </div>

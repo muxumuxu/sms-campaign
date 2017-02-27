@@ -56,7 +56,7 @@ class CampaignsController < ApplicationController
         return
       end
 
-      @campaign.mailing_lists = [MailingList.find(params[:campaign][:liste])]
+      @campaign.mailing_list = MailingList.find(params[:campaign][:liste])
       @campaign.save
 
       redirect_to :action => :message, :id => @campaign.id

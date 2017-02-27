@@ -1,8 +1,6 @@
 class MailingList < ApplicationRecord
-  has_many :contacts_mailing_lists
-  has_many :contacts, through: :contacts_mailing_lists
-  has_many :campaigns_mailing_lists
-  has_many :campaigns, through: :campaigns_mailing_lists
+  has_many :contacts
+  has_many :campaigns
   validates :name, presence: true
   default_scope -> { order(name: :ASC) }
   belongs_to :user
