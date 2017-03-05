@@ -35,7 +35,7 @@
   <a href="#">Prénom</a>
   <a href="#">Nom</a>
   <%= form_for @campaign do |f| %>
-    <%= f.text_area :message, autofocus: true, :onkeyup => "updateCount.call(this, 1300)", class: 'main', id: 'message' %>
+    <%= f.text_area :message, autofocus: true, :onkeyup => "updateCount.call(this, 1300)", class: 'main', id: 'campaign_textarea' %>
     <span class="characters"></span>
     <%= f.hidden_field :current_step, :value => "step_2" %>
   <% end %>

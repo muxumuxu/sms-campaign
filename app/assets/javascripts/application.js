@@ -33,7 +33,19 @@ function closeModal() {
   $('.overlay-modal').addClass('invisible');
 }
 
+function updateTextBubble() {
+  var textArea = $("#campaign_textarea");
+  var text = textArea.val();
+  var bubbleMessage = $("#message-bubble");
+  var shouldHideBubble = (text == "" || text == null);
+  bubbleMessage.css("display", shouldHideBubble ? "none" : "block");
+  bubbleMessage.html(text);
+}
+
 $(document).on('turbolinks:load', function() {
+
+  /// The code is executed when the document is ready
+  
   $('#cbox1').change(function() {
     if($(this).is(":checked")) {
       $('.add-contact').attr({
@@ -58,13 +70,7 @@ $(document).on('turbolinks:load', function() {
       $(this).val("").val(theVal);
   });
 
-  $("#message").keyup(function(){
-      if($(this).val() == ""){
-         $('#message-bubble').css('display','none');
-      } else {
-         $('#message-bubble').css('display','block');
-      }
-     $("#message-bubble").html($(this).val());
-     // $("#user-code").text($(this).val()); // If you want html code to be escaped
-  });
+  $("#campaign_textarea").keyup(updateTextBubble);
+
+  updateTextBubble();
 });

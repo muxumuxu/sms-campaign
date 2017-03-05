@@ -23,6 +23,12 @@ class ContactsController < ApplicationController
   def edit
   end
 
+  def import
+    # Import from CSV file
+    uploaded_file = params[:file]
+    
+  end
+
   def update
     @contact.update(contact_params)
     if @contact.save

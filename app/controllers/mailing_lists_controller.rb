@@ -18,7 +18,11 @@ class MailingListsController < ApplicationController
     @mailing_list = MailingList.new(mailing_list_params)
     @mailing_list.user = current_user
     if @mailing_list.save
-      redirect_to :action => :index
+      if params[:mailing_list][:import_type] == "csv"
+        redirect_to :action => :import_csv, :id => @mailing_list.id
+      else
+        redirect_to :action => :index
+      end
     else
       render :new
     end
@@ -57,8 +61,6 @@ class MailingListsController < ApplicationController
   end
 
   def mailing_list_params
-    params.require(:mailing_list).permit(
-      :name
-      )
+    params.require(:mailing_list).permit(:name, :import_type).except(:import_type)
   end
 end
