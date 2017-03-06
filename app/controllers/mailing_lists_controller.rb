@@ -60,7 +60,7 @@ class MailingListsController < ApplicationController
     end
 
     CSV.parse(csv_contents) do |row|
-      contact = Contact.where(phone_number: row[0], mailing_list_id: @mailing_list.id)
+      contact = Contact.where(phone_number: row[0], mailing_list_id: @mailing_list.id).first
       contact = Contact.new if contact.nil? 
       
       contact = Contact.new

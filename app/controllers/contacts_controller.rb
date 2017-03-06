@@ -10,8 +10,12 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact = Contact.new(contact_params)
-    mailing_list = MailingList.find(params[:contact][:mailing_list_id])
+    mailing_list_id = params[:contact][:mailing_list_id]
+    phone = contact_params[:phone_number]
+    @contact = Contact.where(phone_number: phone, mailing_list_id: mailing_list_id).first
+    @contact = Contact.new() if @contact.nil?
+    @contact.update(contact_params)
+    mailing_list = MailingList.find(mailing_list_id)
     @contact.mailing_list = mailing_list
     if @contact.save
       redirect_to mailing_list
