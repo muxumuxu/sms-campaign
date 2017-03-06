@@ -1,5 +1,5 @@
 class MailingList < ApplicationRecord
-  has_many :contacts
+  has_many :contacts, dependent: :destroy
   has_many :campaigns
   validates :name, presence: true
   default_scope -> { order(name: :ASC) }
