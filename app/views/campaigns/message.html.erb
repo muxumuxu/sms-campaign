@@ -35,7 +35,7 @@
   <span class="substitute-text" style="cursor: pointer;" onclick="addVariable('Firstname');">Prénom</span>
   <span class="substitute-text" style="cursor: pointer;" onclick="addVariable('Lastname');">Nom</span>
   <%= form_for @campaign do |f| %>
-    <%= f.text_area :message, autofocus: true, :onkeyup => "updateCount();", class: 'main', id: 'campaign_textarea' %>
+    <%= f.text_area :message, autofocus: true, class: 'main', id: 'campaign_textarea' %>
     <span class="characters"></span>
     <%= f.hidden_field :current_step, :value => "step_2" %>
   <% end %>

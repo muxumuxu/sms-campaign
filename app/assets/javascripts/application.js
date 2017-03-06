@@ -15,6 +15,20 @@
 //= require turbolinks
 //= require_tree .
 
+function openModal() {
+  $('.overlay-modal').addClass('visible');
+}
+
+function closeModal() {
+  $('.overlay-modal').addClass('invisible');
+}
+
+function updateMessageTextAreaInfos() {
+  updateTextBubble();
+  updateCount();
+}
+
+// When updating a campaign message, show the character count
 function updateCount() {
   var max = 1300;
   var textArea = $("#campaign_textarea");
@@ -25,14 +39,6 @@ function updateCount() {
   } else {
     $('.main').removeClass('background-red');
   }
-}
-
-function openModal() {
-  $('.overlay-modal').addClass('visible');
-}
-
-function closeModal() {
-  $('.overlay-modal').addClass('invisible');
 }
 
 // When modifying a campaign message, insert text in the green bubble
@@ -53,7 +59,9 @@ function addVariable(name) {
   var textToAdd = "{" + name + "}";
   var output = [text.slice(0, starting), textToAdd, text.slice(starting)].join("");
   textArea.val(output);
+  updateMessageTextAreaInfos();
 }
+
 
 $(document).on('turbolinks:load', function() {
 
@@ -78,8 +86,7 @@ $(document).on('turbolinks:load', function() {
     $('p.message').text(str.substring(0,85)).append('...');
   };
 
-  $("#campaign_textarea").keyup(updateTextBubble);
+  $("#campaign_textarea").keyup(updateMessageTextAreaInfos);
 
-  updateTextBubble();
-  updateCount();
+  updateMessageTextAreaInfos();
 });
