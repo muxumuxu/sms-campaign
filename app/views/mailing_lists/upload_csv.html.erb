@@ -27,7 +27,15 @@
 </div>
 
 <div class="wrapper form name">
-  <input type="file" name="upload-file" accept="image/*">
+  <form id="upload_csv" action="/mailing_lists/<%= @mailing_list.id %>/import_csv" method="post" enctype="multipart/form-data">
+    <input type="file" name="mailing_list[file]" id="mailing_list[file]" accept="text/*">
+  </form>
   <p>Fichiers acceptés : .csv</p>
   <p>Les doublons seront retirés. Nous n'enverrons pas de sms de confirmation à ces contacts, et nous vous faisons confiance sur l'acceptation de ces contacts de recevoir des sms de votre part.</p>
+</div>
+
+<div class="bottom fixed">
+  <div class="links-right">
+    <input type="submit" form="upload_csv" class="button green next" value="Suivant" name="commit">
+  </div>
 </div>

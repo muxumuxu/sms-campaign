@@ -6,7 +6,7 @@
   <div class="right-links">
     <%= link_to "", new_contact_path(:mailing_list_id => @mailing_list.id), class: "button grey contact" %>
     <%= link_to "Avancée", root_path, class: "button grey" %>
-    <%= link_to "Importer un .csv", root_path, class: "button green add import" %>
+    <%= link_to "Importer un .csv", upload_csv_mailing_list_path, class: "button green add import" %>
   </div>
 </div>
 
