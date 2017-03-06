@@ -35,7 +35,7 @@ class CampaignsController < ApplicationController
   end
 
   def update
-
+    
     # Validates fields are correctly filled
     case params[:campaign][:current_step]
     when "step_1"
@@ -59,7 +59,11 @@ class CampaignsController < ApplicationController
       @campaign.mailing_list = MailingList.find(mailing_list_id)
       @campaign.save
 
-      redirect_to :action => :message, :id => @campaign.id
+      if params[:commit] == "Enregistrer et quitter"
+        redirect_to root_path
+      else
+        redirect_to :action => :message, :id => @campaign.id
+      end
     when "step_2"
       if campaign_params[:message].blank?
         flash[:notice] = "You must provide a message"
