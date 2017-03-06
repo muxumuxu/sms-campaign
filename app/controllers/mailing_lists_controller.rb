@@ -34,7 +34,7 @@ class MailingListsController < ApplicationController
   def update
     @mailing_list.update(mailing_list_params)
     if @mailing_list.save
-      render :index
+      redirect_to :action => :index
     else
       render :edit
     end
