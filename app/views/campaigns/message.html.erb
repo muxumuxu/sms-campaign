@@ -32,10 +32,10 @@
 
 <div class="wrapper message">
   <h2>Personnaliser avec :</h2>
-  <a href="#">Prénom</a>
-  <a href="#">Nom</a>
+  <span class="substitute-text" style="cursor: pointer;" onclick="addVariable('Firstname');">Prénom</span>
+  <span class="substitute-text" style="cursor: pointer;" onclick="addVariable('Lastname');">Nom</span>
   <%= form_for @campaign do |f| %>
-    <%= f.text_area :message, autofocus: true, :onkeyup => "updateCount.call(this, 1300)", class: 'main', id: 'campaign_textarea' %>
+    <%= f.text_area :message, autofocus: true, :onkeyup => "updateCount();", class: 'main', id: 'campaign_textarea' %>
     <span class="characters"></span>
     <%= f.hidden_field :current_step, :value => "step_2" %>
   <% end %>

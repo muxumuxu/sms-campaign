@@ -96,7 +96,7 @@
   max-width: 600px;
 }
 
-.wrapper.message a {
+.wrapper.message span.substitute-text {
   text-decoration: none;
   background-color: #EAF1FC;
   background-image: url(blue-add.svg);
@@ -142,7 +142,7 @@
   color: white;
   font-size: 12px;
   padding: 16px;
-  white-space: pre;
+  white-space: pre-line;
 }
 
 /* Campaign#preview */

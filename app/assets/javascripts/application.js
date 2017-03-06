@@ -15,10 +15,12 @@
 //= require turbolinks
 //= require_tree .
 
-function updateCount(max) {
-  var cs = $(this).val().length;
+function updateCount() {
+  var max = 1300;
+  var textArea = $("#campaign_textarea");
+  var cs = textArea.val().length;
   $('.characters').text(cs + "/" + max);
-    if (cs > 1300) {
+    if (cs > max) {
     $('.main').addClass('background-red');
   } else {
     $('.main').removeClass('background-red');
@@ -33,6 +35,7 @@ function closeModal() {
   $('.overlay-modal').addClass('invisible');
 }
 
+// When modifying a campaign message, insert text in the green bubble
 function updateTextBubble() {
   var textArea = $("#campaign_textarea");
   var text = textArea.val();
@@ -40,6 +43,16 @@ function updateTextBubble() {
   var shouldHideBubble = (text == "" || text == null);
   bubbleMessage.css("display", shouldHideBubble ? "none" : "block");
   bubbleMessage.html(text);
+}
+
+// When modifying a campaign message, insert the provided name placeholder to the cursor position in the text area
+function addVariable(name) {
+  var textArea = $("#campaign_textarea");
+  var text = textArea.val();
+  var starting = textArea.prop("selectionStart");
+  var textToAdd = "{" + name + "}";
+  var output = [text.slice(0, starting), textToAdd, text.slice(starting)].join("");
+  textArea.val(output);
 }
 
 $(document).on('turbolinks:load', function() {
@@ -65,12 +78,8 @@ $(document).on('turbolinks:load', function() {
     $('p.message').text(str.substring(0,85)).append('...');
   };
 
-  $('textarea').focus(function() {
-      var theVal = $(this).val();
-      $(this).val("").val(theVal);
-  });
-
   $("#campaign_textarea").keyup(updateTextBubble);
 
   updateTextBubble();
+  updateCount();
 });
