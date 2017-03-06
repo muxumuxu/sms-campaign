@@ -87,6 +87,7 @@ $(document).on('turbolinks:load', function() {
   };
 
   $("#campaign_textarea").keyup(updateMessageTextAreaInfos);
+  $("#campaign_textarea").onchange(updateMessageTextAreaInfos);
 
   updateMessageTextAreaInfos();
 });
