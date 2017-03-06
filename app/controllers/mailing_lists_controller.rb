@@ -58,15 +58,16 @@ class MailingListsController < ApplicationController
     end
 
     CSV.parse(csv_contents) do |row|
-      if Contact.where(phone_number: row[0], mailing_list_id: @mailing_list.id).count == 0
-        contact = Contact.new
-        contact.phone_number = row[0]
-        contact.first_name = row[1]
-        contact.last_name = row[2]
-        contact.zip_code = row[3]
-        contact.mailing_list_id = @mailing_list.id
-        contact.save!
-      end
+      contact = Contact.where(phone_number: row[0], mailing_list_id: @mailing_list.id)
+      contact = Contact.new if contact.nil? 
+      
+      contact = Contact.new
+      contact.phone_number = row[0]
+      contact.first_name = row[1]
+      contact.last_name = row[2]
+      contact.zip_code = row[3]
+      contact.mailing_list_id = @mailing_list.id
+      contact.save!
     end
 
     redirect_to :action => :index
