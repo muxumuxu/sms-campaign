@@ -297,9 +297,16 @@ textarea:focus {
   width: 100%;
   border: 1px solid #CFCFCF;
   border-radius: 4px;
-  height: 55px;
+  height: 53px;
   margin-top: 5px;
   cursor: pointer;
+}
+.wrapper.form.csv label .browse p {
+  float: left;
+  opacity: 0.8;
+  margin-left: 18px;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 .wrapper.form.csv label .browse span {

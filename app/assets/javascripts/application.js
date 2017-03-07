@@ -95,7 +95,7 @@ $(document).on('turbolinks:load', function() {
 
   var mailingListInput = $("#mailing_list\\[file\\]");
   if (mailingListInput.length > 0) {
-    mailingListInput.on("change", function(){ 
+    mailingListInput.on("change", function(){
       var path = mailingListInput.val();
       var lastPath = path.substr(path.lastIndexOf('\\') + 1);
       $("#filename").html(lastPath);
