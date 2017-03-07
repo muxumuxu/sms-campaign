@@ -31,20 +31,12 @@
   margin-bottom: 34px;
 }
 
-.wrapper.form.session input[type=checkbox] {
-  display: inline-block;
-  width: 25px;
-  height: 15px;
-  margin-left: 3px;
-  transform: scale(1.5);
+.wrapper.form.session.checkboxes {
+  padding-bottom: 48px;
 }
 
-.wrapper.form.session .checkbox {
-  padding-bottom: 40px;
-}
-
-.wrapper.form.session .checkbox h2 {
-  margin-top: 25px;
+.wrapper.form.session.checkboxes .checkbox {
+  margin-top: 12px;
 }
 
 .wrapper.form.session .links {
