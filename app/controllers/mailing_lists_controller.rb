@@ -63,7 +63,6 @@ class MailingListsController < ApplicationController
       contact = Contact.where(phone_number: row[0], mailing_list_id: @mailing_list.id).first
       contact = Contact.new if contact.nil?
 
-      contact = Contact.new
       contact.phone_number = row[0]
       contact.first_name = row[1]
       contact.last_name = row[2]
