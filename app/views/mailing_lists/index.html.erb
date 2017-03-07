@@ -13,7 +13,7 @@
     <% @mailing_lists.each do |list| %>
       <div class="list-item">
         <%= link_to list.name, mailing_list_path(list.id), class: "campaign-link" %>
-        <p><%= list.contacts.count %><%= " recipient".pluralize(list.contacts.count) %></p>
+        <p><%= list.contacts.count %><%= " destinaires".pluralize(list.contacts.count) %></p>
         <div class="links">
           <%= link_to "", new_contact_path(:mailing_list_id => list.id), class: "button grey contact" %>
           <%= link_to "Modifier", mailing_list_path(list.id), class: "button grey" %>

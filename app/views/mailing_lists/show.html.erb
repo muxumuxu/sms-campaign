@@ -2,7 +2,7 @@
 
 <div class="wrapper top show">
   <h1><%= @mailing_list.name %></h1>
-  <span><%= @mailing_list.contacts.count %><%= " recipient".pluralize(@mailing_list.contacts.count) %></span>
+  <span><%= @mailing_list.contacts.count %><%= " destinaires".pluralize(@mailing_list.contacts.count) %></span>
   <div class="right-links">
     <%= link_to "", new_contact_path(:mailing_list_id => @mailing_list.id), class: "button grey contact" %>
     <%= link_to "Avancée", edit_mailing_list_path, class: "button grey" %>
