@@ -347,6 +347,11 @@ textarea:focus {
   opacity: 0.8;
 }
 
+.wrapper.form.csv a.csv-type {
+  text-decoration: none;
+  color: #2D74EA;
+}
+
 .wrapper.form.csv p {
   font-size: 16px;
   opacity: 0.5;
