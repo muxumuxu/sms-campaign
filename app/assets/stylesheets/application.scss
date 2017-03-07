@@ -305,6 +305,58 @@ textarea:focus {
   margin-left: 25px;
 }
 
+.wrapper.form.csv {
+  margin: 35px auto 200px;
+}
+
+/* Wrapper form CSV section */
+
+.wrapper.form.csv input[type=file] {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.wrapper.form.csv label {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.wrapper.form.csv label .browse {
+  width: 100%;
+  border: 1px solid #CFCFCF;
+  border-radius: 4px;
+  height: 55px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.wrapper.form.csv label .browse span {
+  border-radius: 4px;
+  color: black;
+  font-weight: 600;
+  background-color: #F7F7F7;
+  border-left: 1px solid #CFCFCF;
+  float: right;
+  height: 100%;
+  line-height: 54px;
+  padding: 0 28px;
+  opacity: 0.8;
+}
+
+.wrapper.form.csv p {
+  font-size: 16px;
+  opacity: 0.5;
+}
+
+.wrapper.form.csv p.allowed {
+  font-size: 14px;
+  opacity: 1;
+}
+
 .wrapper.form.links {
   padding-bottom: 90px;
 }

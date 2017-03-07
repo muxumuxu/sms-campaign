@@ -26,11 +26,16 @@
   <h1>Import de fichier .CSV</h1>
 </div>
 
-<div class="wrapper form name">
+<div class="wrapper form csv">
   <form id="upload_csv" action="/mailing_lists/<%= @mailing_list.id %>/import_csv" method="post" enctype="multipart/form-data">
-    <input type="file" name="mailing_list[file]" id="mailing_list[file]" accept="text/*">
+    <input type="file" name="mailing_list[file]" id="mailing_list[file]" accept="text/*" data-caption="{filename}" class="inputfile">
+    <label for="mailing_list[file]">Ajouter un document
+      <div class="browse">
+        <span>Parcourir</span>
+      </div>
+    </label>
   </form>
-  <p>Fichiers acceptés : .csv</p>
+  <p class="allowed">Fichiers acceptés : .csv</p>
   <p>Les doublons seront retirés. Nous n'enverrons pas de sms de confirmation à ces contacts, et nous vous faisons confiance sur l'acceptation de ces contacts de recevoir des sms de votre part.</p>
 </div>
 
