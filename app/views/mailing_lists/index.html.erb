@@ -16,7 +16,7 @@
         <p><%= list.contacts.count %><%= " recipient".pluralize(list.contacts.count) %></p>
         <div class="links">
           <%= link_to "", new_contact_path(:mailing_list_id => list.id), class: "button grey contact" %>
-          <%= link_to "Modifier", edit_mailing_list_path(list.id), class: "button grey" %>
+          <%= link_to "Modifier", mailing_list_path(list.id), class: "button grey" %>
         </div>
       </div>
     <% end %>
