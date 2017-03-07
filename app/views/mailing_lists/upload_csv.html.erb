@@ -30,6 +30,7 @@
   <form id="upload_csv" action="/mailing_lists/<%= @mailing_list.id %>/import_csv" method="post" enctype="multipart/form-data">
     <input type="file" name="mailing_list[file]" id="mailing_list[file]" accept="text/*" class="inputfile">
     <label for="mailing_list[file]">Ajouter un document
+      <p id="filename"></p>
       <div class="browse" id="filename">
         <span>Parcourir</span>
       </div>

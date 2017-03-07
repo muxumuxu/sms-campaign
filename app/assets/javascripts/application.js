@@ -86,15 +86,19 @@ $(document).on('turbolinks:load', function() {
     $('p.message').text(str.substring(0,85)).append('...');
   };
 
-  $("#campaign_textarea").keyup(updateMessageTextAreaInfos);
-  $("#campaign_textarea").on('change', updateMessageTextAreaInfos);
+  var textArea = $("#campaign_textarea");
+  if (textArea.length > 0) {
+    textArea.keyup(updateMessageTextAreaInfos);
+    textArea.on('change', updateMessageTextAreaInfos);
+    updateMessageTextAreaInfos();
+  }
 
-  updateMessageTextAreaInfos();
-
-});
-
-/// Display name of the csv file
-$('#mailing_list[file]').on('change',function(){
-  var file = document.getElementById('mailing_list[file]').files[0];
-  console.log(file);
+  var mailingListInput = $("#mailing_list\\[file\\]");
+  if (mailingListInput.length > 0) {
+    mailingListInput.on("change", function(){ 
+      var path = mailingListInput.val();
+      var lastPath = path.substr(path.lastIndexOf('\\') + 1);
+      $("#filename").html(lastPath);
+    });
+  }
 });
