@@ -12,6 +12,9 @@
       <%= link_to "Modifier", name_campaign_path(@campaign.id), class: "button grey" %>
     </div>
   </div>
+  <%= form_for @campaign do |f| %>
+    <%= f.hidden_field :current_step, :value => "step_3" %>
+  <% end %>
   <div class="list-item">
     <%= image_tag "green-check.svg" %>
     <h2>Contenu</h2>

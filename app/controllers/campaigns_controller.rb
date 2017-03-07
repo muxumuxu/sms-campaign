@@ -35,9 +35,10 @@ class CampaignsController < ApplicationController
   end
 
   def update
-    
+
     # Validates fields are correctly filled
     case params[:campaign][:current_step]
+      
     when "step_1"
       # Check if name exist
       if campaign_params[:name].blank?
@@ -64,7 +65,9 @@ class CampaignsController < ApplicationController
       else
         redirect_to :action => :message, :id => @campaign.id
       end
+
     when "step_2"
+
       if campaign_params[:message].blank?
         flash[:notice] = "You must provide a message"
         redirect_to :action => :message, :id => @campaign.id
@@ -74,9 +77,21 @@ class CampaignsController < ApplicationController
       @campaign.message = campaign_params[:message]
       @campaign.save
 
-      redirect_to :action => :preview, :id => @campaign.id
-    # when "step_3"
-    #   redirect_to :action => :schedule, :id => @campaign.id
+      if params[:commit] == "Enregistrer et quitter"
+        redirect_to root_path
+      else
+        redirect_to :action => :preview, :id => @campaign.id
+      end
+
+    when "step_3"
+
+      @campaign.save
+
+      if params[:commit] == "Enregistrer et quitter"
+        redirect_to root_path
+      else
+        redirect_to :action => :schedule, :id => @campaign.id
+      end
     end
   end
 

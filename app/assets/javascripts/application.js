@@ -66,7 +66,7 @@ function addVariable(name) {
 $(document).on('turbolinks:load', function() {
 
   /// The code is executed when the document is ready
-  
+
   $('#cbox1').change(function() {
     if($(this).is(":checked")) {
       $('.add-contact').attr({
@@ -87,7 +87,7 @@ $(document).on('turbolinks:load', function() {
   };
 
   $("#campaign_textarea").keyup(updateMessageTextAreaInfos);
-  $("#campaign_textarea").onchange(updateMessageTextAreaInfos);
+  $("#campaign_textarea").on('change', updateMessageTextAreaInfos);
 
   updateMessageTextAreaInfos();
 });
