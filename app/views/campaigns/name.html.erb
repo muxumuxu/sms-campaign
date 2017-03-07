@@ -30,22 +30,25 @@
 
 <% if @mailing_lists.any? %>
 
-  <div class="wrapper form name">
+  <div class="wrapper form select name">
     <h2>Quel est le nom de votre campagne ?</h2><span>*</span>
     <%= form_for @campaign do |f| %>
       <%= f.text_field :name, class: 'main', autofocus: true, onfocus: "this.value = this.value;", value: @campaign.name %>
       <h2>A qui souhaitez-vous envoyer votre SMS ?</h2><span>*</span>
       <input type="text" placeholder="Recherche parmis vos listes de destinataires..." />
-      <% @mailing_lists.each do |list| %>
-        <label>
-          <%= f.radio_button :mailing_list, list.id, checked: @campaign.mailing_list && @campaign.mailing_list.id == list.id %>
-          <div class="label-content">
-            <h3><%= list.name %></h3>
-            <p><%= list.contacts.count %><%= " destinataires".pluralize(list.contacts.count)%></p>
-          </div>
-        </label>
+      <ul>
+        <% @mailing_lists.each do |list| %>
+          <li>
+            <%= f.radio_button :mailing_list, list.id, checked: @campaign.mailing_list && @campaign.mailing_list.id == list.id, id: list.name %>
+            <label for="<%= list.name %>">
+              <%= list.name %>
+              <span><%= list.contacts.count %><%= " destinataires".pluralize(list.contacts.count)%></span>
+            </label>
+            <div class="check"><div class="inside"></div></div>
+          </li>
+        <% end %>
+      <ul>
       <%= f.hidden_field :current_step, :value => "step_1" %>
-      <% end %>
     <% end %>
   </div>
 

@@ -90,6 +90,11 @@ $(document).on('turbolinks:load', function() {
   $("#campaign_textarea").on('change', updateMessageTextAreaInfos);
 
   updateMessageTextAreaInfos();
+
 });
 
 /// Display name of the csv file
+$('#mailing_list[file]').on('change',function(){
+  var file = document.getElementById('mailing_list[file]').files[0];
+  console.log(file);
+});

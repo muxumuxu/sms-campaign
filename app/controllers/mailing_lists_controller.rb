@@ -26,7 +26,7 @@ class MailingListsController < ApplicationController
       if params[:mailing_list][:import_type] == "csv"
         redirect_to :action => :upload_csv, :id => @mailing_list.id
       else
-        redirect_to :action => :index
+        redirect_to :action => :show, :id => @mailing_list.id
       end
     else
       render :new
@@ -72,7 +72,7 @@ class MailingListsController < ApplicationController
       contact.save!
     end
 
-    redirect_to :action => :show, :id => @mailing_list.id
+    redirect_to :action => :import_csv_results
   end
 
   def import_csv_results

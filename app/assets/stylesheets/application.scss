@@ -272,44 +272,12 @@ textarea:focus {
   padding: 9px 0px 9px 20px;
 }
 
-.wrapper.form.name h3 {
-  font-weight: 500;
-  margin-bottom: 0;
-}
 
-.wrapper.form.name p {
-  margin-top: 0;
-  opacity: 0.5;
-}
-
-.wrapper.form.name label {
-  display: block;
-  border-bottom: 1px solid #EAEAEA;
-  padding-left: 25px;
-  cursor: pointer;
-}
-
-.wrapper.form.name label:last-child {
-  margin-bottom: 170px;
-}
-
-.wrapper.form.name input[type=radio] {
-  width: 15px;
-  height: 45px;
-  transform: scale(1.5);
-  cursor: pointer;
-}
-
-.wrapper.form.name .label-content {
-  display: inline-block;
-  margin-left: 25px;
-}
+/* Wrapper form CSV section */
 
 .wrapper.form.csv {
   margin: 35px auto 200px;
 }
-
-/* Wrapper form CSV section */
 
 .wrapper.form.csv input[type=file] {
 	width: 0.1px;
@@ -421,12 +389,108 @@ textarea:focus {
   right: 0px;
 }
 
+/* MailingList#new et Campaign#name */
+
+.wrapper.form.select ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 25px;
+}
+
+.wrapper.form.select ul li {
+  border-bottom: 1px solid #E7E7E7;
+  position: relative;
+  height: 60px;
+}
+
+.wrapper.form.select ul li label {
+  font-size: 18px;
+  font-weight: 500;
+  display: block;
+  border: none;
+  position: relative;
+  padding: 16px 0px 30px 85px;
+  height: 30px;
+  z-index: 9;
+  cursor: pointer;
+  -webkit-transition: all 0.25s linear;
+}
+
+.wrapper.form.select ul li input[type=radio]{
+  position: absolute;
+  visibility: hidden;
+}
+
+.wrapper.form.select ul li .check{
+  display: block;
+  position: absolute;
+  border: 2px solid #D6D6D6;
+  border-radius: 100%;
+  height: 22px;
+  width: 22px;
+  top: 17px;
+  left: 30px;
+	z-index: 5;
+}
+
+.wrapper.form.select ul li:hover .check {
+  border: 2px solid #2D74EA;
+}
+
+.wrapper.form.select ul li .check::before {
+  display: block;
+  position: absolute;
+	content: '';
+  border-radius: 100%;
+  height: 16px;
+  width: 16px;
+  top: 3px;
+	left: 3px;
+  margin: auto;
+	transition: background 0.25s linear;
+	-webkit-transition: background 0.25s linear;
+}
+
+.wrapper.form.select input[type=radio]:checked ~ .check {
+  border: 2px solid #2D74EA;
+}
+
+.wrapper.form.select input[type=radio]:checked ~ .check::before{
+  background: #2D74EA;
+}
+
+.wrapper.form.select.name {
+  margin-bottom: 150px;
+}
+
+.wrapper.form.select.name ul li {
+  height: 99px;
+}
+
+.wrapper.form.select.name ul li label {
+  padding: 22px 0px 30px 85px;
+}
+
+.wrapper.form.select.name ul li label span {
+  display: block;
+  font-size: 16px;
+  opacity: 0.5;
+  color: black;
+  font-weight: 400;
+  margin: 0;
+}
+
+.wrapper.form.name ul li .check {
+  top: 37px;
+}
+
 /* Footer */
 
 .bottom {
   background-color: #F7F7F7;
   height: 85px;
   position: relative;
+  z-index: 1000;
 }
 
 .bottom ul {

@@ -16,7 +16,7 @@
     <nav>
       <ul>
         <li><%= link_to "Aide", root_path, class: "help" %></li>
-        <li><%= link_to "Annuler", root_path, class: "save" %></li>
+        <li><a onclick="window.history.back()" class="cancel">Annuler</a></li>
       </ul>
     </nav>
   </div>
@@ -30,7 +30,7 @@
   <form id="upload_csv" action="/mailing_lists/<%= @mailing_list.id %>/import_csv" method="post" enctype="multipart/form-data">
     <input type="file" name="mailing_list[file]" id="mailing_list[file]" accept="text/*" class="inputfile">
     <label for="mailing_list[file]">Ajouter un document
-      <div class="browse">
+      <div class="browse" id="filename">
         <span>Parcourir</span>
       </div>
     </label>

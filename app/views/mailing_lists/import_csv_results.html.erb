@@ -1,0 +1,23 @@
+<header class="campaign">
+  <div class="left">
+    <nav>
+      <ul>
+        <li>
+          <%= link_to root_path do %>
+            <%= image_tag "icon.svg", class: "icon"  %>
+          <% end %>
+        </li>
+        <li><%= @mailing_list.name %></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="right">
+    <nav>
+      <ul>
+        <li><%= link_to "Aide", root_path, class: "help" %></li>
+        <li><a onclick="window.history.back()" class="cancel">Annuler</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

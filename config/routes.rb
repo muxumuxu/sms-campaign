@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     member do
       get :upload_csv
       post :import_csv
+      get :import_csv_results
     end
   end
   resources :contacts

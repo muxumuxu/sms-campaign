@@ -95,6 +95,12 @@ header.campaign input[type=submit].save {
   font-size: 16px;
 }
 
+header a.cancel {
+  color: #2D74EA;
+  margin: 0;
+  opacity: 1;
+}
+
 /* LOG IN/OUT NAVBAR */
 
 header.session .right a {
