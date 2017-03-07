@@ -50,7 +50,7 @@ class MailingListsController < ApplicationController
 
   def import_csv
     file_data = upload_file_params[:file]
-    
+
     if file_data.respond_to?(:read)
       csv_contents = file_data.read
     elsif file_data.respond_to?(:path)
@@ -61,8 +61,8 @@ class MailingListsController < ApplicationController
 
     CSV.parse(csv_contents) do |row|
       contact = Contact.where(phone_number: row[0], mailing_list_id: @mailing_list.id).first
-      contact = Contact.new if contact.nil? 
-      
+      contact = Contact.new if contact.nil?
+
       contact = Contact.new
       contact.phone_number = row[0]
       contact.first_name = row[1]
@@ -72,7 +72,7 @@ class MailingListsController < ApplicationController
       contact.save!
     end
 
-    redirect_to :action => :index
+    redirect_to :action => :show, :id => @mailing_list.id
   end
 
   def import_csv_results
