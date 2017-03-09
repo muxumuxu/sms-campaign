@@ -38,11 +38,10 @@ class CampaignsController < ApplicationController
 
     # Validates fields are correctly filled
     case params[:campaign][:current_step]
-      
+
     when "step_1"
       # Check if name exist
       if campaign_params[:name].blank?
-        flash[:notice] = "You must provide a name"
         redirect_to :action => :name, :id => @campaign.id
         return
       end
@@ -52,7 +51,6 @@ class CampaignsController < ApplicationController
       # Check if mailing list selected
       mailing_list_id = params[:campaign][:mailing_list]
       if mailing_list_id.blank?
-        flash[:notice] = "You must select a mailing list"
         redirect_to :action => :name, :id => @campaign.id
         return
       end
@@ -69,7 +67,6 @@ class CampaignsController < ApplicationController
     when "step_2"
 
       if campaign_params[:message].blank?
-        flash[:notice] = "You must provide a message"
         redirect_to :action => :message, :id => @campaign.id
         return
       end
