@@ -6,7 +6,9 @@
     <strong><%= @campaign.mailing_list.name if @campaign.mailing_list %></strong>
     <strong><%= @campaign.mailing_list.contacts.count %><%= " destinataires".pluralize(@campaign.mailing_list.contacts.count) %></strong>
     <p class="padded">Le décollage est imminent !</p>
-    <input type="submit" form="campaigns_new_message" class="button green" value="Envoyer maintenant">
+
+    <%= link_to "Envoyer maintenant", send_now_campaign_path(@campaign), :method => :post, :class => "button green" %>
+    
     <%= link_to "Annuler", onclick: "closeModal" %>
   </div>
 </div>

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get :message
       get :preview
       get :schedule
+      post :send_now
     end
   end
   resources :mailing_lists do

@@ -1,5 +1,11 @@
+require 'messagebird'
+
 class CampaignsController < ApplicationController
-  before_action :set_campaign, only: [:name, :edit, :update, :message, :preview, :schedule, :destroy]
+  before_action :set_campaign, only: [ 
+    :name, :edit, :update, 
+    :message, :preview, :schedule, 
+    :send_now, :destroy 
+  ]
 
   def index
 	  Campaign.where("name is null").destroy_all
@@ -28,12 +34,32 @@ class CampaignsController < ApplicationController
   def schedule
   end
 
+  def send_now
+    mailing_list = @campaign.mailing_list
+    contacts = mailing_list.contacts
+
+    begin
+      client = MessageBird::Client.new(ENV['MESSAGEBIRD_ACCESS_KEY'])
+      contacts.each do |contact|
+        contact.messagebird_ref = SecureRandom.base64.to_s
+        client.message_create("+33649886416", contact.phone_number, @campaign.message, {
+          reference: contact.messagebird_ref
+        })
+        contact.save!
+      end
+      redirect_to :action => :index
+    rescue Exception => ex
+      raise ex.inspect
+    end
+  end
+
   def create
   end
 
   def edit
   end
 
+  # Handle each step of the workflow
   def update
 
     # Validates fields are correctly filled

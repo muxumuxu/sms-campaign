@@ -36,6 +36,10 @@ gem 'jbuilder', '~> 2.5'
 # For sending mails
 gem 'postmark-rails'
 
+# For scheduling sms
+gem 'messagebird'
+gem 'messagebird-rest', :git => "https://github.com/dmiotti/ruby-rest-api"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
