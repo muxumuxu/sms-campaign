@@ -28,7 +28,7 @@
         <div class="list-item">
           <%= image_tag "green-check.svg" %>
           <%= link_to campaign.name, name_campaign_path(campaign.id), class: "campaign-link" %>
-          <p><strong>Envoyé</strong> | Gironde list. (9 recipients)</p>
+          <p><strong>Campagne envoyée</strong> le <%= DateTime.parse("#{campaign.sent_at}").strftime("%d/%m/%y à %H:%I") %> | <%= campaign.mailing_list.name %> (<%= campaign.mailing_list.contacts.count %><%= " destinataires".pluralize(campaign.mailing_list.contacts.count)%>)</p>
         </div>
       <% end %>
     <% end %>
