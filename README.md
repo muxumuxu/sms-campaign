@@ -20,6 +20,5 @@ docker-compose up
 ## Deployment
 
 ```
-docker-compose run web rails assets:precompile
-heroku container:push --web sms-campaign
+./deploy.sh
 ```
