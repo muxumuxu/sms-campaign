@@ -1,10 +1,10 @@
 require 'messagebird'
 
 class CampaignsController < ApplicationController
-  before_action :set_campaign, only: [ 
-    :name, :edit, :update, 
-    :message, :preview, :schedule, 
-    :send_now, :destroy 
+  before_action :set_campaign, only: [
+    :name, :edit, :update,
+    :message, :preview, :schedule,
+    :send_now, :destroy
   ]
 
   def index
@@ -47,6 +47,8 @@ class CampaignsController < ApplicationController
         })
         contact.save!
       end
+      @campaign.sent_at = DateTime.now
+      @campaign.save!
       redirect_to :action => :index
     rescue Exception => ex
       raise ex.inspect
