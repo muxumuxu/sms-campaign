@@ -16,3 +16,10 @@ MESSAGEBIRD_ACCESS_KEY=test_mMpKiR0501S86Ph3heX5fACiu
 docker-compose build
 docker-compose up
 ```
+
+## Deployment
+
+```
+docker-compose run web rails assets:precompile
+heroku container:push --web sms-campaign
+```
