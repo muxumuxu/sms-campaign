@@ -46,14 +46,14 @@ a.grey {
 }
 
 a.add {
-  background-image: url(add.svg);
+  background-image: image-url("add.svg");
   background-repeat: no-repeat;
   background-position: 263px 17px;
   padding: 10px 50px 10px 20px;
 }
 
 a.previous {
-  background-image: url(previous.svg);
+  background-image: image-url("previous.svg");
   background-repeat: no-repeat;
   background-position: 19px 17px;
   padding: 10px 20px 10px 50px;
@@ -62,7 +62,7 @@ a.previous {
 }
 
 a.contact {
-  background-image: url(add-contact.svg);
+  background-image: image-url("add-contact.svg");
   background-repeat: no-repeat;
   margin-right: 13px;
   padding: 10px 27px;
@@ -94,7 +94,7 @@ a.modify {
 }
 
 a.back {
-  background-image: url(back-arrow.svg);
+  background-image: image-url("back-arrow.svg");
   background-repeat: no-repeat;
   padding: 10px 37px;
   background-position: 26px 16px;
@@ -144,7 +144,7 @@ input[type=submit].send {
 }
 
 input[type=submit].next {
-  background-image: url(next.svg);
+  background-image: image-url("next.svg");
   background-repeat: no-repeat;
   background-position: 91px 17px;
   padding: 10px 50px 10px 18px;

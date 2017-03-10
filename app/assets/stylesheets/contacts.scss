@@ -39,6 +39,6 @@
 }
 
 .wrapper.form.checkboxes .checkbox input[type="checkbox"]:checked + label:before {
-  background: #2D74EA url(check.svg) no-repeat center center;
+  background: #2D74EA image-url("check.svg") no-repeat center center;
   border: 2px solid #2D74EA;
 }
