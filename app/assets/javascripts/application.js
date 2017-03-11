@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require datepicker
 
 function openModal() {
   $('.overlay-modal').addClass('visible');
@@ -125,4 +126,9 @@ $(document).on('turbolinks:load', function() {
     campaignNameInput.on('input', checkName);
     checkName();
   }
+
+  $('[data-toggle="datepicker"]').datepicker({
+    startDate: Date.now(),
+    format: 'dd/mm/yyyy'
+  });
 });

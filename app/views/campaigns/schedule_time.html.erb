@@ -1,0 +1,52 @@
+<header class="campaign">
+  <div class="left">
+    <nav>
+      <ul>
+        <li>
+          <%= link_to root_path do %>
+            <%= image_tag "icon.svg", class: "icon"  %>
+          <% end %>
+        </li>
+        <li><%= @campaign.name %></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="right">
+    <nav>
+      <ul>
+        <li><%= link_to "Aide", root_path, class: "help" %></li>
+        <li><%= link_to "Tester", root_path, class: "help" %></li>
+        <li><input type="submit" form="edit_campaign_<%= @campaign.id %>" class="save" value="Enregistrer et quitter"></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<%= render 'shared/preview-content' %>
+
+<div class="wrapper schedule">
+  <div class="top">
+    <%= image_tag "time.svg" %>
+    <h2>Planifier</h2>
+    <p>Date d'envoi</p>
+  </div>
+
+  <div class="content">
+
+  <%= form_for @campaign, :url => url_for(:controller => 'campaigns', :action => 'schedule'), :method => 'post' do %>
+    <input type="hidden" name="campaign[current_step]" value="step_3" />
+    <input data-toggle="datepicker" name="campaign[start_on]" placeholder="Sélectionner une date" value="<%= @day %>">
+    <p>Heure d'envoi</p>
+    <input type="text" name="campaign[start_hour]" class="main time" placeholder="13" value="<%= @start_hour %>" />
+    <span>:</span>
+    <input type="text" name="campaign[start_min]" class="main time" placeholder="15" value="<%= @start_min %>" />
+  <% end %>
+
+  </div>
+</div>
+
+<div class="wrapper schedule links">
+  <input type="submit" form="edit_campaign_<%= @campaign.id %>" class="button green schedule" value="Planifier la campagne">
+  <a href="<%= preview_campaign_path(@campaign) %>" class="cancel">Annuler</a>
+</div>

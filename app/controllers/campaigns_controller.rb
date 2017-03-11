@@ -3,8 +3,8 @@ require 'messagebird'
 class CampaignsController < ApplicationController
   before_action :set_campaign, only: [
     :name, :edit, :update,
-    :message, :preview, :schedule,
-    :send_now, :destroy
+    :message, :preview, :schedule, 
+    :schedule_time, :send_now, :destroy
   ]
 
   def index
@@ -14,6 +14,7 @@ class CampaignsController < ApplicationController
     @campaigns = not_sent + sent
   end
 
+  # GET /new
   def new
     @campaign = Campaign.new
     @campaign.user = current_user
@@ -32,7 +33,23 @@ class CampaignsController < ApplicationController
   def preview
   end
 
+  def schedule_time
+    start_on = @campaign[:start_on]
+    @day = start_on.strftime("%d/%m/%Y")
+    @start_hour = start_on.hour
+    @start_min = start_on.min
+  end
+
   def schedule
+    # Extract a date with parameters
+    day = DateTime.parse(schedule_params[:start_on])
+    date = DateTime.new(
+      day.year, day.month, day.day, 
+      schedule_params[:start_hour].to_i, 
+      schedule_params[:start_min].to_i, 0, "+0200")
+    @campaign.start_on = date
+    @campaign.save!
+    redirect_to :action => :index
   end
 
   def send_now
@@ -116,7 +133,7 @@ class CampaignsController < ApplicationController
       if params[:commit] == "Enregistrer et quitter"
         redirect_to root_path
       else
-        redirect_to :action => :schedule, :id => @campaign.id
+        redirect_to :action => :schedule_time, :id => @campaign.id
       end
     end
   end
@@ -135,5 +152,10 @@ class CampaignsController < ApplicationController
     params.require(:campaign).permit(
       :name, :message
       ).except(:liste).except(:current_step)
+  end
+
+  def schedule_params
+    params.require(:campaign).permit(
+      :start_on, :start_hour, :start_min)
   end
 end

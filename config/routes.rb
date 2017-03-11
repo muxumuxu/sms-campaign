@@ -6,7 +6,8 @@ Rails.application.routes.draw do
       get :name
       get :message
       get :preview
-      get :schedule
+      get :schedule_time
+      post :schedule
       post :send_now
     end
   end

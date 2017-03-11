@@ -43,7 +43,7 @@
     </ul>
   </nav>
   <div class="links-right">
-    <%= link_to "Planifier", schedule_campaign_path(@campaign.id), class: "button grey" %>
+    <%= link_to "Planifier", schedule_time_campaign_path(@campaign.id), class: "button grey" %>
     <input type="submit" form="campaigns_new_message" class="button green send" value="Envoyer" onclick="openModal()">
   </div>
 </div>
