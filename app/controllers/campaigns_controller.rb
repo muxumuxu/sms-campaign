@@ -23,6 +23,7 @@ class CampaignsController < ApplicationController
 
   def name
     @mailing_lists = MailingList.where("user_id = #{current_user.id}")
+    @campaign.mailing_list = @mailing_lists.first if @campaign.mailing_list.nil?
   end
 
   def message

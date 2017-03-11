@@ -31,10 +31,10 @@
   <div class="wrapper form select name">
     <h2>Quel est le nom de votre campagne ?</h2><span>*</span>
     <%= form_for @campaign do |f| %>
-      <%= f.text_field :name, class: 'main', autofocus: true, onfocus: "this.value = this.value;", value: @campaign.name %>
+      <%= f.text_field :name, class: 'main', autofocus: true, onfocus: "this.value = this.value;", value: @campaign.name, id: 'campaign_name' %>
       <h2>A qui souhaitez-vous envoyer votre SMS ?</h2><span>*</span>
       <input type="text" placeholder="Recherche parmis vos listes de destinataires..." />
-      <ul>
+      <ul id="new_campaign_mailing_lists">
         <% @mailing_lists.each do |list| %>
           <li>
             <%= f.radio_button :mailing_list, list.id, checked: @campaign.mailing_list && @campaign.mailing_list.id == list.id, id: list.name %>
@@ -72,7 +72,7 @@
   </nav>
   <% if @mailing_lists.any? %>
     <div class="links-right">
-      <input type="submit" form="edit_campaign_<%= @campaign.id %>" class="button green next" value="Suivant" name="commit">
+      <input type="submit" id="submit-campaign" form="edit_campaign_<%= @campaign.id %>" class="button inactive green next" value="Suivant" name="commit" disabled>
     </div>
   <% end %>
 </div>

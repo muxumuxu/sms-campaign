@@ -26,6 +26,7 @@ function closeModal() {
 function updateMessageTextAreaInfos() {
   updateTextBubble();
   updateCount();
+  checkCampaignMessage();
 }
 
 // When updating a campaign message, show the character count
@@ -62,6 +63,27 @@ function addVariable(name) {
   updateMessageTextAreaInfos();
 }
 
+// Check if campaign name input is empty on new campaign
+function checkName() {
+  var shouldActivate = $('#campaign_name').val().length > 0;
+  activateCampaignSubmitButton(shouldActivate);
+};
+
+function checkCampaignMessage() {
+  var shouldActivate = $("#campaign_textarea").val().length > 0;
+  activateCampaignSubmitButton(shouldActivate);
+}
+
+function activateCampaignSubmitButton(value) {
+  var submitButton = $('#submit-campaign');
+  if (value) {
+    submitButton.attr({ "disabled": null });
+    submitButton.removeClass('inactive');
+  } else {
+    submitButton.attr({ "disabled": "disabled" });
+    submitButton.addClass('inactive');
+  }
+}
 
 $(document).on('turbolinks:load', function() {
 
@@ -69,14 +91,10 @@ $(document).on('turbolinks:load', function() {
 
   $('#cbox1').change(function() {
     if($(this).is(":checked")) {
-      $('.add-contact').attr({
-        "disabled": null
-      });
+      $('.add-contact').attr({ "disabled": null });
       $('.add-contact').removeClass('inactive');
     } else {
-      $('.add-contact').attr({
-        "disabled": "disabled"
-      });
+      $('.add-contact').attr({ "disabled": "disabled" });
       $('.add-contact').addClass('inactive');
     }
   });
@@ -100,5 +118,11 @@ $(document).on('turbolinks:load', function() {
       var lastPath = path.substr(path.lastIndexOf('\\') + 1);
       $("#filename").html(lastPath);
     });
+  }
+
+  var campaignNameInput = $("#campaign_name");
+  if (campaignNameInput.length > 0) {
+    campaignNameInput.on('input', checkName);
+    checkName();
   }
 });
