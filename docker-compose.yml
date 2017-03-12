@@ -1,7 +1,17 @@
 version: '2'
 services:
+  redis:
+    image: redis
   db:
     image: postgres
+  sidekiq:
+    build: .
+    volumes:
+      - .:/sms_campaign
+    command: bundle exec sidekiq
+    depends_on:
+      - db
+      - redis
   web:
     build: .
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
@@ -12,4 +22,5 @@ services:
     env_file:
       - .env
     depends_on:
+      - redis
       - db

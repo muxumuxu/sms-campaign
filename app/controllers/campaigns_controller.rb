@@ -43,6 +43,7 @@ class CampaignsController < ApplicationController
   end
 
   def schedule
+    Sidekiq::Status.cancel(@campaign[:job_id]) if @campaign[:job_id]
     day = DateTime.parse(schedule_params[:scheduled_at])
     date = DateTime.new(
       day.year, day.month, day.day, 
@@ -50,8 +51,9 @@ class CampaignsController < ApplicationController
       schedule_params[:start_min].to_i, 0, 
       schedule_params[:tz])
     @campaign[:scheduled_at] = date
+    job = SendCampaignJob.set(wait_until: date).perform_later @campaign.id
+    @campaign[:job_id] = job.provider_job_id
     @campaign.save!
-    SendScheduledCampaignsJob.set(wait_until: date).perform_later @campaign
     redirect_to :action => :index
   end
 

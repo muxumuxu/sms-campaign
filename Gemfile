@@ -36,6 +36,10 @@ gem 'jbuilder', '~> 2.5'
 # For sending mails
 gem 'postmark-rails'
 
+# For scheduled jobs
+gem 'sidekiq'
+gem 'sidekiq-status'
+
 # For scheduling sms
 gem 'messagebird'
 gem 'messagebird-rest', :git => "https://github.com/dmiotti/ruby-rest-api"
