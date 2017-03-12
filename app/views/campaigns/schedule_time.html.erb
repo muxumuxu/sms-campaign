@@ -36,7 +36,7 @@
 
   <%= form_for @campaign, :url => url_for(:controller => 'campaigns', :action => 'schedule'), :method => 'post' do %>
     <input type="hidden" name="campaign[current_step]" value="step_3" />
-    <input data-toggle="datepicker" name="campaign[start_on]" placeholder="Sélectionner une date" value="<%= @day %>">
+    <input data-toggle="datepicker" name="campaign[scheduled_at]" placeholder="Sélectionner une date" value="<%= @day %>">
     <p>Heure d'envoi</p>
     <input type="text" name="campaign[start_hour]" class="main time" placeholder="13" value="<%= @start_hour %>" />
     <span>:</span>

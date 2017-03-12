@@ -35,33 +35,32 @@ class CampaignsController < ApplicationController
   end
 
   def schedule_time
-    start_on = @campaign[:start_on]
-    unless start_on.nil?
-      @day = start_on.strftime("%d/%m/%Y")
-      @start_hour = start_on.hour
-      @start_min = start_on.min
+    scheduled_at = @campaign[:scheduled_at]
+    unless scheduled_at.nil?
+      @day = scheduled_at.strftime("%d/%m/%Y")
+      @start_hour = scheduled_at.hour
+      @start_min = scheduled_at.min
     end
   end
 
   def schedule
-    # Extract a date with parameters
-    day = DateTime.parse(schedule_params[:start_on])
+    day = DateTime.parse(schedule_params[:scheduled_at])
     date = DateTime.new(
       day.year, day.month, day.day, 
       schedule_params[:start_hour].to_i, 
       schedule_params[:start_min].to_i, 0, "+0200")
-    @campaign[:start_on] = date
+    @campaign[:scheduled_at] = date
     @campaign.save!
-    send_campaign(@campaign)
+    @campaign.send()
     redirect_to :action => :index
   end
 
   def send_now
-    @campaign.start_on = DateTime.now
+    @campaign[:scheduled_at] = DateTime.now
     @campaign.save!
     mailing_list = @campaign.mailing_list
     contacts = mailing_list.contacts
-    send_campaign(@campaign)
+    @campaign.send()
     redirect_to :action => :index
   end
 
@@ -114,7 +113,7 @@ class CampaignsController < ApplicationController
 
       if params[:commit] == "Enregistrer et quitter"
         redirect_to root_path
-      elsif @campaign[:start_on]
+      elsif @campaign[:scheduled_at]
         redirect_to :action => :schedule_time
       else
         redirect_to :action => :preview, :id => @campaign.id
@@ -150,38 +149,12 @@ class CampaignsController < ApplicationController
 
   def schedule_params
     params.require(:campaign).permit(
-      :start_on, :start_hour, :start_min)
+      :scheduled_at, :start_hour, :start_min)
   end
 
   def build_message_for(contact, message)
     message.gsub!(/\{Firstname\}/, contact.first_name)
     message.gsub!(/\{Lastname\}/, contact.last_name)
     message
-  end
-
-  def send_campaign(campaign)    
-    mailing_list = campaign.mailing_list
-    contacts = mailing_list.contacts
-
-    begin
-      client = MessageBird::Client.new(ENV['MESSAGEBIRD_ACCESS_KEY'])
-      contacts.each do |contact|
-        contact.messagebird_ref = SecureRandom.base64.to_s
-        opts = {
-          reference: contact.messagebird_ref
-        }
-        unless campaign[:start_on].nil?
-          opts[:scheduledDatetime] = campaign[:start_on].to_datetime.rfc3339
-        end
-        message = build_message_for(contact, campaign.message)
-        puts ""
-        client.message_create("+33649886416", contact.phone_number, message, opts)
-        contact.save!
-      end
-      campaign.sent_at = DateTime.now
-      campaign.save!
-    rescue Exception => ex
-      raise ex.inspect
-    end
   end
 end
