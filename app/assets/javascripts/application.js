@@ -62,6 +62,7 @@ function addVariable(name) {
   var output = [text.slice(0, starting), textToAdd, text.slice(starting)].join("");
   textArea.val(output);
   updateMessageTextAreaInfos();
+  textArea.focus();
 }
 
 // Check if campaign name input is empty on new campaign

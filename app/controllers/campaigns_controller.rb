@@ -31,13 +31,16 @@ class CampaignsController < ApplicationController
   end
 
   def preview
+    # Here we must cancel all scheduled SMS
   end
 
   def schedule_time
     start_on = @campaign[:start_on]
-    @day = start_on.strftime("%d/%m/%Y")
-    @start_hour = start_on.hour
-    @start_min = start_on.min
+    unless start_on.nil?
+      @day = start_on.strftime("%d/%m/%Y")
+      @start_hour = start_on.hour
+      @start_min = start_on.min
+    end
   end
 
   def schedule
@@ -49,28 +52,17 @@ class CampaignsController < ApplicationController
       schedule_params[:start_min].to_i, 0, "+0200")
     @campaign.start_on = date
     @campaign.save!
+    send_campaign(@campaign)
     redirect_to :action => :index
   end
 
   def send_now
+    @campaign.start_on = DateTime.now
+    @campaign.save!
     mailing_list = @campaign.mailing_list
     contacts = mailing_list.contacts
-
-    begin
-      client = MessageBird::Client.new(ENV['MESSAGEBIRD_ACCESS_KEY'])
-      contacts.each do |contact|
-        contact.messagebird_ref = SecureRandom.base64.to_s
-        client.message_create("+33649886416", contact.phone_number, @campaign.message, {
-          reference: contact.messagebird_ref
-        })
-        contact.save!
-      end
-      @campaign.sent_at = DateTime.now
-      @campaign.save!
-      redirect_to :action => :index
-    rescue Exception => ex
-      raise ex.inspect
-    end
+    send_campaign(@campaign)
+    redirect_to :action => :index
   end
 
   def create
@@ -122,6 +114,8 @@ class CampaignsController < ApplicationController
 
       if params[:commit] == "Enregistrer et quitter"
         redirect_to root_path
+      elsif @campaign[:start_on]
+        redirect_to :action => :schedule_time
       else
         redirect_to :action => :preview, :id => @campaign.id
       end
@@ -157,5 +151,35 @@ class CampaignsController < ApplicationController
   def schedule_params
     params.require(:campaign).permit(
       :start_on, :start_hour, :start_min)
+  end
+
+  def build_message_for(contact, message)
+    message.gsub!(/\{Firstname\}/, contact.first_name)
+    message.gsub!(/\{Lastname\}/, contact.last_name)
+  end
+
+  def send_campaign(campaign)    
+    mailing_list = campaign.mailing_list
+    contacts = mailing_list.contacts
+
+    begin
+      client = MessageBird::Client.new(ENV['MESSAGEBIRD_ACCESS_KEY'])
+      contacts.each do |contact|
+        contact.messagebird_ref = SecureRandom.base64.to_s
+        opts = {
+          reference: contact.messagebird_ref
+        }
+        unless campaign[:start_on].nil?
+          opts[:scheduledDatetime] = campaign[:start_on].to_datetime.rfc3339
+        end
+        message = build_message_for(contact, campaign.message)
+        client.message_create("+33649886416", contact.phone_number, campaign.message, opts)
+        contact.save!
+      end
+      campaign.sent_at = DateTime.now
+      campaign.save!
+    rescue Exception => ex
+      raise ex.inspect
+    end
   end
 end
