@@ -9,3 +9,4 @@ log
 README.md
 public/uploads/
 spec
+.env

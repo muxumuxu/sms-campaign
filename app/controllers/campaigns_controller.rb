@@ -50,7 +50,7 @@ class CampaignsController < ApplicationController
       day.year, day.month, day.day, 
       schedule_params[:start_hour].to_i, 
       schedule_params[:start_min].to_i, 0, "+0200")
-    @campaign.start_on = date
+    @campaign[:start_on] = date
     @campaign.save!
     send_campaign(@campaign)
     redirect_to :action => :index
@@ -156,6 +156,7 @@ class CampaignsController < ApplicationController
   def build_message_for(contact, message)
     message.gsub!(/\{Firstname\}/, contact.first_name)
     message.gsub!(/\{Lastname\}/, contact.last_name)
+    message
   end
 
   def send_campaign(campaign)    
@@ -173,7 +174,8 @@ class CampaignsController < ApplicationController
           opts[:scheduledDatetime] = campaign[:start_on].to_datetime.rfc3339
         end
         message = build_message_for(contact, campaign.message)
-        client.message_create("+33649886416", contact.phone_number, campaign.message, opts)
+        puts ""
+        client.message_create("+33649886416", contact.phone_number, message, opts)
         contact.save!
       end
       campaign.sent_at = DateTime.now
