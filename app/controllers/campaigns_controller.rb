@@ -1,5 +1,3 @@
-require 'messagebird'
-
 class CampaignsController < ApplicationController
   before_action :set_campaign, only: [
     :name, :edit, :update,
@@ -37,6 +35,7 @@ class CampaignsController < ApplicationController
   def schedule_time
     scheduled_at = @campaign[:scheduled_at]
     unless scheduled_at.nil?
+      scheduled_at = scheduled_at.in_time_zone('CET')
       @day = scheduled_at.strftime("%d/%m/%Y")
       @start_hour = scheduled_at.hour
       @start_min = scheduled_at.min
@@ -48,19 +47,18 @@ class CampaignsController < ApplicationController
     date = DateTime.new(
       day.year, day.month, day.day, 
       schedule_params[:start_hour].to_i, 
-      schedule_params[:start_min].to_i, 0, "+0200")
+      schedule_params[:start_min].to_i, 0, 
+      schedule_params[:tz])
     @campaign[:scheduled_at] = date
     @campaign.save!
-    @campaign.send()
+    SendScheduledCampaignsJob.set(wait_until: date).perform_later @campaign
     redirect_to :action => :index
   end
 
   def send_now
     @campaign[:scheduled_at] = DateTime.now
     @campaign.save!
-    mailing_list = @campaign.mailing_list
-    contacts = mailing_list.contacts
-    @campaign.send()
+    @campaign.send_campaign()
     redirect_to :action => :index
   end
 
@@ -149,12 +147,6 @@ class CampaignsController < ApplicationController
 
   def schedule_params
     params.require(:campaign).permit(
-      :scheduled_at, :start_hour, :start_min)
-  end
-
-  def build_message_for(contact, message)
-    message.gsub!(/\{Firstname\}/, contact.first_name)
-    message.gsub!(/\{Lastname\}/, contact.last_name)
-    message
+      :scheduled_at, :start_hour, :start_min, :tz)
   end
 end

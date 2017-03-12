@@ -4,8 +4,8 @@ class Campaign < ApplicationRecord
   belongs_to :mailing_list
   belongs_to :user
 
-  def send
-    mailing_list = self[:mailing_list]
+  def send_campaign
+    mailing_list = self.mailing_list
     contacts = mailing_list.contacts
 
     begin
@@ -15,18 +15,26 @@ class Campaign < ApplicationRecord
         opts = {
           reference: contact.messagebird_ref
         }
-        unless campaign[:scheduled_at].nil?
-          opts[:scheduledDatetime] = campaign[:scheduled_at].to_datetime.rfc3339
+        unless self[:scheduled_at].nil?
+          opts[:scheduledDatetime] = self[:scheduled_at].to_datetime.rfc3339
         end
-        message = build_message_for(contact, campaign.message)
+        message = build_message_for(contact, self[:message])
         puts ""
         client.message_create("+33649886416", contact.phone_number, message, opts)
         contact.save!
       end
-      campaign.sent_at = DateTime.now
-      campaign.save!
+      self[:sent_at] = DateTime.now
+      self.save!
     rescue Exception => ex
       raise ex.inspect
     end
+  end
+
+  private
+
+  def build_message_for(contact, message)
+    message.gsub!(/\{Firstname\}/, contact.first_name)
+    message.gsub!(/\{Lastname\}/, contact.last_name)
+    message
   end
 end

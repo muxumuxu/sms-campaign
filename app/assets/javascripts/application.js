@@ -122,6 +122,14 @@ $(document).on('turbolinks:load', function() {
     });
   }
 
+  var hiddenTz = $("#campaign\\[tz\\]");
+  if (hiddenTz.length > 0) {
+    var paren = new Date().toString().match(/\(.+\)/);
+    var tz = paren ? paren[0].match(/([A-Z])/g).join("") : "";
+    // var dateOffset = new Date().getTimezoneOffset();
+    hiddenTz.val(tz);
+  }
+
   var campaignNameInput = $("#campaign_name");
   if (campaignNameInput.length > 0) {
     campaignNameInput.on('input', checkName);
