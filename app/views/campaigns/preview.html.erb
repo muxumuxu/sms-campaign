@@ -17,7 +17,7 @@
       <ul>
         <li><%= link_to "Aide", root_path, class: "help" %></li>
         <li><%= link_to "Tester", root_path, class: "help" %></li>
-        <li><input type="submit" form="edit_campaign_<%= @campaign.id %>" class="save" value="Enregistrer et quitter" name="commit"></li>
+        <li><%= link_to "Enregistrer et quitter", root_path, class: "save" %></li>
       </ul>
     </nav>
   </div>
