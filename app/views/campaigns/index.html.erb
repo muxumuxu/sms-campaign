@@ -18,7 +18,7 @@
           <% if campaign.mailing_list %>
             <p><%= campaign.mailing_list.name %> (<%= campaign.mailing_list.contacts.count %><%= " destinataires".pluralize(campaign.mailing_list.contacts.count)%>)</p>
           <% else %>
-            <p>Cliquez sur "Modifier" pour ajouter une liste de diffusion.</p>
+            <p>Liste supprimée.</p>
           <% end %>
           <div class="links">
             <%= link_to "Modifier", name_campaign_path(campaign.id), class: "button grey" %>
