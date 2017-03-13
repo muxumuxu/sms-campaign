@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   root to: 'campaigns#index'
   devise_for :users
@@ -11,6 +13,11 @@ Rails.application.routes.draw do
       post :send_now
     end
   end
+
+  authenticate :user do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
   resources :mailing_lists do
     member do
       get :upload_csv
