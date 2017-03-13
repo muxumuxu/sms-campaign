@@ -9,6 +9,8 @@ services:
     volumes:
       - .:/sms_campaign
     command: bundle exec sidekiq
+    env_file:
+      - .env
     depends_on:
       - db
       - redis
