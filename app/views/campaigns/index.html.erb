@@ -11,7 +11,7 @@
 
   <div class="wrapper list">
     <% @campaigns.each do |campaign| %>
-      <% if campaign.sent_at.blank? %>
+      <% if campaign.sent_at.blank? && campaign.scheduled_at.nil? %>
         <div class="list-item">
           <%= image_tag "edit.svg" %>
           <%= link_to campaign.name, name_campaign_path(campaign.id), class: "campaign-link" %>
@@ -24,7 +24,16 @@
             <%= link_to "Modifier", name_campaign_path(campaign.id), class: "button grey" %>
           </div>
         </div>
-      <% else %>
+      <% elsif campaign.scheduled_at.present? && campaign.sent_at.nil? %>
+        <div class="list-item">
+          <%= image_tag "schedule.svg" %>
+          <%= link_to campaign.name, name_campaign_path(campaign.id), class: "campaign-link" %>
+          <p><strong>Campagne planifiée</strong> le <%= DateTime.parse("#{campaign.scheduled_at}").strftime("%d/%m/%y à %H:%I") %> | <%= campaign.mailing_list.name %> (<%= campaign.mailing_list.contacts.count %><%= " destinataires".pluralize(campaign.mailing_list.contacts.count)%>)</p>
+          <div class="links">
+            <%= link_to "Modifier", name_campaign_path(campaign.id), class: "button grey" %>
+          </div>
+        </div>
+      <% elsif campaign.sent_at.present? %>
         <div class="list-item">
           <%= image_tag "green-check.svg" %>
           <%= link_to campaign.name, name_campaign_path(campaign.id), class: "campaign-link" %>
