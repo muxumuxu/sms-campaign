@@ -102,8 +102,8 @@ $(document).on('turbolinks:load', function() {
   });
 
   var str = $('p.message').text();
-  if (str.length > 85) {
-    $('p.message').text(str.substring(0,85)).append('...');
+  if (str.length > 80) {
+    $('p.message').text(str.substring(0,80)).append('...');
   };
 
   var textArea = $("#campaign_textarea");
