@@ -29,7 +29,12 @@ class CampaignsController < ApplicationController
   end
 
   def preview
-    # Here we must cancel all scheduled SMS
+    # Cancel scheduled job
+    if @campaign[:job_id]
+      Sidekiq::Status.cancel(@campaign[:job_id])
+      @campaign[:job_id] = nil
+      @campaign.save!
+    end
   end
 
   def schedule_time
