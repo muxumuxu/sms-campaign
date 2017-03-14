@@ -9,12 +9,12 @@
   margin: 52px auto 0px;
 }
 
-.wrapper.list .list-item {
-  padding-top: 27px;
+.wrapper.list {
+  margin-bottom: 150px;
 }
 
-.wrapper.list .list-item:last-child {
-  margin-bottom: 150px;
+.wrapper.list .list-item {
+  padding-top: 27px;
 }
 
 .wrapper.list .list-item .links {
