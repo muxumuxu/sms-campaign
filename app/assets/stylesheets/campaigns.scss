@@ -144,6 +144,9 @@
   line-height: 17px;
   padding: 16px;
   white-space: pre-line;
+  max-height: 338px;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
 /* Campaign#preview */
