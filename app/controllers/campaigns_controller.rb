@@ -56,11 +56,16 @@ class CampaignsController < ApplicationController
       schedule_params[:start_hour].to_i,
       schedule_params[:start_min].to_i, 0,
       schedule_params[:tz])
-    @campaign[:scheduled_at] = date
-    job = SendCampaignJob.set(wait_until: date).perform_later @campaign.id
-    @campaign[:job_id] = job.provider_job_id
-    @campaign.save!
-    redirect_to :action => :index
+    if date > DateTime.now
+      @campaign[:scheduled_at] = date
+      job = SendCampaignJob.set(wait_until: date).perform_later @campaign.id
+      @campaign[:job_id] = job.provider_job_id
+      @campaign.save!
+      redirect_to :action => :index
+    else
+      flash[:notice] = "Attention, vous ne pouvez pas créer une campagne dans le passé. 🚗💨"
+      redirect_to :action => :schedule_time
+    end
   end
 
   def send_now
