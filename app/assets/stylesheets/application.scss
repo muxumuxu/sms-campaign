@@ -101,6 +101,19 @@ a.back {
   background-position: 26px 16px;
 }
 
+p#notice {
+  color: #FF475E;
+  text-align: center;
+  width: auto;
+  opacity: 1;
+  padding: 10px 0;
+  background-color: #FFE7E3;
+  font-size: 18px;
+  border-radius: 4px;
+  max-width: 100%;
+  margin: 0;
+}
+
 /* Forms */
 
 input {

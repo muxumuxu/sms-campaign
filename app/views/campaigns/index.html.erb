@@ -12,65 +12,59 @@
   <div class="wrapper list">
     <% @campaigns.each do |campaign| %>
 
-      <% if campaign.sent_at.blank? && campaign.scheduled_at.nil? %>
+      <div class="list-item">
 
-        <div class="list-item">
+        <% if campaign.sent_at.blank? && campaign.scheduled_at.nil? %>
+
           <%= image_tag "edit.svg" %>
           <%= link_to campaign.name, name_campaign_path(campaign.id), class: "campaign-link" %>
 
-
-          <% if campaign.mailing_list %>
-            <p><%= campaign.mailing_list.name %> (<%= campaign.mailing_list.contacts.count %><%= " destinataires".pluralize(campaign.mailing_list.contacts.count)%>)</p>
-          <% else %>
-            <p>Liste supprimée.</p>
-          <% end %>
-
+          <p>
+            <% if campaign.mailing_list %>
+              <%= campaign.mailing_list.name %> (<%= campaign.mailing_list.contacts.count %><%= " destinataires".pluralize(campaign.mailing_list.contacts.count)%>)
+            <% else %>
+              Liste supprimée.
+            <% end %>
+          </p>
 
           <div class="links">
             <%= link_to "Modifier", name_campaign_path(campaign.id), class: "button grey" %>
           </div>
 
-      <% elsif campaign.scheduled_at.present? && campaign.sent_at.nil? %>
+        <% elsif campaign.scheduled_at.present? && campaign.sent_at.nil? %>
 
-        <div class="list-item">
           <%= image_tag "schedule.svg" %>
           <%= link_to campaign.name, name_campaign_path(campaign.id), class: "campaign-link" %>
           <p>
-
-            <strong>Campagne planifiée</strong> au <%= campaign.scheduled_at.in_time_zone('CET').strftime("%d/%m/%Y à %H:%I") %>
+            <strong>Campagne planifiée</strong> au <%= DateTime.parse("#{campaign.scheduled_at}").strftime("%d/%m/%y à %H:%I") %>
 
             <% if campaign.mailing_list %>
             | <%= campaign.mailing_list.name %> (<%= campaign.mailing_list.contacts.count %><%= " destinataires".pluralize(campaign.mailing_list.contacts.count)%>)</p>
             <% else %>
             |  Liste supprimée.
             <% end %>
-
           </p>
 
           <div class="links">
             <%= link_to "Modifier", name_campaign_path(campaign.id), class: "button grey" %>
           </div>
-        </div>
 
-      <% elsif campaign.sent_at.present? %>
+        <% elsif campaign.sent_at.present? %>
 
-        <div class="list-item">
           <%= image_tag "green-check.svg" %>
           <%= link_to campaign.name, name_campaign_path(campaign.id), class: "campaign-link" %>
           <p>
-            <strong>Campagne envoyée</strong> le <%= campaign.sent_at.in_time_zone('CET').strftime("%d/%m/%y à %H:%I") %> 
-
+            <strong>Campagne envoyée</strong> le <%= DateTime.parse("#{campaign.sent_at}").strftime("%d/%m/%y à %H:%I") %>
             <% if campaign.mailing_list %>
             | <%= campaign.mailing_list.name %> (<%= campaign.mailing_list.contacts.count %><%= " destinataires".pluralize(campaign.mailing_list.contacts.count)%>)
             <% else %>
             |  Liste supprimée.
             <% end %>
-
           </p>
 
-        </div>
+        <% end %>
 
-      <% end %>
+      </div>
 
     <% end %>
 

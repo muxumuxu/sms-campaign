@@ -1,15 +1,16 @@
 class CampaignsController < ApplicationController
   before_action :set_campaign, only: [
     :name, :edit, :update,
-    :message, :preview, :schedule, 
+    :message, :preview, :schedule,
     :schedule_time, :send_now, :destroy
   ]
 
   def index
 	  Campaign.where("name is null").destroy_all
-    not_sent = Campaign.where("sent_at is null and user_id = #{current_user.id}").order(:created_at)
+    not_sent = Campaign.where("sent_at is null and scheduled_at is null and user_id = #{current_user.id}").order(:created_at)
+    scheduled = Campaign.where("sent_at is null and scheduled_at is not null and user_id = #{current_user.id}").order(:scheduled_at)
     sent = Campaign.where("sent_at is not null and user_id = #{current_user.id}").order(:sent_at)
-    @campaigns = not_sent + sent
+    @campaigns = not_sent + scheduled + sent
   end
 
   # GET /new
@@ -51,15 +52,20 @@ class CampaignsController < ApplicationController
     Sidekiq::Status.cancel(@campaign[:job_id]) if @campaign[:job_id]
     day = DateTime.parse(schedule_params[:scheduled_at])
     date = DateTime.new(
-      day.year, day.month, day.day, 
-      schedule_params[:start_hour].to_i, 
-      schedule_params[:start_min].to_i, 0, 
+      day.year, day.month, day.day,
+      schedule_params[:start_hour].to_i,
+      schedule_params[:start_min].to_i, 0,
       schedule_params[:tz])
-    @campaign[:scheduled_at] = date
-    job = SendCampaignJob.set(wait_until: date).perform_later @campaign.id
-    @campaign[:job_id] = job.provider_job_id
-    @campaign.save!
-    redirect_to :action => :index
+    if date > DateTime.now
+      @campaign[:scheduled_at] = date
+      job = SendCampaignJob.set(wait_until: date).perform_later @campaign.id
+      @campaign[:job_id] = job.provider_job_id
+      @campaign.save!
+      redirect_to :action => :index
+    else
+      flash[:notice] = "Attention, vous ne pouvez pas créer une campagne dans le passé. 🚗💨"
+      redirect_to :action => :schedule_time
+    end
   end
 
   def send_now
