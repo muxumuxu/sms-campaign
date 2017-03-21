@@ -38,8 +38,8 @@ class Campaign < ApplicationRecord
   private
 
   def build_message_for(contact, message)
-    message.gsub!(/\{Firstname\}/, contact.first_name)
-    message.gsub!(/\{Lastname\}/, contact.last_name)
     message
+      .gsub(/\{Firstname\}/, contact.first_name)
+      .gsub(/\{Lastname\}/, contact.last_name)
   end
 end
