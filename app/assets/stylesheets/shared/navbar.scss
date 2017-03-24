@@ -59,16 +59,61 @@ header .right li {
   font-weight: 400;
 }
 
-header .right li.avatar {
+header .right li.user-info {
   position: relative;
   padding-left: 44px;
 }
 
-header span {
-  margin-right: 7px;
+header .right li.user-info .dropdown {
+  display: none;
+  background: white;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.06), 0 10px 24px 0 rgba(0,0,0,0.09);
+  position: absolute;
+  top: 50px;
+  width: 205px;
+  z-index: 10;
+  right: 0;
+  border-radius: 3px;
+  margin-top: 10px;
+  overflow: hidden;
 }
 
-header span.avatar {
+header .right li.user-info .dropdown ul li {
+  display: block;
+  height: auto;
+  width: 100%;
+  line-height: 50px;
+  padding-left: 20px;
+}
+
+header .right li.user-info .dropdown ul li:first-child {
+  border-bottom: 1px solid #EAEAEA;
+}
+
+header .right li.user-info .dropdown ul li:last-child {
+  margin: 0;
+}
+
+header .right li.user-info:hover .dropdown {
+  display: block;
+}
+
+header .right li.user-info span.email {
+  background-image: image-url("arrow.svg");
+  background-repeat: no-repeat;
+  background-position: right center;
+  padding-right: 20px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 400;
+  max-width: 240px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+header .right li.user-info span.avatar {
+  margin-right: 7px;
   background-color: #F8C425;
   color: white;
   width: 32px;
@@ -82,7 +127,7 @@ header span.avatar {
   top: 18px;
 }
 
-header a.help {
+header .right li a.help {
   margin-right: 30px;
 }
 

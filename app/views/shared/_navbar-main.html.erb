@@ -28,12 +28,15 @@
   <div class="right">
     <nav>
       <ul>
-        <li class="avatar">
+        <li class="user-info">
           <span class="avatar"><%= current_user.email.capitalize[0] %></span>
-          <%= link_to destroy_user_session_path, method: :delete do %>
-            <%= current_user.first_name %>
-            <%= image_tag "arrow.svg" %>
-          <% end %>
+          <span class="email"><%= current_user.email %></span>
+          <div class="dropdown">
+            <ul>
+              <li><a href="#">Mon compte</a></li>
+              <li><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </div>
         </li>
         <li><%= link_to "Aide", campaigns_path, class: "help" %></li>
       </ul>
