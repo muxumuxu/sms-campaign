@@ -86,6 +86,10 @@ header .right li.user-info .dropdown ul li {
   padding-left: 20px;
 }
 
+header .right li.user-info .dropdown ul li:hover {
+  opacity: 0.8;
+}
+
 header .right li.user-info .dropdown ul li:first-child {
   border-bottom: 1px solid #EAEAEA;
 }
