@@ -10,7 +10,7 @@
 <div class="wrapper message show">
   <h2>Votre campagne a été envoyée le <%= DateTime.parse("#{@campaign.sent_at}").strftime("%d/%m/%y à %H:%I") %>.</h2>
   <h3>
-    <% if campaign.mailing_list %>
+    <% if @campaign.mailing_list %>
       <%= @campaign.mailing_list.name %> (<%= @campaign.mailing_list.contacts.count %><%= " destinataires".pluralize(@campaign.mailing_list.contacts.count)%>)
     <% else %>
       Liste supprimée.
