@@ -1,6 +1,6 @@
 class CampaignsController < ApplicationController
   before_action :set_campaign, only: [
-    :name, :edit, :update,
+    :show, :name, :edit, :update,
     :message, :preview, :schedule,
     :schedule_time, :send_now, :destroy
   ]
@@ -11,6 +11,9 @@ class CampaignsController < ApplicationController
     scheduled = Campaign.where("sent_at is null and scheduled_at is not null and user_id = #{current_user.id}").order(:scheduled_at)
     sent = Campaign.where("sent_at is not null and user_id = #{current_user.id}").order(:sent_at)
     @campaigns = not_sent + scheduled + sent
+  end
+
+  def show
   end
 
   # GET /new

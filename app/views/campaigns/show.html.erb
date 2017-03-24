@@ -1,0 +1,17 @@
+<%= render 'shared/navbar-main' %>
+
+<div class="wrapper top show">
+  <div class="left-links">
+    <%= link_to "", campaigns_path, class: "button grey back" %>
+  </div>
+  <h1 class="padded"><%= @campaign.name %></h1>
+</div>
+
+<div class="wrapper message show">
+  <h2>Votre campagne a été envoyée le <%= DateTime.parse("#{@campaign.sent_at}").strftime("%d/%m/%y à %H:%I") %>.</h2>
+  <h3><%= @campaign.mailing_list.name %> (<%= @campaign.mailing_list.contacts.count %><%= " destinataires".pluralize(@campaign.mailing_list.contacts.count)%>)</h3>
+  <div id="phone">
+    <div id="message-bubble"><%= @campaign.message %></div>
+    <%= image_tag "iphone.svg" %>
+  </div>
+</div>

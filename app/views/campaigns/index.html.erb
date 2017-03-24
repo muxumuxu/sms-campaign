@@ -52,7 +52,7 @@
         <% elsif campaign.sent_at.present? %>
 
           <%= image_tag "green-check.svg" %>
-          <%= link_to campaign.name, name_campaign_path(campaign.id), class: "campaign-link" %>
+          <%= link_to campaign.name, campaign_path(campaign.id), class: "campaign-link" %>
           <p>
             <strong>Campagne envoyée</strong> le <%= DateTime.parse("#{campaign.sent_at}").strftime("%d/%m/%y à %H:%I") %>
             <% if campaign.mailing_list %>
