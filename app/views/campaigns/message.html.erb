@@ -34,7 +34,7 @@
   <span class="substitute-text" style="cursor: pointer;" onclick="addVariable('Lastname');">Nom</span>
   <%= form_for @campaign do |f| %>
     <%= f.text_area :message, autofocus: true, class: 'main', id: 'campaign_textarea' %>
-    <span class="characters"></span>
+    <span id="characters" class="characters"></span><p>, <span id="sms_count">2</span> SMS par destinataire</p>
     <%= f.hidden_field :current_step, :value => "step_2" %>
   <% end %>
   <div id="phone">

@@ -31,16 +31,16 @@ function updateMessageTextAreaInfos() {
 }
 
 // When updating a campaign message, show the character count
+var CHARACTER_PER_SMS = 140;
 function updateCount() {
-  var max = 1300;
   var textArea = $("#campaign_textarea");
-  var cs = textArea.val().length;
-  $('.characters').text(cs + "/" + max);
-    if (cs > max) {
-    $('.main').addClass('background-red');
-  } else {
-    $('.main').removeClass('background-red');
-  }
+  var characterCount = textArea.val().length;
+
+  var numberOfSms = Math.ceil(characterCount / CHARACTER_PER_SMS);
+  $('#sms_count').text(numberOfSms);
+
+  var charMax = numberOfSms * CHARACTER_PER_SMS;
+  $('#characters').text(characterCount + "/" + charMax);
 }
 
 // When modifying a campaign message, insert text in the green bubble
