@@ -38,9 +38,9 @@
     <input type="hidden" name="campaign[current_step]" value="step_3" />
     <input data-toggle="datepicker" name="campaign[scheduled_at]" class="main date" placeholder="Sélectionner une date" value="<%= @day %>">
     <p>Heure d'envoi</p>
-    <input type="text" name="campaign[start_hour]" class="main time" placeholder="13" value="<%= @start_hour %>" />
+    <input type="number" name="campaign[start_hour]" min="0" max="23" class="main time" placeholder="13" value="<%= @start_hour %>" />
     <span>:</span>
-    <input type="text" name="campaign[start_min]" class="main time" placeholder="15" value="<%= @start_min %>" />
+    <input type="number" name="campaign[start_min]" min="0" max="59" class="main time" placeholder="15" value="<%= @start_min %>" />
     <input type="hidden" id="campaign[tz]" name="campaign[tz]" value="" />
   <% end %>
 
