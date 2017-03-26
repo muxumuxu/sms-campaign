@@ -36,7 +36,7 @@
           <%= image_tag "schedule.svg" %>
           <%= link_to campaign.name, name_campaign_path(campaign.id), class: "campaign-link" %>
           <p>
-            <strong>Campagne planifiée</strong> au <%= DateTime.parse("#{campaign.scheduled_at}").strftime("%d/%m/%y à %H:%I") %>
+            <strong>Campagne planifiée</strong> au <%= local_time(campaign.scheduled_at, "%d/%m/%y à %H:%M") %>
 
             <% if campaign.mailing_list %>
             | <%= campaign.mailing_list.name %> (<%= campaign.mailing_list.contacts.count %><%= " destinataires".pluralize(campaign.mailing_list.contacts.count)%>)</p>
@@ -54,7 +54,7 @@
           <%= image_tag "green-check.svg" %>
           <%= link_to campaign.name, campaign_path(campaign.id), class: "campaign-link" %>
           <p>
-            <strong>Campagne envoyée</strong> le <%= DateTime.parse("#{campaign.sent_at}").strftime("%d/%m/%y à %H:%I") %>
+            <strong>Campagne envoyée</strong> le <%= local_time(campaign.sent_at, "%d/%m/%y à %H:%M") %>
             <% if campaign.mailing_list %>
             | <%= campaign.mailing_list.name %> (<%= campaign.mailing_list.contacts.count %><%= " destinataires".pluralize(campaign.mailing_list.contacts.count)%>)
             <% else %>

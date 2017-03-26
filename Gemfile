@@ -44,6 +44,8 @@ gem 'sidekiq-status'
 gem 'messagebird'
 gem 'messagebird-rest', :git => "https://github.com/dmiotti/ruby-rest-api"
 
+gem 'local_time'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
