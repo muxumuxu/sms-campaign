@@ -41,6 +41,7 @@
     <input type="number" name="campaign[start_hour]" min="0" max="23" class="main time" placeholder="13" value="<%= @start_hour %>" />
     <span>:</span>
     <input type="number" name="campaign[start_min]" min="0" max="59" class="main time" placeholder="15" value="<%= @start_min %>" />
+    <span id="user_timezone"></span>
     <input type="hidden" id="campaign[tz]" name="campaign[tz]" value="" />
   <% end %>
 

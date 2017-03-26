@@ -43,6 +43,15 @@ function updateCount() {
   $('#characters').text(characterCount + "/" + charMax);
 }
 
+function updateUserTimeZone() {
+  var paren = new Date().toString().match(/\(.+\)/);
+  var tz = paren ? paren[0].match(/([A-Z])/g).join("") : "";
+  var tzSpan = $('#user_timezone');
+  if (tzSpan.length > 0) {
+    tzSpan.text(tz);
+  }
+}
+
 // When modifying a campaign message, insert text in the green bubble
 function updateTextBubble() {
   var textArea = $("#campaign_textarea");
@@ -140,4 +149,6 @@ $(document).on('turbolinks:load', function() {
     startDate: Date.now(),
     format: 'dd/mm/yyyy'
   });
+
+  updateUserTimeZone();
 });
