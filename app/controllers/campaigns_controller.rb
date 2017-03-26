@@ -1,19 +1,32 @@
 class CampaignsController < ApplicationController
   before_action :set_campaign, only: [
-    :show, :name, :edit, :update,
-    :message, :preview, :schedule,
-    :schedule_time, :send_now, :destroy
+    :show, :name, :edit, :update, 
+    :continue_editing, :message, :preview, 
+    :schedule, :schedule_time, :send_now, 
+    :destroy
   ]
 
   def index
 	  Campaign.where("name is null").destroy_all
-    not_sent = Campaign.where("sent_at is null and scheduled_at is null and user_id = #{current_user.id}").order(:created_at)
-    scheduled = Campaign.where("sent_at is null and scheduled_at is not null and user_id = #{current_user.id}").order(:scheduled_at)
-    sent = Campaign.where("sent_at is not null and user_id = #{current_user.id}").order(:sent_at)
+    not_sent = Campaign.where("sent_at is null and scheduled_at is null and user_id = #{current_user.id}").order(created_at: :desc)
+    scheduled = Campaign.where("sent_at is null and scheduled_at is not null and user_id = #{current_user.id}").order(scheduled_at: :desc)
+    sent = Campaign.where("sent_at is not null and user_id = #{current_user.id}").order(sent_at: :desc)
     @campaigns = not_sent + scheduled + sent
   end
 
   def show
+  end
+
+  def continue_editing
+    if @campaign.name.nil?
+      redirect_to :action => :name, :id => @campaign.id
+    elsif @campaign.message.nil?
+      redirect_to :action => :message, :id => @campaign.id
+    elsif @campaign.scheduled_at.present?
+      redirect_to :action => :schedule_time, :id => @campaign.id
+    else
+      redirect_to :action => :preview, :id => @campaign.id
+    end
   end
 
   # GET /new

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get :schedule_time
       post :schedule
       post :send_now
+      get :continue_editing
     end
   end
 

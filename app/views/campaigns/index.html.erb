@@ -17,7 +17,7 @@
         <% if campaign.sent_at.blank? && campaign.scheduled_at.nil? %>
 
           <%= image_tag "edit.svg" %>
-          <%= link_to campaign.name, name_campaign_path(campaign.id), class: "campaign-link" %>
+          <%= link_to campaign.name, continue_editing_campaign_path(campaign.id), class: "campaign-link" %>
 
           <p>
             <% if campaign.mailing_list %>
@@ -28,13 +28,13 @@
           </p>
 
           <div class="links">
-            <%= link_to "Modifier", name_campaign_path(campaign.id), class: "button grey" %>
+            <%= link_to "Modifier", continue_editing_campaign_path(campaign.id), class: "button grey" %>
           </div>
 
         <% elsif campaign.scheduled_at.present? && campaign.sent_at.nil? %>
 
           <%= image_tag "schedule.svg" %>
-          <%= link_to campaign.name, name_campaign_path(campaign.id), class: "campaign-link" %>
+          <%= link_to campaign.name, continue_editing_campaign_path(campaign.id), class: "campaign-link" %>
           <p>
             <strong>Campagne planifiée</strong> au <%= local_time(campaign.scheduled_at, "%d/%m/%y à %H:%M") %>
 
@@ -46,7 +46,7 @@
           </p>
 
           <div class="links">
-            <%= link_to "Modifier", name_campaign_path(campaign.id), class: "button grey" %>
+            <%= link_to "Modifier", continue_editing_campaign_path(campaign.id), class: "button grey" %>
           </div>
 
         <% elsif campaign.sent_at.present? %>
