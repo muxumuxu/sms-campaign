@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require_tree .
 //= require datepicker
+//= require local_time
 
 function openModal() {
   $('.overlay-modal').addClass('visible');
