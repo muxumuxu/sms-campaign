@@ -39,7 +39,7 @@ class Campaign < ApplicationRecord
 
   def build_message_for(contact, message)
     message
-      .gsub(/\{Firstname\}/, contact.first_name)
-      .gsub(/\{Lastname\}/, contact.last_name)
+      .gsub(/\{Prénom\}/, contact.first_name)
+      .gsub(/\{Nom\}/, contact.last_name)
   end
 end
