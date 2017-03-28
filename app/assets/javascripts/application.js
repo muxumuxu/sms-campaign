@@ -17,6 +17,10 @@
 //= require datepicker
 //= require local_time
 
+$.fn.datepicker.setDefaults({ 
+  autoHide: true
+});
+
 function openModal() {
   $('.overlay-modal').addClass('visible');
 }
