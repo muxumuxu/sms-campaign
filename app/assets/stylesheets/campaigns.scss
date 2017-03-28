@@ -117,6 +117,14 @@
   opacity: 0.5;
 }
 
+.wrapper.message span.sms_count {
+  position: absolute;
+  bottom: -25px;
+  left: 50px;
+  font-size: 14px;
+  color: #FF475E
+}
+
 #phone {
   width: 280px;
   height: 535px;

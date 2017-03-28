@@ -37,10 +37,10 @@ function updateCount() {
   var characterCount = textArea.val().length;
 
   var numberOfSms = Math.ceil(characterCount / CHARACTER_PER_SMS);
-  $('#sms_count').text(numberOfSms);
+  $('#sms_count').text(numberOfSms + " SMS par destinataire");
 
   var charMax = numberOfSms * CHARACTER_PER_SMS;
-  $('#characters').text(characterCount + "/" + charMax);
+  $('#characters').text(characterCount + "/" + charMax + ", ");
 }
 
 function updateUserTimeZone() {
