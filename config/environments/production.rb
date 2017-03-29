@@ -1,7 +1,7 @@
 Rails.application.configure do
 
   config.action_mailer.delivery_method = :postmark
-  config.action_mailer.postmark_settings = { :api_key => Rails.application.secrets.postmark_api_token }
+  config.action_mailer.postmark_settings = { :api_key => ENV['POSTMARK_API_KEY'] }
   config.action_mailer.default_url_options = { host: "sms-campaign.herokuapp.com" }
   # Settings specified here will take precedence over those in config/application.rb.
 
