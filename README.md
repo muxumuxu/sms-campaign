@@ -10,6 +10,9 @@ For exemple:
 RAILS_ENV=development
 MESSAGEBIRD_ACCESS_KEY=test_mMpKiR0501S86Ph3heX5fACiu
 REDISTOGO_URL=redis://redis
+POSTMARK_SMTP_SERVER=smtp.postmarkapp.com
+POSTMARK_API_KEY=
+POSTMARK_INBOUND_ADDRESS=
 ```
 
 ## Launch server
