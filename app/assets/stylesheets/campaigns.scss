@@ -109,20 +109,21 @@
   margin-left: 8px;
 }
 
-.wrapper.message span.characters {
+.wrapper.message span.message_char_count {
   position: absolute;
   bottom: -25px;
   left: 0;
+}
+
+.wrapper.message span.characters {
   font-size: 14px;
-  opacity: 0.5;
+  font-weight: 400;
 }
 
 .wrapper.message span.sms_count {
-  position: absolute;
-  bottom: -25px;
-  left: 50px;
   font-size: 14px;
-  color: #FF475E
+  color: #FF475E;
+  font-weight: 400;
 }
 
 #phone {
