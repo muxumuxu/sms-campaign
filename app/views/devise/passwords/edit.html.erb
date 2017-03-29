@@ -1,25 +1,19 @@
-<h2>Change your password</h2>
+<%= render 'shared/navbar-session' %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
+<div class="wrapper form session top">
+  <h1>Changer mon mot de passe</h1>
+</div>
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
-  </div>
+<div class="wrapper form session">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <%= f.hidden_field :reset_password_token %>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+      <h2>Nouveau mot de passe</h2>
+      <%= f.password_field :password, autofocus: true, autocomplete: "off", class: "main" %>
 
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
+      <h2>Confirmer le mot de passe</h2>
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: "main" %>
 
-<%= render "devise/shared/links" %>
+      <%= f.submit "Valider", class: "button green connect" %>
+  <% end %>
+</div>
