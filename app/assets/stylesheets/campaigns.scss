@@ -122,6 +122,11 @@
 
 .wrapper.message span.sms_count {
   font-size: 14px;
+  font-weight: 400;
+}
+
+.wrapper.message span.red {
+  font-size: 14px;
   color: #FF475E;
   font-weight: 400;
 }
@@ -134,6 +139,15 @@
   right: 0;
 }
 
+#phone .screen {
+  overflow-y: scroll;
+  position: absolute;
+  top: 64px;
+  left: 18px;
+  width: 244px;
+  height: 406px;
+}
+
 #phone img {
   z-index: 0;
   padding-bottom: 200px;
@@ -141,10 +155,8 @@
 
 #message-bubble {
   font-family: sans-serif;
-  position: absolute;
-  top: 81px;
-  left: 35px;
-  max-width: 178px;
+  margin: 10px;
+  width: auto;
   border-radius: 16px;
   background-color: #24CC83;
   z-index: 2;
@@ -153,9 +165,7 @@
   line-height: 17px;
   padding: 16px;
   white-space: pre-line;
-  max-height: 338px;
   overflow: hidden;
-  overflow-y: scroll;
 }
 
 /* Campaign#preview */

@@ -17,7 +17,7 @@
 //= require datepicker
 //= require local_time
 
-$.fn.datepicker.setDefaults({ 
+$.fn.datepicker.setDefaults({
   autoHide: true
 });
 
@@ -46,6 +46,12 @@ function updateCount() {
 
   var charMax = numberOfSms * CHARACTER_PER_SMS;
   $('#characters').text(characterCount + "/" + charMax + ", ");
+
+  if(numberOfSms > 1) {
+    $('#sms_count').addClass('red');
+  } else {
+    $('#sms_count').removeClass('red');
+  }
 }
 
 function updateUserTimeZone() {

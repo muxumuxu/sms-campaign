@@ -34,11 +34,11 @@
   <span class="substitute-text" style="cursor: pointer;" onclick="addVariable('Nom');">Nom</span>
   <%= form_for @campaign do |f| %>
     <%= f.text_area :message, autofocus: true, class: 'main', id: 'campaign_textarea' %>
-    <span class="message_char_count"><span id="characters" class="characters"></span><span id="sms_count" class="sms_count">2</span></span>
+    <span class="message_char_count"><span id="characters" class="characters"></span><span id="sms_count" class="sms_count"></span></span>
     <%= f.hidden_field :current_step, :value => "step_2" %>
   <% end %>
   <div id="phone">
-    <div id="message-bubble"></div>
+    <div class="screen"><div id="message-bubble"></div></div>
     <%= image_tag "iphone.svg" %>
   </div>
 </div>
