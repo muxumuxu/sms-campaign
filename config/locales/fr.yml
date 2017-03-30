@@ -20,4 +20,37 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 fr:
-  hello: "Hello world"
+  errors:
+    messages:
+      not_saved: Ooooups !
+
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              not_found: introuvable
+              taken: déjà pris
+            password:
+              blank: doit être renseigné
+
+  navbar:
+    campaigns: Campagnes
+    mailing_list: Listes
+    help: Aide
+    disconnect: Se déconnecter
+    my_account: Mon compte
+
+  campaigns:
+    index:
+      welcome: Commencez votre première campagne !
+      new_campaign: Nouvelle campagne de SMS
+      campaign_list: Vos campagnes SMS
+      deleted_mailing_list: Liste supprimée
+      update: Configurer
+      campaign_sent: Campagne envoyée
+      recipient_sent: 
+        one: destinataire
+        other: destinataires
+      sent_at_format: "%d/%m/%y à %H:%M"

@@ -9,16 +9,16 @@
         </li>
         <li>
           <% if params[:controller] == 'campaigns' %>
-            <%= link_to "Campagnes", campaigns_path, class: "blue-border" %>
+            <%= link_to t('navbar.campaigns'), campaigns_path, class: "blue-border" %>
           <% else %>
-            <%= link_to "Campagnes", campaigns_path %>
+            <%= link_to t('navbar.campaigns'), campaigns_path %>
           <% end %>
         </li>
         <li>
           <% if params[:controller] == 'mailing_lists' || params[:controller] == 'contacts' %>
-            <%= link_to "Listes", mailing_lists_path, class: "blue-border" %>
+            <%= link_to t('navbar.mailing_list'), mailing_lists_path, class: "blue-border" %>
           <% else %>
-            <%= link_to "Listes", mailing_lists_path %>
+            <%= link_to t('navbar.mailing_list'), mailing_lists_path %>
           <% end %>
         </li>
       </ul>
@@ -33,12 +33,12 @@
           <span class="email"><%= current_user.email %></span>
           <div class="dropdown">
             <ul>
-              <li><a href="#">Mon compte</a></li>
-              <li><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></li>
+              <li><a href="#"><%= t('navbar.my_account') %></a></li>
+              <li><%= link_to t('navbar.disconnect'), destroy_user_session_path, method: :delete %></li>
             </ul>
           </div>
         </li>
-        <li><%= link_to "Aide", campaigns_path, class: "help" %></li>
+        <li><%= link_to t('navbar.help'), campaigns_path, class: "help" %></li>
       </ul>
     </nav>
   </div>

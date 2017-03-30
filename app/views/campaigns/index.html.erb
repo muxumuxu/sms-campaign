@@ -1,9 +1,9 @@
 <%= render 'shared/navbar-main' %>
 
 <div class="wrapper top list">
-  <h1>Vos campagnes SMS</h1>
+  <h1><%= t('.campaign_list') %></h1>
   <div class="right-links">
-    <%= link_to "Nouvelle campagne de SMS", new_campaign_path, class: "button green add" %>
+    <%= link_to t('.new_campaign'), new_campaign_path, class: "button green add" %>
   </div>
 </div>
 
@@ -21,14 +21,17 @@
 
           <p>
             <% if campaign.mailing_list %>
-              <%= campaign.mailing_list.name %> (<%= campaign.mailing_list.contacts.count %><%= " destinataires".pluralize(campaign.mailing_list.contacts.count)%>)
+              <%= campaign.mailing_list.name %> (
+                <%= campaign.mailing_list.contacts.count %>
+                <%= t('.recipient_sent', :count => campaign.mailing_list.contacts.count) %>
+              )
             <% else %>
-              Liste supprimée.
+              <%= t('.deleted_mailing_list') %>
             <% end %>
           </p>
 
           <div class="links">
-            <%= link_to "Modifier", continue_editing_campaign_path(campaign.id), class: "button grey" %>
+            <%= link_to t('.update'), continue_editing_campaign_path(campaign.id), class: "button grey" %>
           </div>
 
         <% elsif campaign.scheduled_at.present? && campaign.sent_at.nil? %>
@@ -39,14 +42,17 @@
             <strong>Campagne planifiée</strong> au <%= local_time(campaign.scheduled_at, "%d/%m/%y à %H:%M") %>
 
             <% if campaign.mailing_list %>
-            | <%= campaign.mailing_list.name %> (<%= campaign.mailing_list.contacts.count %><%= " destinataires".pluralize(campaign.mailing_list.contacts.count)%>)</p>
+            | <%= campaign.mailing_list.name %> (
+                  <%= campaign.mailing_list.contacts.count %>
+                  <%= t('.recipient_sent', :count => campaign.mailing_list.contacts.count) %>
+              )
             <% else %>
-            |  Liste supprimée.
+            | <%= t('.deleted_mailing_list') %>
             <% end %>
           </p>
 
           <div class="links">
-            <%= link_to "Modifier", continue_editing_campaign_path(campaign.id), class: "button grey" %>
+            <%= link_to t('.update'), continue_editing_campaign_path(campaign.id), class: "button grey" %>
           </div>
 
         <% elsif campaign.sent_at.present? %>
@@ -54,11 +60,14 @@
           <%= image_tag "green-check.svg" %>
           <%= link_to campaign.name, campaign_path(campaign.id), class: "campaign-link" %>
           <p>
-            <strong>Campagne envoyée</strong> le <%= local_time(campaign.sent_at, "%d/%m/%y à %H:%M") %>
+            <strong><%= t('.campaign_sent') %></strong> le <%= local_time(campaign.sent_at, t('.sent_at_format')) %>
             <% if campaign.mailing_list %>
-            | <%= campaign.mailing_list.name %> (<%= campaign.mailing_list.contacts.count %><%= " destinataires".pluralize(campaign.mailing_list.contacts.count)%>)
+            | <%= campaign.mailing_list.name %> (
+                <%= campaign.mailing_list.contacts.count %>
+                <%= t('.recipient_sent', :count => campaign.mailing_list.contacts.count) %>
+              )
             <% else %>
-            |  Liste supprimée.
+            |  <%= t('.deleted_mailing_list') %>
             <% end %>
           </p>
 
@@ -74,8 +83,8 @@
 
   <div class="wrapper hero">
     <%= image_tag "hero-campaign-icon.svg", class: "illustration" %>
-    <h2>Commencez votre première campagne !</h2>
-    <%= link_to "Nouvelle campagne de SMS", new_campaign_path, class: "button green add" %>
+    <h2><%= t('.welcome') %></h2>
+    <%= link_to t('.new_campaign'), new_campaign_path, class: "button green add" %>
   </div>
 
 <% end %>
