@@ -52,3 +52,18 @@
   <input type="submit" form="edit_campaign_<%= @campaign.id %>" class="button green schedule" value="Planifier la campagne">
   <a href="<%= preview_campaign_path(@campaign) %>" class="cancel">Annuler</a>
 </div>
+
+<div class="bottom fixed">
+  <div class="links-left">
+    <a onclick="window.history.back()" class="button grey previous">Précédent</a>
+  </div>
+  <nav>
+    <ul>
+      <li><%= link_to "Destinataires", name_campaign_path(@campaign.id), class: "current" %></li>
+      <li><%= image_tag "grey-arrow-right.svg" %></li>
+      <li><%= link_to "Message", message_campaign_path(@campaign.id), class: "current" %></li>
+      <li><%= image_tag "grey-arrow-right.svg" %></li>
+      <li><%= link_to "Résumé", preview_campaign_path(@campaign.id), class: "current" %></li>
+    </ul>
+  </nav>
+</div>
