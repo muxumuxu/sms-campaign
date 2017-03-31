@@ -43,8 +43,7 @@ gem 'sidekiq-status'
 # For scheduling sms
 gem 'twilio-ruby'
 
-# gem 'messagebird'
-# gem 'messagebird-rest', :git => "https://github.com/dmiotti/ruby-rest-api"
+gem 'paranoia'
 
 gem 'local_time'
 

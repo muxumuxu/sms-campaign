@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170329233531) do
+ActiveRecord::Schema.define(version: 20170331192132) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20170329233531) do
     t.integer  "user_id"
     t.integer  "mailing_list_id"
     t.string   "job_id"
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_campaigns_on_deleted_at", using: :btree
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -36,6 +38,8 @@ ActiveRecord::Schema.define(version: 20170329233531) do
     t.datetime "updated_at",      null: false
     t.integer  "mailing_list_id"
     t.string   "messagebird_ref"
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_contacts_on_deleted_at", using: :btree
   end
 
   create_table "mailing_lists", force: :cascade do |t|
@@ -43,6 +47,8 @@ ActiveRecord::Schema.define(version: 20170329233531) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_mailing_lists_on_deleted_at", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
