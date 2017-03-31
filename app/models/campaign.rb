@@ -1,5 +1,3 @@
-require 'messagebird'
-
 class Campaign < ApplicationRecord
   belongs_to :mailing_list
   belongs_to :user
@@ -9,18 +7,15 @@ class Campaign < ApplicationRecord
     contacts = mailing_list.contacts
 
     begin
-      client = MessageBird::Client.new(ENV['MESSAGEBIRD_ACCESS_KEY'])
+      twilio_number = ENV['TWILIO_NUMBER']
+      client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
       contacts.each do |contact|
-        contact.messagebird_ref = SecureRandom.base64.to_s
-        opts = {
-          reference: contact.messagebird_ref
-        }
-        unless self[:scheduled_at].nil?
-          opts[:scheduledDatetime] = self[:scheduled_at].to_datetime.rfc3339
-        end
         message = build_message_for(contact, self[:message])
-        client.message_create("+33649886416", contact.phone_number, message, opts)
-        contact.save!
+        message = client.account.messages.create(
+          :from => twilio_number,
+          :to => contact.phone_number,
+          :body => message
+        )
       end
       self[:sent_at] = DateTime.now
       self.save!
