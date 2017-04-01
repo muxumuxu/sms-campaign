@@ -15,33 +15,55 @@
   <div class="right">
     <nav>
       <ul>
-        <li><%= link_to "Aide", root_path, class: "help" %></li>
-        <li><%= link_to "Tester", root_path, class: "help" %></li>
-        <li><%= link_to "Enregistrer et quitter", root_path, class: "save" %></li>
+        <li><%= link_to t('campaigns.header.help'), root_path, class: "help" %></li>
+        <li><%= link_to t('campaigns.header.test'), root_path, class: "help" %></li>
+        <li><%= link_to t('campaigns.header.save_n_quit'), root_path, class: "save" %></li>
       </ul>
     </nav>
   </div>
 </header>
 
-<%= render 'shared/preview-content' %>
+<div class="wrapper preview-top">
+  <h1><%= t('.soon_ready') %></h1>
+  <p><%= t('.verify') %></p>
+</div>
+
+<div class="wrapper preview">
+  <div class="list-item">
+    <%= image_tag "green-check.svg" %>
+    <h2><%= t('.recipients') %></h2>
+    <p><%= t('.sent_to_list') %> <%= @campaign.mailing_list.name %> (<%= @campaign.mailing_list.contacts.count %>&nbsp;<%= t('campaigns.index.recipient_sent', :count => @campaign.mailing_list.contacts.count) %>).</p>
+    <div class="links">
+      <%= link_to t('.udpate'), name_campaign_path(@campaign.id), class: "button grey" %>
+    </div>
+  </div>
+  <div class="list-item">
+    <%= image_tag "green-check.svg" %>
+    <h2>Contenu</h2>
+    <p class="message"><%= @campaign.message %></p>
+    <div class="links">
+      <%= link_to t('.udpate'), message_campaign_path(@campaign.id), class: "button grey" %>
+    </div>
+  </div>
+</div>
 
 <%= render 'shared/launch-modal' %>
 
 <div class="bottom fixed">
   <div class="links-left">
-    <a onclick="window.history.back()" class="button grey previous">Précédent</a>
+    <a onclick="window.history.back()" class="button grey previous"><%= t('campaigns.footer.previous') %></a>
   </div>
   <nav>
     <ul>
-      <li><%= link_to "Destinataires", name_campaign_path(@campaign.id), class: "current" %></li>
+      <li><%= link_to t('campaigns.footer.recipients'), name_campaign_path(@campaign.id), class: "current" %></li>
       <li><%= image_tag "grey-arrow-right.svg" %></li>
-      <li><%= link_to "Message", message_campaign_path(@campaign.id), class: "current" %></li>
+      <li><%= link_to t('campaigns.footer.message'), message_campaign_path(@campaign.id), class: "current" %></li>
       <li><%= image_tag "grey-arrow-right.svg" %></li>
-      <li><%= link_to "Résumé", preview_campaign_path(@campaign.id), class: "current" %></li>
+      <li><%= link_to t('campaigns.footer.summary'), preview_campaign_path(@campaign.id), class: "current" %></li>
     </ul>
   </nav>
   <div class="links-right">
-    <%= link_to "Planifier", schedule_time_campaign_path(@campaign.id), class: "button grey" %>
-    <input type="submit" form="campaigns_new_message" class="button green send" value="Envoyer" onclick="openModal()">
+    <%= link_to t('.schedule'), schedule_time_campaign_path(@campaign.id), class: "button grey" %>
+    <input type="submit" form="campaigns_new_message" class="button green send" value="<%= t('.send') %>" onclick="openModal()">
   </div>
 </div>

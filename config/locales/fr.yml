@@ -1,24 +1,3 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 fr:
   errors:
     messages:
@@ -54,3 +33,45 @@ fr:
         one: destinataire
         other: destinataires
       sent_at_format: "%d/%m/%y à %H:%M"
+    name:
+      title: Nouvelle campagne
+      what_name: Quel est le nom de votre campagne ?
+      recipients: A qui souhaitez-vous envoyer votre SMS ?
+      search: Recherche parmis vos listes de destinataires...
+    message:
+      write_your_message: Rédigez votre message
+      customize_with: "Personnaliser avec :"
+      anchor_first_name: Prénom
+      anchor_surname: Nom
+    preview:
+      soon_ready: Votre message est bientôt prêt !
+      verify: Vérifiez les éléments ci-dessous avant de programmer votre envoi.
+      recipients: Destinataires
+      sent_to_list: Votre message sera envoyé à la liste
+      send: Envoyer
+      schedule: Planifier
+      udpate: Modifier
+    schedule_time:
+      soon_ready: Votre message est bientôt prêt !
+      verify: Vérifiez les éléments ci-dessous avant de programmer votre envoi.
+      select_date: Sélectionner une date
+      sent_to_list: Votre message sera envoyé à la liste
+      send_date: Date d'envoi
+      send_hour: Heure d'envoi
+      schedule: Planifier
+      schedule_campaign: Planifier la campagne
+      cancel: Annuler
+    helper:
+      title: Pour lancer votre première campagne, vous devez d'abord créer une première liste de diffusion.
+      new_mailing_list: Nouvelle liste de diffusion
+    header:
+      help: Aide
+      test: Tester
+      save_n_quit: Enregistrer et quitter
+    footer:
+      recipients: Destinataires
+      message: Message
+      summary: Résumé
+      next: Suivant
+      previous: Précédent
+

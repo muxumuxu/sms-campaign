@@ -1,4 +1,3 @@
-
 <header class="campaign">
   <div class="left">
     <nav>
@@ -16,27 +15,37 @@
   <div class="right">
     <nav>
       <ul>
-        <li><%= link_to "Aide", root_path, class: "help" %></li>
-        <li><%= link_to "Tester", root_path, class: "help" %></li>
-        <li><input type="submit" form="edit_campaign_<%= @campaign.id %>" class="save" value="Enregistrer et quitter" name="commit"></li>
+        <li><%= link_to t('campaigns.header.help'), root_path, class: "help" %></li>
+        <li><%= link_to t('campaigns.header.test'), root_path, class: "help" %></li>
+        <li><input type="submit" form="edit_campaign_<%= @campaign.id %>" class="save" value="<%= t('campaigns.header.save_n_quit') %>" name="commit"></li>
       </ul>
     </nav>
   </div>
 </header>
 
 <div class="wrapper message-top">
-  <h1>Rédigez votre message</h1><span>*</span>
+  <h1><%= t('.write_your_message') %></h1><span>*</span>
 </div>
 
 <div class="wrapper message">
-  <h2>Personnaliser avec :</h2>
-  <span class="substitute-text" style="cursor: pointer;" onclick="addVariable('Prénom');">Prénom</span>
-  <span class="substitute-text" style="cursor: pointer;" onclick="addVariable('Nom');">Nom</span>
+  <h2><%= t('.customize_with') %></h2>
+
+  <span class="substitute-text" style="cursor: pointer;" onclick="addVariable('Prénom');">
+    <%= t('.anchor_first_name') %>
+  </span>
+  <span class="substitute-text" style="cursor: pointer;" onclick="addVariable('Nom');">
+    <%= t('.anchor_surname') %>
+  </span>
+
   <%= form_for @campaign do |f| %>
     <%= f.text_area :message, autofocus: true, class: 'main', id: 'campaign_textarea' %>
-    <span class="message_char_count"><span id="characters" class="characters"></span><span id="sms_count" class="sms_count"></span></span>
+    <span class="message_char_count">
+      <span id="characters" class="characters"></span>
+      <span id="sms_count" class="sms_count"></span>
+    </span>
     <%= f.hidden_field :current_step, :value => "step_2" %>
   <% end %>
+
   <div id="phone">
     <div class="screen"><div id="message-bubble"></div></div>
     <%= image_tag "iphone.svg" %>
@@ -45,18 +54,24 @@
 
 <div class="bottom fixed">
   <div class="links-left">
-    <a onclick="window.history.back()" class="button grey previous">Précédent</a>
+    <a onclick="window.history.back()" class="button grey previous"><%= t('campaigns.footer.previous') %></a>
   </div>
   <nav>
     <ul>
-      <li><%= link_to "Destinataires", name_campaign_path(@campaign.id), class: "current" %></li>
+      <li><%= link_to t('campaigns.footer.recipients'), name_campaign_path(@campaign.id), class: "current" %></li>
       <li><%= image_tag "grey-arrow-right.svg" %></li>
-      <li><%= link_to "Message", message_campaign_path(@campaign.id), class: "current" %></li>
+      <li><%= link_to t('campaigns.footer.message'), message_campaign_path(@campaign.id), class: "current" %></li>
       <li><%= image_tag "grey-arrow-right.svg" %></li>
-      <li class="inactive">Résumé</li>
+      <li class="inactive"><%= t('campaigns.footer.summary') %></li>
     </ul>
   </nav>
   <div class="links-right">
-    <input type="submit" id="submit-campaign" form="edit_campaign_<%= @campaign.id %>" class="button green next" value="Suivant" name="commit">
+    <input 
+      id="submit-campaign" 
+      type="submit" 
+      class="button green next" 
+      form="edit_campaign_<%= @campaign.id %>" 
+      value="<%= t('campaigns.footer.next') %>"
+      name="commit">
   </div>
 </div>

@@ -7,7 +7,7 @@
             <%= image_tag "icon.svg", class: "icon"  %>
           <% end %>
         </li>
-        <li>Nouvelle campagne</li>
+        <li><%= t('.title') %></li>
       </ul>
     </nav>
   </div>
@@ -15,8 +15,15 @@
   <div class="right">
     <nav>
       <ul>
-        <li><%= link_to "Aide", root_path, class: "help" %></li>
-        <li><input type="submit" form="edit_campaign_<%= @campaign.id %>" class="save" value="Enregistrer et quitter" name="commit"></li>
+        <li><%= link_to t('campaigns.header.help'), root_path, class: "help" %></li>
+        <li>
+          <input 
+            type="submit" 
+            form="edit_campaign_<%= @campaign.id %>" 
+            class="save" 
+            value="<%= t('campaigns.header.save_n_quit') %>" 
+            name="commit">
+        </li>
       </ul>
     </nav>
   </div>
@@ -29,18 +36,22 @@
 <% if @mailing_lists.any? %>
 
   <div class="wrapper form select name">
-    <h2>Quel est le nom de votre campagne ?</h2><span>*</span>
+    <h2><%= t('.what_name') %></h2><span>*</span>
+
     <%= form_for @campaign do |f| %>
       <%= f.text_field :name, class: 'main', autofocus: true, onfocus: "this.value = this.value;", value: @campaign.name, id: 'campaign_name' %>
-      <h2>A qui souhaitez-vous envoyer votre SMS ?</h2><span>*</span>
-      <input type="text" placeholder="Recherche parmis vos listes de destinataires..." />
+
+      <h2><%= t('.recipients') %></h2><span>*</span>
+
+      <input type="text" placeholder="<%= t('.search') %>" />
+
       <ul id="new_campaign_mailing_lists">
         <% @mailing_lists.each do |list| %>
           <li>
             <%= f.radio_button :mailing_list, list.id, checked: @campaign.mailing_list && @campaign.mailing_list.id == list.id, id: list.name %>
             <label for="<%= list.name %>">
               <%= list.name %>
-              <span><%= list.contacts.count %><%= " destinataires".pluralize(list.contacts.count)%></span>
+              <span><%= list.contacts.count %>&nbsp;<%= t('campaigns.index.recipient_sent', :count => list.contacts.count) %></span>
             </label>
             <div class="check"><div class="inside"></div></div>
           </li>
@@ -52,27 +63,29 @@
 
 <% else %>
 
-<div class="wrapper form no-list">
-  <%= image_tag "hero-campaign-icon.svg", class: "illustration" %>
-  <h2>Pour lancer votre première campagne, vous devez d'abord créer une première liste de diffusion.</h2>
-  <%= link_to "Nouvelle liste de diffusion", new_mailing_list_path, class: "button green add list" %>
-</div>
+    <div class="wrapper form no-list">
+      <%= image_tag 'hero-campaign-icon.svg', class: 'illustration' %>
+
+      <h2><%= t('campaigns.helper.title') %></h2>
+
+      <%= link_to t('campaigns.helper.new_mailing_list') %>, new_mailing_list_path, class: 'button green add list' %>
+    </div>
 
 <% end %>
 
 <div class="bottom fixed">
   <nav>
     <ul>
-      <li><%= link_to "Destinataires", name_campaign_path(@campaign.id), class: "current" %></li>
+      <li><%= link_to t('campaigns.footer.recipients'), name_campaign_path(@campaign.id), class: "current" %></li>
       <li><%= image_tag "grey-arrow-right.svg" %></li>
-      <li class="inactive">Message</li>
+      <li class="inactive"><%= t('campaigns.footer.message') %></li>
       <li><%= image_tag "grey-arrow-right.svg" %></li>
-      <li class="inactive">Résumé</li>
+      <li class="inactive"><%= t('campaigns.footer.summary') %></li>
     </ul>
   </nav>
   <% if @mailing_lists.any? %>
     <div class="links-right">
-      <input type="submit" id="submit-campaign" form="edit_campaign_<%= @campaign.id %>" class="button inactive green next" value="Suivant" name="commit" disabled>
+      <input type="submit" id="submit-campaign" form="edit_campaign_<%= @campaign.id %>" class="button inactive green next" value="<%= t('campaigns.footer.next') %>" name="commit" disabled>
     </div>
   <% end %>
 </div>
