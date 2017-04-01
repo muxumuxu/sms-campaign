@@ -8,7 +8,7 @@
 </div>
 
 <div class="wrapper message show">
-  <h2><%= t('.sent_at') %> <%= DateTime.parse("#{@campaign.sent_at}").strftime("%d/%m/%y à %H:%I") %>.</h2>
+  <h2><%= t('campaigns.show.sent_at') %> <%= local_time(@campaign.sent_at, t('campaigns.index.sent_at_format')) %>.</h2>
   <h3>
     <% if @campaign.mailing_list %>
       <%= @campaign.mailing_list.name %> (<%= @campaign.mailing_list.contacts.count %>&nbsp;<%= t('campaigns.index.recipient_sent', :count => @campaign.mailing_list.contacts.count) %>)

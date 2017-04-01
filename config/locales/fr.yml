@@ -64,6 +64,7 @@ fr:
       schedule: Planifier
       schedule_campaign: Planifier la campagne
       cancel: Annuler
+      not_past: "Attention, vous ne pouvez pas créer une campagne dans le passé. 🚗💨"
     helper:
       title: Pour lancer votre première campagne, vous devez d'abord créer une première liste de diffusion.
       new_mailing_list: Nouvelle liste de diffusion

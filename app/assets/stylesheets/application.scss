@@ -15,7 +15,7 @@
  *= require datepicker
  */
 
- * {
+* {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   outline: none;
@@ -101,7 +101,20 @@ a.back {
   background-position: 26px 16px;
 }
 
-p#notice {
+p#flash_notice {
+  color: #24CC83;
+  text-align: center;
+  width: auto;
+  opacity: 1;
+  padding: 10px 0;
+  background-color: #bdc8ac;
+  font-size: 18px;
+  border-radius: 4px;
+  max-width: 100%;
+  margin: 0;
+}
+
+p#flash_error {
   color: #FF475E;
   text-align: center;
   width: auto;

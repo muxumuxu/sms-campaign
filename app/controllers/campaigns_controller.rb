@@ -79,7 +79,7 @@ class CampaignsController < ApplicationController
       @campaign.save!
       redirect_to :action => :index
     else
-      flash[:notice] = "Attention, vous ne pouvez pas créer une campagne dans le passé. 🚗💨"
+      flash[:error] = I18n.t('campaigns.schedule_time.not_past')
       redirect_to :action => :schedule_time
     end
   end
