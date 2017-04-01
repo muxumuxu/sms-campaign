@@ -33,6 +33,9 @@ fr:
         one: destinataire
         other: destinataires
       sent_at_format: "%d/%m/%y à %H:%M"
+    show:
+      sent_at: Votre campaign a été envoyée le
+      deleted_mailing_list: Liste supprimée
     name:
       title: Nouvelle campagne
       what_name: Quel est le nom de votre campagne ?

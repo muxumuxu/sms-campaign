@@ -122,7 +122,7 @@ class CampaignsController < ApplicationController
       @campaign.mailing_list = MailingList.find(mailing_list_id)
       @campaign.save
 
-      if params[:commit] == "Enregistrer et quitter"
+      if params[:commit] == I18n.t('campaigns.header.save_n_quit')
         redirect_to root_path
       else
         redirect_to :action => :message, :id => @campaign.id
@@ -138,7 +138,7 @@ class CampaignsController < ApplicationController
       @campaign.message = campaign_params[:message]
       @campaign.save
 
-      if params[:commit] == "Enregistrer et quitter"
+      if params[:commit] == I18n.t('campaigns.header.save_n_quit')
         redirect_to root_path
       elsif @campaign[:scheduled_at]
         redirect_to :action => :schedule_time
@@ -150,7 +150,7 @@ class CampaignsController < ApplicationController
 
       @campaign.save
 
-      if params[:commit] == "Enregistrer et quitter"
+      if params[:commit] == I18n.t('campaigns.header.save_n_quit')
         redirect_to root_path
       else
         redirect_to :action => :schedule_time, :id => @campaign.id
