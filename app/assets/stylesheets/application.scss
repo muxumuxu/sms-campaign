@@ -101,7 +101,7 @@ a.back {
   background-position: 26px 16px;
 }
 
-p#flash_notice {
+p.flash_notice {
   color: #24CC83;
   text-align: center;
   width: auto;
@@ -114,7 +114,7 @@ p#flash_notice {
   margin: 0;
 }
 
-p#flash_error {
+p.flash_error, p.flash_alert {
   color: #FF475E;
   text-align: center;
   width: auto;
