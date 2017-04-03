@@ -44,6 +44,8 @@ gem 'paranoia'
 
 gem 'local_time'
 
+gem 'rollbar'
+
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'

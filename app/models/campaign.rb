@@ -1,6 +1,6 @@
 class Campaign < ApplicationRecord
   acts_as_paranoid
-  
+
   belongs_to :mailing_list
   belongs_to :user
 
@@ -21,14 +21,8 @@ class Campaign < ApplicationRecord
       end
       self[:sent_at] = DateTime.now
       self.save!
-    rescue Exception => ex
-      ex.errors.each do |error|
-        puts "  code        : #{error.code}"
-        puts "  description : #{error.description}"
-        puts "  parameter   : #{error.parameter}"
-        puts
-      end
-      raise ex.inspect
+    rescue Exception => e
+      Rollbar.error(e)
     end
   end
 
