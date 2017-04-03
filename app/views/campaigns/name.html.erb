@@ -17,11 +17,11 @@
       <ul>
         <li><%= link_to t('campaigns.header.help'), root_path, class: "help" %></li>
         <li>
-          <input 
-            type="submit" 
-            form="edit_campaign_<%= @campaign.id %>" 
-            class="save" 
-            value="<%= t('campaigns.header.save_n_quit') %>" 
+          <input
+            type="submit"
+            form="edit_campaign_<%= @campaign.id %>"
+            class="save"
+            value="<%= t('campaigns.header.save_n_quit') %>"
             name="commit">
         </li>
       </ul>
@@ -68,7 +68,7 @@
 
       <h2><%= t('campaigns.helper.title') %></h2>
 
-      <%= link_to t('campaigns.helper.new_mailing_list') %>, new_mailing_list_path, class: 'button green add list' %>
+      <%= link_to t('campaigns.helper.new_mailing_list'), new_mailing_list_path, class: 'button green add list' %>
     </div>
 
 <% end %>
