@@ -1,8 +1,8 @@
 class CampaignsController < ApplicationController
   before_action :set_campaign, only: [
-    :show, :name, :edit, :update, 
-    :continue_editing, :message, :preview, 
-    :schedule, :schedule_time, :send_now, 
+    :show, :name, :edit, :update,
+    :continue_editing, :message, :preview,
+    :schedule, :schedule_time, :send_now,
     :destroy
   ]
 
@@ -50,6 +50,11 @@ class CampaignsController < ApplicationController
     if @campaign[:job_id]
       Sidekiq::Status.cancel(@campaign[:job_id])
       @campaign[:job_id] = nil
+      @campaign.save!
+    end
+
+    if @campaign[:scheduled_at]
+      @campaign[:scheduled_at] = nil
       @campaign.save!
     end
   end
