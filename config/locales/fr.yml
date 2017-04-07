@@ -27,9 +27,9 @@ fr:
       new_campaign: Nouvelle campagne de SMS
       campaign_list: Vos campagnes SMS
       deleted_mailing_list: Liste supprimée
-      update: Configurer
+      update: Modifier
       campaign_sent: Campagne envoyée
-      recipient_sent: 
+      recipient_sent:
         one: destinataire
         other: destinataires
       sent_at_format: "%d/%m/%y à %H:%M"
@@ -78,4 +78,3 @@ fr:
       summary: Résumé
       next: Suivant
       previous: Précédent
-
