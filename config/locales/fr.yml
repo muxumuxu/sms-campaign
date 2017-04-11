@@ -54,6 +54,7 @@ fr:
       send: Envoyer
       schedule: Planifier
       udpate: Modifier
+      content: Contenu
     schedule_time:
       soon_ready: Votre message est bientôt prêt !
       verify: Vérifiez les éléments ci-dessous avant de programmer votre envoi.

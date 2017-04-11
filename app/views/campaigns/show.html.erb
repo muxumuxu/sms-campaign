@@ -2,7 +2,7 @@
 
 <div class="wrapper top show">
   <div class="left-links">
-    <%= link_to "", campaigns_path, class: "button grey back" %>
+    <%= link_to '#', campaigns_path, class: 'button grey back' %>
   </div>
   <h1 class="padded"><%= @campaign.name %></h1>
 </div>
@@ -18,6 +18,6 @@
   </h3>
   <div id="phone">
     <div class="screen"><div id="message-bubble"><%= @campaign.message %></div></div>
-    <%= image_tag "iphone.svg" %>
+    <%= image_tag 'iphone.svg' %>
   </div>
 </div>

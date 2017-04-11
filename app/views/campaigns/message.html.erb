@@ -4,7 +4,7 @@
       <ul>
         <li>
           <%= link_to root_path do %>
-            <%= image_tag "icon.svg", class: "icon"  %>
+            <%= image_tag 'icon.svg', class: 'icon'  %>
           <% end %>
         </li>
         <li><%= @campaign.name %></li>
@@ -15,8 +15,8 @@
   <div class="right">
     <nav>
       <ul>
-        <li><%= link_to t('campaigns.header.help'), root_path, class: "help" %></li>
-        <li><%= link_to t('campaigns.header.test'), root_path, class: "help" %></li>
+        <li><%= link_to t('campaigns.header.help'), root_path, class: help %></li>
+        <li><%= link_to t('campaigns.header.test'), root_path, class: 'help' %></li>
         <li><input type="submit" form="edit_campaign_<%= @campaign.id %>" class="save" value="<%= t('campaigns.header.save_n_quit') %>" name="commit"></li>
       </ul>
     </nav>
@@ -48,7 +48,7 @@
 
   <div id="phone">
     <div class="screen"><div id="message-bubble"></div></div>
-    <%= image_tag "iphone.svg" %>
+    <%= image_tag 'iphone.svg' %>
   </div>
 </div>
 
@@ -58,10 +58,10 @@
   </div>
   <nav>
     <ul>
-      <li><%= link_to t('campaigns.footer.recipients'), name_campaign_path(@campaign.id), class: "current" %></li>
-      <li><%= image_tag "grey-arrow-right.svg" %></li>
-      <li><%= link_to t('campaigns.footer.message'), message_campaign_path(@campaign.id), class: "current" %></li>
-      <li><%= image_tag "grey-arrow-right.svg" %></li>
+      <li><%= link_to t('campaigns.footer.recipients'), name_campaign_path(@campaign.id), class: 'current' %></li>
+      <li><%= image_tag 'grey-arrow-right.svg' %></li>
+      <li><%= link_to t('campaigns.footer.message'), message_campaign_path(@campaign.id), class: 'current' %></li>
+      <li><%= image_tag 'grey-arrow-right.svg' %></li>
       <li class="inactive"><%= t('campaigns.footer.summary') %></li>
     </ul>
   </nav>

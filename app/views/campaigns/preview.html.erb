@@ -4,7 +4,7 @@
       <ul>
         <li>
           <%= link_to root_path do %>
-            <%= image_tag "icon.svg", class: "icon"  %>
+            <%= image_tag 'icon.svg', class: 'icon'  %>
           <% end %>
         </li>
         <li><%= @campaign.name %></li>
@@ -15,9 +15,9 @@
   <div class="right">
     <nav>
       <ul>
-        <li><%= link_to t('campaigns.header.help'), root_path, class: "help" %></li>
-        <li><%= link_to t('campaigns.header.test'), root_path, class: "help" %></li>
-        <li><%= link_to t('campaigns.header.save_n_quit'), root_path, class: "save" %></li>
+        <li><%= link_to t('campaigns.header.help'), root_path, class: 'help' %></li>
+        <li><%= link_to t('campaigns.header.test'), root_path, class: 'help' %></li>
+        <li><%= link_to t('campaigns.header.save_n_quit'), root_path, class: 'save' %></li>
       </ul>
     </nav>
   </div>
@@ -30,19 +30,19 @@
 
 <div class="wrapper preview">
   <div class="list-item">
-    <%= image_tag "green-check.svg" %>
+    <%= image_tag 'green-check.svg' %>
     <h2><%= t('.recipients') %></h2>
     <p><%= t('.sent_to_list') %> <%= @campaign.mailing_list.name %> (<%= @campaign.mailing_list.contacts.count %>&nbsp;<%= t('campaigns.index.recipient_sent', :count => @campaign.mailing_list.contacts.count) %>).</p>
     <div class="links">
-      <%= link_to t('.udpate'), name_campaign_path(@campaign.id), class: "button grey" %>
+      <%= link_to t('.udpate'), name_campaign_path(@campaign.id), class: 'button grey' %>
     </div>
   </div>
   <div class="list-item">
-    <%= image_tag "green-check.svg" %>
-    <h2>Contenu</h2>
+    <%= image_tag 'green-check.svg' %>
+    <h2><%= t('.content') %></h2>
     <p class="message"><%= @campaign.message %></p>
     <div class="links">
-      <%= link_to t('.udpate'), message_campaign_path(@campaign.id), class: "button grey" %>
+      <%= link_to t('.udpate'), message_campaign_path(@campaign.id), class: 'button grey' %>
     </div>
   </div>
 </div>
@@ -55,15 +55,15 @@
   </div>
   <nav>
     <ul>
-      <li><%= link_to t('campaigns.footer.recipients'), name_campaign_path(@campaign.id), class: "current" %></li>
-      <li><%= image_tag "grey-arrow-right.svg" %></li>
-      <li><%= link_to t('campaigns.footer.message'), message_campaign_path(@campaign.id), class: "current" %></li>
-      <li><%= image_tag "grey-arrow-right.svg" %></li>
-      <li><%= link_to t('campaigns.footer.summary'), preview_campaign_path(@campaign.id), class: "current" %></li>
+      <li><%= link_to t('campaigns.footer.recipients'), name_campaign_path(@campaign.id), class: 'current' %></li>
+      <li><%= image_tag 'grey-arrow-right.svg' %></li>
+      <li><%= link_to t('campaigns.footer.message'), message_campaign_path(@campaign.id), class: 'current' %></li>
+      <li><%= image_tag 'grey-arrow-right.svg' %></li>
+      <li><%= link_to t('campaigns.footer.summary'), preview_campaign_path(@campaign.id), class: 'current' %></li>
     </ul>
   </nav>
   <div class="links-right">
-    <%= link_to t('.schedule'), schedule_time_campaign_path(@campaign.id), class: "button grey" %>
+    <%= link_to t('.schedule'), schedule_time_campaign_path(@campaign.id), class: 'button grey' %>
     <input type="submit" form="campaigns_new_message" class="button green send" value="<%= t('.send') %>" onclick="openModal()">
   </div>
 </div>

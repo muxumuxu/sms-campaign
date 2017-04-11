@@ -1,9 +1,10 @@
 require 'csv'
 
+# MailingList Controller
 class MailingListsController < ApplicationController
   skip_before_filter :verify_authenticity_token
-  before_action :set_mailing_list, only: [
-    :edit, :update, :show, :upload_csv, :import_csv_results, :destroy, :import_csv
+  before_action :set_mailing_list, only: %i[
+    edit, update, show, upload_csv, import_csv_results, destroy, import_csv
   ]
 
   def index
@@ -16,41 +17,34 @@ class MailingListsController < ApplicationController
     @mailing_list.save
   end
 
-  def show
-  end
+  def show; end
 
   def create
     @mailing_list = MailingList.new(mailing_list_params)
     @mailing_list.user = current_user
     if @mailing_list.save
-      if params[:mailing_list][:import_type] == "csv"
-        redirect_to :action => :upload_csv, :id => @mailing_list.id
+      if params[:mailing_list][:import_type] == 'csv'
+        redirect_to action: :upload_csv, id: @mailing_list.id
       else
-        redirect_to :action => :show, :id => @mailing_list.id
+        redirect_to action: :show, id: @mailing_list.id
       end
     else
       render :new
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     @mailing_list.update(mailing_list_params)
-    if @mailing_list.save
-      redirect_to :action => :index
-    else
-      render :edit
-    end
+    return redirect_to action: :index if @mailing_list.save
+    render :edit
   end
 
-  def upload_csv
-  end
+  def upload_csv; end
 
   def import_csv
     file_data = upload_file_params[:file]
-
     if file_data.respond_to?(:read)
       csv_contents = file_data.read
     elsif file_data.respond_to?(:path)
@@ -58,24 +52,14 @@ class MailingListsController < ApplicationController
     else
       raise "Bad file_data: #{file_data.class.name}: #{file_data.inspect}"
     end
-
     CSV.parse(csv_contents) do |row|
-      contact = Contact.where(phone_number: row[0], mailing_list_id: @mailing_list.id).first
-      contact = Contact.new if contact.nil?
-
-      contact.phone_number = row[0]
-      contact.first_name = row[1]
-      contact.last_name = row[2]
-      contact.zip_code = row[3]
-      contact.mailing_list_id = @mailing_list.id
+      contact = parse_csv_contact(row, @mailing_list)
       contact.save!
     end
-
-    redirect_to :action => :import_csv_results
+    redirect_to action: :import_csv_results
   end
 
-  def import_csv_results
-  end
+  def import_csv_results; end
 
   def destroy
     @mailing_list.destroy
@@ -83,6 +67,17 @@ class MailingListsController < ApplicationController
   end
 
   private
+
+  def parse_csv_contact(row, mailing_list)
+    contact = Contact.find(phone_number: row[0], mailing_list_id: mailing_list.id)
+    contact = Contact.new if contact.nil?
+    contact.phone_number = row[0]
+    contact.first_name = row[1]
+    contact.last_name = row[2]
+    contact.zip_code = row[3]
+    contact.mailing_list_id = @mailing_list.id
+    contact
+  end
 
   def set_mailing_list
     @mailing_list = MailingList.find(params[:id])

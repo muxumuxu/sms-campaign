@@ -1,8 +1,8 @@
+# Contact Controller
 class ContactsController < ApplicationController
-  before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  before_action :set_contact, only: %i[show edit update destroy]
 
-  def show
-  end
+  def show; end
 
   def new
     @contact = Contact.new
@@ -12,26 +12,15 @@ class ContactsController < ApplicationController
   def create
     mailing_list_id = params[:contact][:mailing_list_id]
     phone = contact_params[:phone_number]
-    @contact = Contact.where(phone_number: phone, mailing_list_id: mailing_list_id).first
-    @contact = Contact.new() if @contact.nil?
+    @contact = Contact.find(phone_number: phone, mailing_list_id: mailing_list_id) || Contact.new
     @contact.update(contact_params)
     mailing_list = MailingList.find(mailing_list_id)
     @contact.mailing_list = mailing_list
-    if @contact.save
-      redirect_to mailing_list
-    else
-      render :new
-    end
+    return redirect_to mailing_list if @contact.save
+    render :new
   end
 
-  def edit
-  end
-
-  def import
-    # Import from CSV file
-    uploaded_file = params[:file]
-    
-  end
+  def edit; end
 
   def update
     @contact.update(contact_params)

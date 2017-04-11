@@ -7,13 +7,13 @@
 <div class="wrapper form">
   <%= form_for @contact do |f| %>
     <h2>Numéro de téléphone portable français</h2><span>*</span>
-    <%= f.text_field :phone_number, class: 'main', type: "tel", autofocus: true, onfocus: "this.value = this.value;" %>
+    <%= f.text_field :phone_number, class: 'main', type: 'tel', autofocus: true, onfocus: 'this.value = this.value;' %>
     <h2>Prénom</h2>
-    <%= f.text_field :first_name, class: 'main', onfocus: "this.value = this.value;" %>
+    <%= f.text_field :first_name, class: 'main', onfocus: 'this.value = this.value;' %>
     <h2>Nom</h2>
-    <%= f.text_field :last_name, class: 'main', onfocus: "this.value = this.value;" %>
+    <%= f.text_field :last_name, class: 'main', onfocus: 'this.value = this.value;' %>
     <h2>Code postal</h2>
-    <%= f.text_field :zip_code, class: 'main', onfocus: "this.value = this.value;" %>
+    <%= f.text_field :zip_code, class: 'main', onfocus: 'this.value = this.value;' %>
     <%= f.hidden_field :mailing_list_id, :value => @mailing_list_id %>
 </div>
 

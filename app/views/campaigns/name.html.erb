@@ -4,7 +4,7 @@
       <ul>
         <li>
           <%= link_to root_path do %>
-            <%= image_tag "icon.svg", class: "icon"  %>
+            <%= image_tag 'icon.svg', class: 'icon'  %>
           <% end %>
         </li>
         <li><%= t('.title') %></li>
@@ -15,7 +15,7 @@
   <div class="right">
     <nav>
       <ul>
-        <li><%= link_to t('campaigns.header.help'), root_path, class: "help" %></li>
+        <li><%= link_to t('campaigns.header.help'), root_path, class: 'help' %></li>
         <li>
           <input
             type="submit"
@@ -30,7 +30,7 @@
 </header>
 
 <div class="wrapper form-top">
-  <h1>Nouvelle campagne SMS</h1>
+  <h1><%= t('campaign.index.new_campaign') %></h1>
 </div>
 
 <% if @mailing_lists.any? %>
@@ -39,7 +39,7 @@
     <h2><%= t('.what_name') %></h2><span>*</span>
 
     <%= form_for @campaign do |f| %>
-      <%= f.text_field :name, class: 'main', autofocus: true, onfocus: "this.value = this.value;", value: @campaign.name, id: 'campaign_name' %>
+      <%= f.text_field :name, class: 'main', autofocus: true, onfocus: 'this.value = this.value;', value: @campaign.name, id: 'campaign_name' %>
 
       <h2><%= t('.recipients') %></h2><span>*</span>
 
@@ -57,7 +57,7 @@
           </li>
         <% end %>
       <ul>
-      <%= f.hidden_field :current_step, :value => "step_1" %>
+      <%= f.hidden_field :current_step, :value => 'step_1' %>
     <% end %>
   </div>
 
@@ -65,9 +65,7 @@
 
     <div class="wrapper form no-list">
       <%= image_tag 'hero-campaign-icon.svg', class: 'illustration' %>
-
       <h2><%= t('campaigns.helper.title') %></h2>
-
       <%= link_to t('campaigns.helper.new_mailing_list'), new_mailing_list_path, class: 'button green add list' %>
     </div>
 
@@ -76,10 +74,10 @@
 <div class="bottom fixed">
   <nav>
     <ul>
-      <li><%= link_to t('campaigns.footer.recipients'), name_campaign_path(@campaign.id), class: "current" %></li>
-      <li><%= image_tag "grey-arrow-right.svg" %></li>
+      <li><%= link_to t('campaigns.footer.recipients'), name_campaign_path(@campaign.id), class: 'current' %></li>
+      <li><%= image_tag 'grey-arrow-right.svg' %></li>
       <li class="inactive"><%= t('campaigns.footer.message') %></li>
-      <li><%= image_tag "grey-arrow-right.svg" %></li>
+      <li><%= image_tag 'grey-arrow-right.svg' %></li>
       <li class="inactive"><%= t('campaigns.footer.summary') %></li>
     </ul>
   </nav>
